@@ -1,0 +1,34 @@
+---
+id: TASK-4
+title: M3 Room Schema and Migration Strategy
+status: To Do
+assignee: []
+created_date: '2026-05-08 14:35'
+updated_date: '2026-05-08 14:36'
+labels:
+  - mobile
+  - database
+milestone: Iteration 1 Mobile-Only MVP
+dependencies:
+  - TASK-3
+ordinal: 4000
+---
+
+## Description
+
+<!-- SECTION:DESCRIPTION:BEGIN -->
+Implement Room entities, DAOs, and migration strategy.
+<!-- SECTION:DESCRIPTION:END -->
+
+## Acceptance Criteria
+<!-- AC:BEGIN -->
+- [ ] #1 CRUD works for all MVP entities.
+- [ ] #2 Migration tests pass.
+<!-- AC:END -->
+
+## Definition of Done
+<!-- DOD:BEGIN -->
+- [ ] #1 Tests pass
+- [ ] #2 Documentation updated
+- [ ] #3 No regressions introduced
+<!-- DOD:END -->
