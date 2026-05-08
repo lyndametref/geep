@@ -25,6 +25,7 @@ Define persistence-agnostic domain models for mobile MVP.
 - [ ] #1 Models support stillborn records.
 - [ ] #2 BDTA assignment is optional and assignable later.
 - [ ] #3 Parent links and attachment metadata are represented.
+- [ ] #4 Domain model is documented in docs/domainModel.md
 <!-- AC:END -->
 
 ## Definition of Done

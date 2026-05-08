@@ -32,14 +32,13 @@ Deliver a fully offline mobile MVP with no backend or web runtime dependency.
 
 ## Success Criteria
 
-- [ ] All 16 tasks completed and accepted
+- [ ] All 15 tasks completed and accepted
 - [ ] End-to-end offline workflow passes
 - [ ] FR-001, FR-002, FR-004 acceptance signed off
 - [ ] Performance targets met for 1,000+ individuals
 
 ## Tasks
 
-- TASK-1 - M0 Scope Contract for Mobile-Only MVP
 - TASK-2 - M1 Android Workspace Bootstrap
 - TASK-3 - M2 Domain Model Contract
 - TASK-4 - M3 Room Schema and Migration Strategy

@@ -1,16 +1,17 @@
 ---
 id: TASK-1
 title: M0 Scope Contract for Mobile-Only MVP
-status: To Do
+status: Wont do
 assignee: []
 created_date: '2026-05-08 14:34'
+updated_date: '2026-05-08 15:09'
 labels:
   - mobile
   - scope
   - mvp
 milestone: Iteration 1 Mobile-Only MVP
 dependencies: []
-ordinal: 1000
+ordinal: 26000
 ---
 
 ## Description
