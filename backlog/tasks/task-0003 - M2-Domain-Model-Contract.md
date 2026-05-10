@@ -1,5 +1,5 @@
 ---
-id: TASK-3
+id: TASK-0003
 title: M2 Domain Model Contract
 status: To Do
 assignee: []
@@ -10,7 +10,7 @@ labels:
   - domain
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-1
+  - TASK-0001
 ordinal: 1000
 ---
 
@@ -31,7 +31,7 @@ Define the persistence-agnostic domain model contract for the mobile MVP and doc
 
 ## Assumptions
 
-- Task-3 defines domain structure and terminology only; persistence implementation is handled later (for example in TASK-4).
+- Task-0003 defines domain structure and terminology only; persistence implementation is handled later (for example in TASK-0004).
 - Attachment handling in this phase is represented as domain metadata and associations, not storage implementation details.
 - Domain coverage is limited to mobile MVP scope and required dependencies from current specifications.
 - To keep FR-003 traceable without over-specifying deduction rules, the domain model should include a placeholder `TraitAssessment` entity linked to an individual, with a trait identifier and optional phenotype/genotype values; detailed deduction logic remains deferred.
@@ -40,5 +40,5 @@ Define the persistence-agnostic domain model contract for the mobile MVP and doc
 <!-- DOD:BEGIN -->
 - [ ] #1 `docs/domainModel.md` is updated and peer-reviewed against `specs/REQUIREMENTS.md`.
 - [ ] #2 Acceptance criteria in this ticket are verifiably satisfied by the documented model.
-- [ ] #3 Follow-up impacts or clarifications for dependent tickets (for example TASK-4) are identified.
+- [ ] #3 Follow-up impacts or clarifications for dependent tickets (for example TASK-0004) are identified.
 <!-- DOD:END -->

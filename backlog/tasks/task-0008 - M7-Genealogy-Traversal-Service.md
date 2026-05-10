@@ -1,28 +1,29 @@
 ---
-id: TASK-22
-title: P5 Web App Core Views
+id: TASK-0008
+title: M7 Genealogy Traversal Service
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - web
-  - ui
-milestone: Iteration 2 Backend + Web + Sync
+  - mobile
+  - genealogy
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-20
-ordinal: 22000
+  - TASK-0006
+ordinal: 8000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Build web views for individuals, genealogy, observations, and calendar.
+Provide local pedigree and descendant traversal services.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Core CRUD and visualization flows are operational.
+- [ ] #1 Generation-depth filtering works.
+- [ ] #2 Traversal is cycle-safe.
 <!-- AC:END -->
 
 ## Definition of Done

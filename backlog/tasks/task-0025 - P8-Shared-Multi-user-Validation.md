@@ -1,29 +1,31 @@
 ---
-id: TASK-5
-title: M4 Local Security Baseline
+id: TASK-0025
+title: P8 Shared Multi-user Validation
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - mobile
-  - security
-milestone: Iteration 1 Mobile-Only MVP
+  - platform
+  - validation
+milestone: Iteration 2 Backend + Web + Sync
 dependencies:
-  - TASK-2
-ordinal: 5000
+  - TASK-0022
+  - TASK-0023
+  - TASK-0024
+ordinal: 25000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Protect local data at rest and encrypted backup artifacts.
+Validate FR-011 and FR-012 cross-user behavior and auditability.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Encrypted export requires passphrase.
-- [ ] #2 Local storage security policy is documented.
+- [ ] #1 Cross-user consistency checks pass.
+- [ ] #2 Security and audit validation checks pass.
 <!-- AC:END -->
 
 ## Definition of Done

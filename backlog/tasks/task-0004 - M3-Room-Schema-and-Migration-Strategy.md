@@ -1,30 +1,29 @@
 ---
-id: TASK-16
-title: M15 MVP Acceptance Audit
+id: TASK-0004
+title: M3 Room Schema and Migration Strategy
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
   - mobile
-  - acceptance
+  - database
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-14
-  - TASK-15
-ordinal: 16000
+  - TASK-0003
+ordinal: 4000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Validate mobile-only MVP readiness with evidence.
+Implement Room entities, DAOs, and migration strategy.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 End-to-end offline workflow passes.
-- [ ] #2 FR-001, FR-002, and FR-004 acceptance checks are signed off.
+- [ ] #1 CRUD works for all MVP entities.
+- [ ] #2 Migration tests pass.
 <!-- AC:END -->
 
 ## Definition of Done

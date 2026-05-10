@@ -1,33 +1,29 @@
 ---
-id: TASK-15
-title: M14 Test Harness and Quality Gates
+id: TASK-0019
+title: P2 Auth and Access Control
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - mobile
-  - testing
-milestone: Iteration 1 Mobile-Only MVP
+  - backend
+  - security
+milestone: Iteration 2 Backend + Web + Sync
 dependencies:
-  - TASK-7
-  - TASK-9
-  - TASK-10
-  - TASK-11
-  - TASK-12
-ordinal: 15000
+  - TASK-0018
+ordinal: 19000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Implement unit, DAO, UI, and performance smoke tests.
+Integrate OIDC with Keycloak and enforce role-based authorization.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Critical automated suites are green.
-- [ ] #2 Large local dataset performance is acceptable.
+- [ ] #1 Unauthorized requests are blocked.
+- [ ] #2 Role checks are verified.
 <!-- AC:END -->
 
 ## Definition of Done

@@ -1,31 +1,32 @@
 ---
-id: TASK-25
-title: P8 Shared Multi-user Validation
+id: TASK-0014
+title: M13 Encrypted Backup Export and Import
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - platform
-  - validation
-milestone: Iteration 2 Backend + Web + Sync
+  - mobile
+  - backup
+  - security
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-22
-  - TASK-23
-  - TASK-24
-ordinal: 25000
+  - TASK-0005
+  - TASK-0012
+  - TASK-0013
+ordinal: 14000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Validate FR-011 and FR-012 cross-user behavior and auditability.
+Implement full encrypted export and restore flow.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Cross-user consistency checks pass.
-- [ ] #2 Security and audit validation checks pass.
+- [ ] #1 Fresh-install restore reproduces records and events.
+- [ ] #2 Genealogy links are preserved after restore.
 <!-- AC:END -->
 
 ## Definition of Done

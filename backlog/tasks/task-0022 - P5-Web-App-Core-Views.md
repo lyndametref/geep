@@ -1,29 +1,28 @@
 ---
-id: TASK-19
-title: P2 Auth and Access Control
+id: TASK-0022
+title: P5 Web App Core Views
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - backend
-  - security
+  - web
+  - ui
 milestone: Iteration 2 Backend + Web + Sync
 dependencies:
-  - TASK-18
-ordinal: 19000
+  - TASK-0020
+ordinal: 22000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Integrate OIDC with Keycloak and enforce role-based authorization.
+Build web views for individuals, genealogy, observations, and calendar.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Unauthorized requests are blocked.
-- [ ] #2 Role checks are verified.
+- [ ] #1 Core CRUD and visualization flows are operational.
 <!-- AC:END -->
 
 ## Definition of Done

@@ -1,28 +1,30 @@
 ---
-id: TASK-17
-title: P0 Sync and Migration Contract
+id: TASK-0010
+title: M9 Observations and Batch UI
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - platform
-  - sync
-milestone: Iteration 2 Backend + Web + Sync
+  - mobile
+  - ui
+  - observations
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-16
-ordinal: 17000
+  - TASK-0007
+ordinal: 10000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Define canonical IDs, payloads, versioning, idempotency, and conflict policy.
+Build single-entry and batch-entry observation workflows.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 First-sync protocol from mobile to server is fully specified.
+- [ ] #1 Selection by age, sex, status, and manual selection works.
+- [ ] #2 Batch preview and apply flow is verified.
 <!-- AC:END -->
 
 ## Definition of Done

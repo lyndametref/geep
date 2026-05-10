@@ -1,29 +1,28 @@
 ---
-id: TASK-13
-title: M12 Local Attachment Handling
+id: TASK-0017
+title: P0 Sync and Migration Contract
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - mobile
-  - storage
-milestone: Iteration 1 Mobile-Only MVP
+  - platform
+  - sync
+milestone: Iteration 2 Backend + Web + Sync
 dependencies:
-  - TASK-4
-ordinal: 13000
+  - TASK-0016
+ordinal: 17000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Support local photo/PDF attachments linked to observations.
+Define canonical IDs, payloads, versioning, idempotency, and conflict policy.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Attachments survive app restarts.
-- [ ] #2 Journal renders attachment references.
+- [ ] #1 First-sync protocol from mobile to server is fully specified.
 <!-- AC:END -->
 
 ## Definition of Done

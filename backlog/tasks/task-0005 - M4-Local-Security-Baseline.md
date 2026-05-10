@@ -1,29 +1,29 @@
 ---
-id: TASK-8
-title: M7 Genealogy Traversal Service
+id: TASK-0005
+title: M4 Local Security Baseline
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
   - mobile
-  - genealogy
+  - security
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-6
-ordinal: 8000
+  - TASK-0002
+ordinal: 5000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Provide local pedigree and descendant traversal services.
+Protect local data at rest and encrypted backup artifacts.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Generation-depth filtering works.
-- [ ] #2 Traversal is cycle-safe.
+- [ ] #1 Encrypted export requires passphrase.
+- [ ] #2 Local storage security policy is documented.
 <!-- AC:END -->
 
 ## Definition of Done

@@ -39,18 +39,18 @@ Deliver a fully offline mobile MVP with no backend or web runtime dependency.
 
 ## Tasks
 
-- TASK-2 - M1 Android Workspace Bootstrap
-- TASK-3 - M2 Domain Model Contract
-- TASK-4 - M3 Room Schema and Migration Strategy
-- TASK-5 - M4 Local Security Baseline
-- TASK-6 - M5 Repository Layer
-- TASK-7 - M6 Lifecycle Rules Engine
-- TASK-8 - M7 Genealogy Traversal Service
-- TASK-9 - M8 Individuals Feature UI
-- TASK-10 - M9 Observations and Batch UI
-- TASK-11 - M10 Genealogy UI
-- TASK-12 - M11 Calendar and Journal UI
-- TASK-13 - M12 Local Attachment Handling
-- TASK-14 - M13 Encrypted Backup Export and Import
-- TASK-15 - M14 Test Harness and Quality Gates
-- TASK-16 - M15 MVP Acceptance Audit
+- TASK-0002 - M1 Android Workspace Bootstrap
+- TASK-0003 - M2 Domain Model Contract
+- TASK-0004 - M3 Room Schema and Migration Strategy
+- TASK-0005 - M4 Local Security Baseline
+- TASK-0006 - M5 Repository Layer
+- TASK-0007 - M6 Lifecycle Rules Engine
+- TASK-0008 - M7 Genealogy Traversal Service
+- TASK-0009 - M8 Individuals Feature UI
+- TASK-0010 - M9 Observations and Batch UI
+- TASK-0011 - M10 Genealogy UI
+- TASK-0012 - M11 Calendar and Journal UI
+- TASK-0013 - M12 Local Attachment Handling
+- TASK-0014 - M13 Encrypted Backup Export and Import
+- TASK-0015 - M14 Test Harness and Quality Gates
+- TASK-0016 - M15 MVP Acceptance Audit

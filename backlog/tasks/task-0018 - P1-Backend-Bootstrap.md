@@ -1,28 +1,29 @@
 ---
-id: TASK-24
-title: P7 First Migration Execution
+id: TASK-0018
+title: P1 Backend Bootstrap
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
+  - backend
   - platform
-  - migration
 milestone: Iteration 2 Backend + Web + Sync
 dependencies:
-  - TASK-23
-ordinal: 24000
+  - TASK-0017
+ordinal: 18000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Run one-time import for mobile-only user datasets.
+Stand up Spring Boot with PostgreSQL and Neo4j foundations.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Data-loss checks pass across records and links.
+- [ ] #1 Health endpoints are up.
+- [ ] #2 Database connectivity is stable.
 <!-- AC:END -->
 
 ## Definition of Done

@@ -41,12 +41,12 @@ Introduce the server-backed platform: Spring Boot backend, Vue.js web, synchroni
 
 ## Tasks
 
-- TASK-17 - P0 Sync and Migration Contract
-- TASK-18 - P1 Backend Bootstrap
-- TASK-19 - P2 Auth and Access Control
-- TASK-20 - P3 API for Individuals and Observations
-- TASK-21 - P4 Genealogy Graph Backend
-- TASK-22 - P5 Web App Core Views
-- TASK-23 - P6 Mobile Sync Adapter
-- TASK-24 - P7 First Migration Execution
-- TASK-25 - P8 Shared Multi-user Validation
+- TASK-0017 - P0 Sync and Migration Contract
+- TASK-0018 - P1 Backend Bootstrap
+- TASK-0019 - P2 Auth and Access Control
+- TASK-0020 - P3 API for Individuals and Observations
+- TASK-0021 - P4 Genealogy Graph Backend
+- TASK-0022 - P5 Web App Core Views
+- TASK-0023 - P6 Mobile Sync Adapter
+- TASK-0024 - P7 First Migration Execution
+- TASK-0025 - P8 Shared Multi-user Validation

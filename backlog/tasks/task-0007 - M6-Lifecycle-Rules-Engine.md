@@ -1,29 +1,31 @@
 ---
-id: TASK-12
-title: M11 Calendar and Journal UI
+id: TASK-0007
+title: M6 Lifecycle Rules Engine
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
   - mobile
-  - ui
-  - calendar
+  - rules
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-7
-ordinal: 12000
+  - TASK-0006
+ordinal: 7000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Show chronological journal and upcoming lifecycle reminders.
+Implement deterministic lifecycle reminder derivation rules.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Derived reminders appear automatically in calendar and journal views.
+- [ ] #1 Mating creates birth reminder at +140 days.
+- [ ] #2 Birth creates weaning reminder at +90 days.
+- [ ] #3 Treatment creates quarantine end reminder.
+- [ ] #4 Rule execution is idempotent and avoids duplicate reminders.
 <!-- AC:END -->
 
 ## Definition of Done

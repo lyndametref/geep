@@ -1,6 +1,6 @@
 ---
-id: TASK-10
-title: M9 Observations and Batch UI
+id: TASK-0012
+title: M11 Calendar and Journal UI
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
@@ -8,23 +8,22 @@ updated_date: '2026-05-08 14:36'
 labels:
   - mobile
   - ui
-  - observations
+  - calendar
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-7
-ordinal: 10000
+  - TASK-0007
+ordinal: 12000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Build single-entry and batch-entry observation workflows.
+Show chronological journal and upcoming lifecycle reminders.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Selection by age, sex, status, and manual selection works.
-- [ ] #2 Batch preview and apply flow is verified.
+- [ ] #1 Derived reminders appear automatically in calendar and journal views.
 <!-- AC:END -->
 
 ## Definition of Done

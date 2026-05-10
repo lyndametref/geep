@@ -1,28 +1,30 @@
 ---
-id: TASK-21
-title: P4 Genealogy Graph Backend
+id: TASK-0011
+title: M10 Genealogy UI
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - backend
-  - neo4j
-milestone: Iteration 2 Backend + Web + Sync
+  - mobile
+  - ui
+  - genealogy
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-20
-ordinal: 21000
+  - TASK-0008
+ordinal: 11000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Implement graph sync and filtered pedigree/descendant endpoints.
+Build interactive local node-edge genealogy view.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Graph endpoints return node-edge payloads usable by clients.
+- [ ] #1 Filters for generation, color, and status work.
+- [ ] #2 Node tap navigates to individual profile.
 <!-- AC:END -->
 
 ## Definition of Done

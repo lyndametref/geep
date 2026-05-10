@@ -1,30 +1,29 @@
 ---
-id: TASK-9
-title: M8 Individuals Feature UI
+id: TASK-0020
+title: P3 API for Individuals and Observations
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - mobile
-  - ui
-milestone: Iteration 1 Mobile-Only MVP
+  - backend
+  - api
+milestone: Iteration 2 Backend + Web + Sync
 dependencies:
-  - TASK-6
-ordinal: 9000
+  - TASK-0018
+  - TASK-0019
+ordinal: 20000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Build list, create/edit, and detail screens for individuals.
+Expose server CRUD/search/lifecycle endpoints matching mobile domain needs.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 All FR-001 fields are manageable on device.
-- [ ] #2 Stillborn record flow is complete.
-- [ ] #3 BDTA assignment flow is complete.
+- [ ] #1 API parity supports mobile MVP data model.
 <!-- AC:END -->
 
 ## Definition of Done

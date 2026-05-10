@@ -1,28 +1,30 @@
 ---
-id: TASK-23
-title: P6 Mobile Sync Adapter
+id: TASK-0009
+title: M8 Individuals Feature UI
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
   - mobile
-  - sync
-milestone: Iteration 2 Backend + Web + Sync
+  - ui
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-20
-ordinal: 23000
+  - TASK-0006
+ordinal: 9000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Add mobile push/pull synchronization, retries, and conflict cues.
+Build list, create/edit, and detail screens for individuals.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Reconnect convergence is validated in tests.
+- [ ] #1 All FR-001 fields are manageable on device.
+- [ ] #2 Stillborn record flow is complete.
+- [ ] #3 BDTA assignment flow is complete.
 <!-- AC:END -->
 
 ## Definition of Done

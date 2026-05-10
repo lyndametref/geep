@@ -1,32 +1,28 @@
 ---
-id: TASK-14
-title: M13 Encrypted Backup Export and Import
+id: TASK-0023
+title: P6 Mobile Sync Adapter
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
   - mobile
-  - backup
-  - security
-milestone: Iteration 1 Mobile-Only MVP
+  - sync
+milestone: Iteration 2 Backend + Web + Sync
 dependencies:
-  - TASK-5
-  - TASK-12
-  - TASK-13
-ordinal: 14000
+  - TASK-0020
+ordinal: 23000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Implement full encrypted export and restore flow.
+Add mobile push/pull synchronization, retries, and conflict cues.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Fresh-install restore reproduces records and events.
-- [ ] #2 Genealogy links are preserved after restore.
+- [ ] #1 Reconnect convergence is validated in tests.
 <!-- AC:END -->
 
 ## Definition of Done

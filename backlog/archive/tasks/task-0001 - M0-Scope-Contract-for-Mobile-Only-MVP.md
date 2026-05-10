@@ -1,5 +1,5 @@
 ---
-id: TASK-1
+id: TASK-0001
 title: M0 Scope Contract for Mobile-Only MVP
 status: Wont do
 assignee: []

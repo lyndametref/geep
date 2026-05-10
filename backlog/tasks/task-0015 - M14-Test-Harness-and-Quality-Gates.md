@@ -1,29 +1,33 @@
 ---
-id: TASK-18
-title: P1 Backend Bootstrap
+id: TASK-0015
+title: M14 Test Harness and Quality Gates
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - backend
-  - platform
-milestone: Iteration 2 Backend + Web + Sync
+  - mobile
+  - testing
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-17
-ordinal: 18000
+  - TASK-0007
+  - TASK-0009
+  - TASK-0010
+  - TASK-0011
+  - TASK-0012
+ordinal: 15000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Stand up Spring Boot with PostgreSQL and Neo4j foundations.
+Implement unit, DAO, UI, and performance smoke tests.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Health endpoints are up.
-- [ ] #2 Database connectivity is stable.
+- [ ] #1 Critical automated suites are green.
+- [ ] #2 Large local dataset performance is acceptable.
 <!-- AC:END -->
 
 ## Definition of Done

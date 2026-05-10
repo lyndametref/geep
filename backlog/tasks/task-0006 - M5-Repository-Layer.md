@@ -1,31 +1,29 @@
 ---
-id: TASK-7
-title: M6 Lifecycle Rules Engine
+id: TASK-0006
+title: M5 Repository Layer
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
   - mobile
-  - rules
+  - architecture
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-6
-ordinal: 7000
+  - TASK-0004
+ordinal: 6000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Implement deterministic lifecycle reminder derivation rules.
+Implement repository interfaces and local implementations.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Mating creates birth reminder at +140 days.
-- [ ] #2 Birth creates weaning reminder at +90 days.
-- [ ] #3 Treatment creates quarantine end reminder.
-- [ ] #4 Rule execution is idempotent and avoids duplicate reminders.
+- [ ] #1 Filter and search operations are available.
+- [ ] #2 Writes are transaction-safe.
 <!-- AC:END -->
 
 ## Definition of Done

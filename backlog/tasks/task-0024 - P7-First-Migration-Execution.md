@@ -1,29 +1,28 @@
 ---
-id: TASK-6
-title: M5 Repository Layer
+id: TASK-0024
+title: P7 First Migration Execution
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
-  - mobile
-  - architecture
-milestone: Iteration 1 Mobile-Only MVP
+  - platform
+  - migration
+milestone: Iteration 2 Backend + Web + Sync
 dependencies:
-  - TASK-4
-ordinal: 6000
+  - TASK-0023
+ordinal: 24000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Implement repository interfaces and local implementations.
+Run one-time import for mobile-only user datasets.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Filter and search operations are available.
-- [ ] #2 Writes are transaction-safe.
+- [ ] #1 Data-loss checks pass across records and links.
 <!-- AC:END -->
 
 ## Definition of Done

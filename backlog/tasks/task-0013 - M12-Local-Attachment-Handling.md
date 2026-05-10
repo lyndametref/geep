@@ -1,30 +1,29 @@
 ---
-id: TASK-2
-title: M1 Android Workspace Bootstrap
+id: TASK-0013
+title: M12 Local Attachment Handling
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
   - mobile
-  - foundation
+  - storage
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-1
-ordinal: 2000
+  - TASK-0004
+ordinal: 13000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Initialize Android project and module skeleton for mobile MVP.
+Support local photo/PDF attachments linked to observations.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Modules app, core-model, core-database, core-rules, feature-individuals, feature-genealogy, feature-observations, and feature-calendar are created.
-- [ ] #2 Clean build passes.
-- [ ] #3 App launches to a placeholder home screen.
+- [ ] #1 Attachments survive app restarts.
+- [ ] #2 Journal renders attachment references.
 <!-- AC:END -->
 
 ## Definition of Done

@@ -1,30 +1,30 @@
 ---
-id: TASK-11
-title: M10 Genealogy UI
+id: TASK-0016
+title: M15 MVP Acceptance Audit
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
 updated_date: '2026-05-08 14:36'
 labels:
   - mobile
-  - ui
-  - genealogy
+  - acceptance
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
-  - TASK-8
-ordinal: 11000
+  - TASK-0014
+  - TASK-0015
+ordinal: 16000
 ---
 
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Build interactive local node-edge genealogy view.
+Validate mobile-only MVP readiness with evidence.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Filters for generation, color, and status work.
-- [ ] #2 Node tap navigates to individual profile.
+- [ ] #1 End-to-end offline workflow passes.
+- [ ] #2 FR-001, FR-002, and FR-004 acceptance checks are signed off.
 <!-- AC:END -->
 
 ## Definition of Done
