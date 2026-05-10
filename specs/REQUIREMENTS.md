@@ -11,19 +11,18 @@
 - User Story: As a sheep owner, I want to manage complete records for each sheep so that I can track identity, lifecycle, and lineage.
 - Description:
   - The system must manage individual records with identity and lifecycle data.
-  - The system must support special handling for stillborn lambs.
+  - The system must support handling for stillborn lambs with the same basic properties as alive born(date, parents, weight, and color). However, outside those basic parameters no more observation are possible. A BDTA number association is possible.
   - The system must associate each individual with a visual representation.
 - Acceptance Criteria:
   - Each individual record includes a unique internal identifier.
   - For registered animals, each individual record includes a unique BDTA number.
   - For records without an assigned BDTA number yet (for example newborn or stillborn records), the system allows later BDTA assignment.
-  - Each individual record includes birth date and death date when available.
-  - Each individual record includes sex, color, parents, and alive/dead status.
-  - Stillborn lamb records support limited information including date, parents, weight, and color.
+  - Each individual record includes birth date and death date when available. For stillborn, both date are the same.
+  - Each individual record includes sex, basic color pattern (complete phenotyping is separated and included in FR-003), parents, and alive/dead status.
   - Each individual can be represented by a portrait chosen from observations or by a procedurally generated icon.
 
 ### 2. FR-002 Genealogy and Parentage Graph
-- User Story: As a sheep owner, I want to explore parentage relationships visually so that I can understand ancestry and descendants quickly.
+- User Story: As a sheep owner, I want to explore parentage relationships visually so that I can understand ancestry and inherited characteristics quickly.
 - Description:
   - The system must store genealogy data as a graph structure.
   - The system must provide an interactive genealogy visualization.
@@ -31,50 +30,58 @@
   - Genealogy data is stored in a graph structure.
   - The genealogy view displays individuals as nodes with an icon and name or number.
   - The genealogy view displays parentage links as edges.
-  - The genealogy view supports filtering by generation, color, or status.
+  - The genealogy view supports filtering by ancestry (all descendant of, all ancester of, brothers/sisters) and live status.
 
 ### 3. FR-003 Phenotype and Genotype Deduction
-- User Story: As a sheep owner, I want phenotype and genotype deduction support so that I can reason about inherited traits.
+- User Story: As a sheep owner, I want provide the phenotype of my sheed and get possible genotype propositions so that I can reason about inherited trait and deduct genotype with recommendation of the system.
 - Description:
-  - The system must support phenotype and genotype deduction.
+  - The system must support phenotype, and genotype deduction.
 - Acceptance Criteria:
-  - The feature is represented in the product scope as a dedicated capability.
+  - The phenotype can be provided by the sheep owner.
+  - The genotype can be entered by the sheep owner. When not yet certain, the genotype can be marked as unconfirmed. In this state, multiple allele can be provided for a given gene.
+  - Based on genotype of the ancestry, the phenotype, and the phenotype of the descendants, propositions for the genotype of the individual are made.
   - Detailed business rules for deduction remain to be specified.
 
 ### 4. FR-004 Observations and Automated Events
-- User Story: As a sheep owner, I want to record observations and trigger lifecycle events so that I can maintain health and reproduction traceability.
+- User Story: As a sheep owner, I want to record observations and trigger events so that I can maintain health, and reproduction traceability.
 - Description:
   - The system must record observations related to weight, health, and reproduction.
   - The system must support batch entry for observations and treatments.
   - The system must derive reminders and lifecycle events from recorded observations.
-  - The system must keep a chronological journal per individual.
+  - The system must keep a chronological journal per individual, which can be easily consulted by the sheep owner.
 - Acceptance Criteria:
   - Observation types include weight evolution, health observations, and reproduction events.
   - Batch entry allows applying the same observation or treatment to multiple selected individuals.
   - Individuals can be selected through filters such as group, age, and sex, or through manual selection.
-  - A mating observation produces a birth reminder at 140 days.
+  - A mating observation produces a birth planned event at a range of 140 to 150 days after observation.
   - A treatment observation records a quarantine period for meat or milk.
-  - A confirmed birth proposes creation of lamb records and a weaning event at 3 months.
+  - A confirmed birth proposes creation of lamb records as well as a weaning event 3 months later.
   - Each individual has a chronological journal with attachments such as photos and PDFs.
   - The journal stores treatment dates, doses, and quarantine reminders.
+  - The journal stores medical analysis results.
   - The system supports reminders for start of heat period, hoof trimming, vaccines, and shearing.
 
 ### 5. FR-005 Calendar View
-- User Story: As a sheep owner, I want a calendar view of upcoming activities so that I can plan flock operations.
+- User Story: As a sheep owner, I want a calendar view of upcoming activities and predicted events so that I can plan flock operations, as well as for past activities.
 - Description:
-  - The system must provide a calendar view for planned events, treatments, and reminders.
+  - The system must provide a calendar view for planned events, treatments, and reminders as well as past events and activities.
 - Acceptance Criteria:
-  - The calendar displays planned births, treatments, and reminders.
-  - The calendar integrates observation-derived events and alerts.
+  - The calendar displays past events such as births, treatments, and weaning.
+  - The calendar integrates predicted futur event such as birth.
+  - The calendar integrates reminder such as weaning.
 
 ### 6. FR-006 Medication Management
 - User Story: As a sheep owner, I want to manage medications and stock so that treatments remain traceable and available.
 - Description:
-  - The system must maintain a user-managed medication database.
+  - The system must maintain a user-managed medication master data.
   - The system must track medication stock.
+  - When a treatment for an animal is entered in observation, the amount of medicine in stocke is automatically updated.
+  - Manual correction of stock amount is possible, for example to delete leftovers.
 - Acceptance Criteria:
-  - Medications include a managed name and quarantine period.
-  - Medication stock can be tracked.
+  - Medications master data  include a name and quarantine period for each medication.
+  - Medication stock can be tracked by keeping a record of received and used medication as well as a stock overview.
+  - Medication stock is automatically updated when a treatment is entered in observations.
+  - Manual edition of stock is possible.
 
 ### 7. FR-007 Integrated Calculators
 - User Story: As a sheep owner, I want built-in calculators so that I can make routine husbandry decisions consistently.
@@ -105,7 +112,7 @@
 ### 10. FR-010 Pasture Mapping View
 - User Story: As a sheep owner, I want to track pasture usage so that I can manage parasite exposure through rotation.
 - Description:
-  - The system may provide a pasture mapping view for rotation management as an optional feature.
+  - The system may provide a pasture mapping view for rotation management.
 - Acceptance Criteria:
   - The pasture view records usage history.
   - The pasture view supports parasite-management-oriented rotation tracking.
@@ -118,7 +125,7 @@
   - The system must keep records consistent across applications.
 - Acceptance Criteria:
   - Mobile users can create and update individuals, observations, and treatments in the field.
-  - Web users can review and edit the same records with genealogy and calendar views.
+  - Web users can create, review and edit ecords with genealogy and calendar views.
   - Changes made on one application are available to other authorized users after synchronization.
 
 ### 12. FR-012 Multi-User Data Sharing
