@@ -4,14 +4,14 @@ title: M2 Domain Model Contract
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-10 15:08'
 labels:
   - mobile
   - domain
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-1
-ordinal: 3000
+ordinal: 1000
 ---
 
 ## Description
