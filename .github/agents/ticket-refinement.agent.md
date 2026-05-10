@@ -1,6 +1,6 @@
 ---
 description: "Use when: checking a backlog ticket, completing a specific task document, tightening acceptance criteria, resolving ambiguities, defining assumptions, checking compliance with specifications, and producing a ready-to-execute ticket plan."
-name: "Ticket Checker"
+name: "Ticket Refinement Agent"
 tools: [read, search, edit, todo]
 argument-hint: "Provide ticket path and goal (e.g. 'backlog/tasks/task-20 - P3-API-for-Individuals-and-Observations.md: clarify scope and finish acceptance criteria')."
 ---
