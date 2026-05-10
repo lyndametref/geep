@@ -4,7 +4,7 @@ title: M2 Domain Model Contract
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-10 15:08'
+updated_date: '2026-05-10 15:56'
 labels:
   - mobile
   - domain
@@ -17,28 +17,41 @@ ordinal: 1000
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Define the persistence-agnostic domain model contract for the mobile MVP and document it in `docs/domainModel.md` so downstream tasks can implement storage and rules without reinterpreting requirements.
+Define the persistence-agnostic domain model contract for the mobile-only MVP scope and document it in `docs/domainModel.md` so downstream tasks can implement storage, repositories, rules, and UI without reinterpreting requirements.
+
+Scope for this ticket is limited to concepts required by FR-001, FR-002, and FR-004 (with FR-003 represented as a placeholder capability only, as specified in requirements). The ticket does not include persistence schema design, migration logic, or implementation code.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 `docs/domainModel.md` exists and defines persistence-agnostic entities for FR-001 individual management, including stillborn support, optional-later BDTA assignment, sex/color, and alive/dead status.
-- [ ] #2 The model captures parentage relationships required for genealogy (FR-002), including parent links between individuals.
-- [ ] #3 The model captures observations and journal linkage required by FR-004, including attachment metadata references (for example photo/PDF attachment identity and association to journal entries).
-- [ ] #4 `docs/domainModel.md` includes, at minimum: overview, context map, business object model (ER-style), and entity descriptions with key business rules.
-- [ ] #5 Every modeled concept in `docs/domainModel.md` is traceable to existing requirements in `specs/REQUIREMENTS.md`; unresolved ambiguities are listed as explicit open questions.
+- [ ] #1 `docs/domainModel.md` exists and defines persistence-agnostic entities for FR-001 individual management, including: unique internal identifier, optional-later BDTA assignment, birth/death dates (when available), sex, color, parents, alive/dead status, stillborn-specific fields (date, parents, weight, color), and portrait reference concept.
+- [ ] #2 The model defines genealogy relationships required by FR-002 as graph-compatible parentage links between individuals (at minimum sire/dam relationship semantics).
+- [ ] #3 The model defines FR-004 observation concepts, including: observation type, observation date/time, affected individual(s), treatment metadata (dose and quarantine period when relevant), derived event/reminder linkage, chronological journal entry linkage, and attachment metadata reference (for example photo/PDF identity and association to journal entries).
+- [ ] #4 `docs/domainModel.md` includes all required sections: Overview, Context Map, Business Object Model (ER-style), Entity Catalog, Business Rules, and Requirement Traceability Matrix.
+- [ ] #5 Requirement Traceability Matrix maps every modeled concept to at least one requirement identifier in `specs/REQUIREMENTS.md` (FR-001, FR-002, FR-004, and FR-003 placeholder coverage where applicable).
 <!-- AC:END -->
 
 ## Assumptions
 
-- Task-0003 defines domain structure and terminology only; persistence implementation is handled later (for example in TASK-0004).
-- Attachment handling in this phase is represented as domain metadata and associations, not storage implementation details.
-- Domain coverage is limited to mobile MVP scope and required dependencies from current specifications.
-- To keep FR-003 traceable without over-specifying deduction rules, the domain model should include a placeholder `TraitAssessment` entity linked to an individual, with a trait identifier and optional phenotype/genotype values; detailed deduction logic remains deferred.
+- Task-0003 defines domain structure, terminology, and business constraints only; technical  implementation is handled later (for example TASK-0004).
+- Attachment handling in this phase is represented as metadata and associations only; binary storage strategy is out of scope (handled in later attachment-focused work).
+- Domain coverage is limited to mobile MVP scope defined in milestone 1 (FR-001, FR-002, FR-004).
+- FR-003 is represented as a traceable placeholder capability only (for example `TraitAssessment` linked to an individual with trait identifier and optional phenotype/genotype fields); deduction algorithms are out of scope.
+- Calendar rendering and UX behavior are out of scope; only domain-level derived event/reminder concepts required by FR-004 are in scope.
+
+## Dependencies
+
+- TASK-0001 provides the MVP scope contract used as source guardrails for this modeling work.
+- TASK-0004, TASK-0006, TASK-0007, TASK-0009, TASK-0010, TASK-0011, and TASK-0012 consume this domain contract and must not redefine core entities or relationships without updating this ticket output.
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 `docs/domainModel.md` is updated and peer-reviewed against `specs/REQUIREMENTS.md`.
-- [ ] #2 Acceptance criteria in this ticket are verifiably satisfied by the documented model.
-- [ ] #3 Follow-up impacts or clarifications for dependent tickets (for example TASK-0004) are identified.
+- [ ] #1 `docs/domainModel.md` is completed with all sections required by AC #4.
+- [ ] #3 A reviewer can map each AC item in this ticket to explicit content in `docs/domainModel.md` without inference.
+- [ ] #4 Any required follow-up ticket impacts are recorded directly in this ticket under a `Follow-ups` section (or explicitly marked `None`).
+- [ ] #5 No content in this ticket conflicts with `specs/REQUIREMENTS.md`, `specs/ARCHITECTURE.md`, or milestone-1 scope.
 <!-- DOD:END -->
+
+## Follow-ups
+
+- None at ticket refinement time.
