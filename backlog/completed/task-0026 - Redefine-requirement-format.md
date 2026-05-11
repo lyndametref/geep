@@ -1,13 +1,13 @@
 ---
 id: TASK-0026
 title: Redefine requirement format
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-05-11 10:56'
-updated_date: '2026-05-11 10:56'
+updated_date: '2026-05-11 20:20'
 labels: []
 dependencies: []
-ordinal: 1000
+ordinal: 3000
 ---
 
 ## Description
@@ -18,6 +18,6 @@ Current requirement are not identified in a sufficiently granular way.  The requ
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 domain Model references have been updated, but nothing except the requirement references have changed
-- [ ] #2 The requirement are keeping the same, no changes has been introduced, only the splitting has been performed
+- [x] #1 domain Model references have been updated, but nothing except the requirement references have changed
+- [x] #2 The requirement are keeping the same, no changes has been introduced, only the splitting has been performed
 <!-- DOD:END -->

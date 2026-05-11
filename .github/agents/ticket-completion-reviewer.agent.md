@@ -13,7 +13,7 @@ Your job is to evaluate one specific ticket's completion state against its own a
 ## Constraints
 
 - ONLY work on the ticket explicitly provided by the user.
-- DO NOT invent requirements or acceptance criteria not traceable to the target ticket, `specs/`, `docs/`, or linked backlog artifacts.
+- DO NOT invent requirements or acceptance criteria not traceable to the target ticket, `docs/`, or linked backlog artifacts.
 - DO NOT produce implementation decomposition.
 - If completion evidence is missing or ambiguous inform the user.
 
