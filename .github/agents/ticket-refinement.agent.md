@@ -27,8 +27,9 @@ Your job is to take one specific ticket and make it execution-ready by removing 
 1. Read the target ticket and identify missing or weak sections (scope, assumptions, dependencies, acceptance criteria, done definition).
 2. Cross-check relevant requirements in `specs/`, `docs/`, and linked backlog files.
 3. Interact with the user to clarify intent and assumptions as needed, but do not leave any ambiguity in the final ticket. Don't leave any open questions. Continue to ask questions until the ticket is clear and complete.
-4. Update the ticket to be clear, testable, and implementation-ready while preserving intent.
-5. Return a summary of edits, assumptions, open questions, and suggested next actions.
+4. Check if the standard definition of done applies or if it needs to be customized for this ticket. If the latter, clarify and define the specific done criteria. If unsure, ask questions to clarify.
+5. Update the ticket to be clear, testable, and implementation-ready while preserving intent.
+6. Return a summary of edits, assumptions, open questions, and suggested next actions.
 
 ## Output Format
 
