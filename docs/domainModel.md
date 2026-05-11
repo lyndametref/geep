@@ -1,14 +1,14 @@
 # 1. Overview
 
-This model captures the shared business meaning of individual lifecycle, genealogy, records, interventions, observations, and derived future planning for the Geep scope, without implementation or persistence details.
+This model captures the shared business meaning of individual lifecycle, genealogy, observations, care, derived planning, and the FR-003 placeholder for Geep, without implementation or persistence details.
 
 ## 2. Context Map
 
 ```mermaid
 graph LR
     IndividualMgmt["Individual Management"] --> Genealogy["Genealogy Graph"]
-    IndividualMgmt --> Records["Records and Journal"]
-    Records --> FuturePlanning["Future Events and Reminders"]
+    IndividualMgmt --> Journal["Journal"]
+    Journal --> Planning["Future Events and Reminders"]
     IndividualMgmt --> TraitAssessment["Trait Assessment Placeholder"]
     Genealogy --> TraitAssessment
 ```
@@ -65,95 +65,152 @@ classDiagram
 ## 4. Entity Descriptions
 
 ### Individual
-- Bounded context: Individual Management.
-- Key attributes: id, displayNameOrNumber, bdtaNumber (optional), birthDate, deathDate (optional), sex, color (optional), living, stillborn.
-- Key business rules:
-- Each individual has a mandatory unique internal identifier (FR-001 specs/REQUIREMENTS.md).
-- BDTA number can be assigned later and is not required at first capture. (FR-001 specs/REQUIREMENTS.md).
-- Stillborn individuals are represented with the same core identity and lineage fields; for stillborn, birth and death dates are the same and post-birth observation progression is constrained. (FR-001 specs/REQUIREMENTS.md).
-- Individual is specialized into MaleIndividual and FemaleIndividual according to recorded sex. (FR-001 specs/REQUIREMENTS.md) and stakeholder direction.
-- Parentage is modeled with two independent optional references: one dam (female parent) and one sire (male parent). (FR-001 specs/REQUIREMENTS.md), (FR-002 specs/REQUIREMENTS.md), and stakeholder direction.
+Individual represents a sheep in the flock with identity, lifecycle, and lineage information.
 
-### Male 
 - Bounded context: Individual Management.
-- Key attributes: inherits Individual attributes.
+- Key attributes:
+    - id (FR-001 specs/REQUIREMENTS.md)
+    - name (optional)
+    - bdtaNumber (optional) (FR-001 specs/REQUIREMENTS.md)
+    - birthDate (FR-001 specs/REQUIREMENTS.md)
+    - deathDate (optional) (FR-001 specs/REQUIREMENTS.md)
+    - sex (FR-001 specs/REQUIREMENTS.md)
+    - colorPattern (optional) (FR-001 specs/REQUIREMENTS.md)
+    - living (FR-001 specs/REQUIREMENTS.md)
+    - stillborn (FR-001 specs/REQUIREMENTS.md)
+    - portraitReference (optional) (FR-001 specs/REQUIREMENTS.md)
+    - sire (optional) (FR-001 specs/REQUIREMENTS.md, FR-002 specs/REQUIREMENTS.md)
+    - dam (optional) (FR-001 specs/REQUIREMENTS.md, FR-002 specs/REQUIREMENTS.md)
 - Key business rules:
-- Male is a specialization of Individual for individuals recorded with male sex. (FR-001 specs/REQUIREMENTS.md) and stakeholder direction.
-- Male can be referenced as sire in parentage links. (FR-001 specs/REQUIREMENTS.md), (FR-002 specs/REQUIREMENTS.md), and stakeholder direction.
+    - Each individual has a mandatory unique internal identifier (FR-001 specs/REQUIREMENTS.md).
+    - BDTA number can be assigned later and is not required at first capture (FR-001 specs/REQUIREMENTS.md).
+    - Stillborn individuals keep the same core identity and lineage attributes; birth and death dates are the same and no post-birth observations are recorded (FR-001 specs/REQUIREMENTS.md).
+    - For stillborns living status is always dead (FR-001 specs/REQUIREMENTS.md).
+    - Each individual has a visual representation that may come from an observed portrait or a procedurally generated icon (FR-001 specs/REQUIREMENTS.md, FR-009 specs/REQUIREMENTS.md).
+    - Parentage is modeled with at most one sire and at most one dam; the parent role must match sex semantics (FR-001 specs/REQUIREMENTS.md, FR-002 specs/REQUIREMENTS.md, TASK-0003 assumption).
+
+### Male
+Male is a specialization of Individual for individuals recorded with male sex (FR-001 specs/REQUIREMENTS.md).
+
+- Bounded context: Individual Management.
+- Key attributes:
+    - inherits Individual attributes (FR-001 specs/REQUIREMENTS.md)
+- Key business rules:
+    - Male can play the sire role in parentage links (FR-001 specs/REQUIREMENTS.md, FR-002 specs/REQUIREMENTS.md).
 
 ### Female
-- Bounded context: Individual Management.
-- Key attributes: inherits Individual attributes.
-- Key business rules:
-- Female is a specialization of Individual for individuals recorded with female sex. (FR-001 specs/REQUIREMENTS.md) and stakeholder direction.
-- Female can be referenced as dam in parentage links. (FR-001 specs/REQUIREMENTS.md), (FR-002 specs/REQUIREMENTS.md), and stakeholder direction.
+Female is a specialization of Individual for individuals recorded with female sex (FR-001 specs/REQUIREMENTS.md).
 
+- Bounded context: Individual Management.
+- Key attributes:
+    - inherits Individual attributes (FR-001 specs/REQUIREMENTS.md)
+- Key business rules:
+    - Female can play the dam role in parentage links (FR-001 specs/REQUIREMENTS.md, FR-002 specs/REQUIREMENTS.md).
 
 ### Record
+Record is the shared journal entry supertype for Observation, Intervention, and FutureEvent (FR-004 specs/REQUIREMENTS.md).
+
 - Bounded context: Records and Journal.
-- Key attributes: id, entryAt.
+- Key attributes:
+    - id
 - Key business rules:
-- Record is the supertype for Observation, Intervention, and FutureEvent.
-- Each individual has a chronological record timeline. (FR-004 specs/REQUIREMENTS.md).
-- Records can include associated attachments metadata. (FR-004 specs/REQUIREMENTS.md).
+    - A record can appear in the journal of one or more individuals so batch capture is represented without losing per-individual chronology (FR-004 specs/REQUIREMENTS.md, TASK-0003 assumption).
+    - Records may have attachments for evidence or reference, such as photos or PDFs (FR-004 specs/REQUIREMENTS.md).
 
 ### Observation
+Observation specializes Record (FR-004 specs/REQUIREMENTS.md) and covers weight evolution, health observations, medical analysis results, and reproduction events (FR-004 specs/REQUIREMENTS.md).
+
 - Bounded context: Records and Journal.
-- Key attributes: id, observationType.
+- Key attributes:
+    - observationType (FR-004 specs/REQUIREMENTS.md)
+    - observedAt (FR-004 specs/REQUIREMENTS.md)
+    - content (FR-004 specs/REQUIREMENTS.md)
+    - selectedIndividuals (FR-004 specs/REQUIREMENTS.md)
 - Key business rules:
-- Observation specializes Record.
-- Observation includes weight evolution, health, and reproduction event entries. (FR-004 specs/REQUIREMENTS.md).
-- Medical analysis results are modeled as observation content and do not require a separate business object. (FR-004 specs/REQUIREMENTS.md) and stakeholder direction.
-- One observation can be applied to multiple individuals (batch workflow result). (FR-004 specs/REQUIREMENTS.md).
+    - A single observation may be applied to multiple selected individuals (FR-004 specs/REQUIREMENTS.md).
+    - Medical analysis results are stored as observation content and do not require a separate business object (FR-004 specs/REQUIREMENTS.md).
 
 ### Intervention
+Intervention specializes Record (FR-004 specs/REQUIREMENTS.md) and captures performed actions, care and treatment information (FR-004 specs/REQUIREMENTS.md, FR-006 specs/REQUIREMENTS.md).
+
 - Bounded context: Records and Journal.
-- Key attributes: id, interventionType, reason (optional).
+- Key attributes:
+    - interventionType (FR-004 specs/REQUIREMENTS.md)
+    - performedAt (FR-004 specs/REQUIREMENTS.md)
+    - selectedIndividuals (FR-004 specs/REQUIREMENTS.md)
 - Key business rules:
-- Intervention specializes Record.
-- Intervention captures performed actions tied to flock management operations.
-- Intervention may produce one or many FutureEvent entries. Chapter 3 Business Object Model.
-- Treatment is modeled as intervention content and does not require a separate business object. (FR-004 specs/REQUIREMENTS.md), (FR-006 specs/REQUIREMENTS.md), and stakeholder direction.
+    - A single intervention may be applied to multiple selected individuals (FR-004 specs/REQUIREMENTS.md).
+    - Treatment quarantine is represented as separate meat and milk withdrawal periods when relevant (FR-004 specs/REQUIREMENTS.md, TASK-0003 assumption).
 
 ### FutureEvent
+FutureEvent represents a derived event or reminder that is planned, predicted, waiting, realized, or aborted depending on the context. It specializes Record and is the parent concept for PredictedEvent, PlannedTask, and WaitingDelay (FR-004 specs/REQUIREMENTS.md, FR-005 specs/REQUIREMENTS.md).
+
 - Bounded context: Future Events and Reminders.
-- Key attributes: id.
+- Key attributes:
+    - id
+    - futureEventType (FR-004 specs/REQUIREMENTS.md, FR-005 specs/REQUIREMENTS.md)
+    - status (FR-004 specs/REQUIREMENTS.md)
+    - sourceRecord (FR-004 specs/REQUIREMENTS.md)
 - Key business rules:
-- FutureEvent specializes Record and is the parent concept for PredictedEvent, PlannedTask, and WaitingDelay.
-- Future events are observations or interventions and can later be realized by creating new records. (FR-004 specs/REQUIREMENTS.md), (FR-005 specs/REQUIREMENTS.md), and Chapter 3 Business Object Model.
+
+    - Future events are derived from observations or interventions and may later be realized by creating concrete records (FR-004 specs/REQUIREMENTS.md).
+    - Future events may never occur, so the model must allow them to remain planned or predicted without realization or to be marked as aborted (FR-004 specs/REQUIREMENTS.md).
 
 ### PredictedEvent
+PredictedEvent is a FutureEvent used for probabilistic  outcomes based on prior records. 
 - Bounded context: Future Events and Reminders.
-- Key attributes: title, earliestDate, latestDate, status.
+- Key attributes:
+    - earliestDate (FR-004 specs/REQUIREMENTS.md)
+    - latestDate (FR-004 specs/REQUIREMENTS.md)
+    - status (FR-004 specs/REQUIREMENTS.md)
 - Key business rules:
-- PredictedEvent specializes FutureEvent.
-- A mating observation can produce a predicted birth window between day 140 and day 150. (FR-004 specs/REQUIREMENTS.md).
-- Predicted events may never happen.
+    - Mating observation can produce a predicted birth window between day 140 and day 150 (FR-004 specs/REQUIREMENTS.md).
 
 ### PlannedTask
+PlannedTask is a FutureEvent representing a concrete upcoming action to perform. 
+
 - Bounded context: Future Events and Reminders.
-- Key attributes: title, startReminderDate, dueDate, completionStatus.
+- Key attributes:
+    - title
+    - reminderDate (FR-004 specs/REQUIREMENTS.md, FR-005 specs/REQUIREMENTS.md)
+    - dueDate (FR-004 specs/REQUIREMENTS.md, FR-005 specs/REQUIREMENTS.md)
+    - completionStatus
 - Key business rules:
-- PlannedTask specializes FutureEvent.
-- Confirmed birth can derive a weaning planned task around 3 months later. (FR-004 specs/REQUIREMENTS.md).
+    - A confirmed birth can derive a weaning planned task around 3 months later (FR-004 specs/REQUIREMENTS.md).
 
 ### WaitingDelay
+WaitingDelay is a FutureEvent representing a delay interval that must elapse before normal operations resume.
+
 - Bounded context: Future Events and Reminders.
-- Key attributes: title, delayElapsedAt, elapsed.
+- Key attributes:
+    - title
+    - delayElapsedAt (FR-004 specs/REQUIREMENTS.md)
+    - elapsed (FR-004 specs/REQUIREMENTS.md)
 - Key business rules:
-- WaitingDelay specializes FutureEvent.
-- WaitingDelay models elapsed periods such as intervention-related quarantine windows. (FR-004 specs/REQUIREMENTS.md).
+    - WaitingDelay models elapsed periods such as intervention-related quarantine windows (FR-004 specs/REQUIREMENTS.md).
 
 ### Attachment
+Attachment represents documentary evidence linked to a record.
+
 - Bounded context: Records and Journal.
-- Key attributes: id, attachmentType, label (optional), capturedAt (optional).
+- Key attributes:
+    - id
+    - attachmentType (FR-004 specs/REQUIREMENTS.md)
+    - label (optional)
+    - capturedAt (optional)
 - Key business rules:
-- Attachment metadata is associated with records for evidence and reference (for example photo or PDF). (FR-004 specs/REQUIREMENTS.md).
+    - Attachment metadata is associated with records for evidence and reference, such as photos or PDFs (FR-004 specs/REQUIREMENTS.md).
 
 ### TraitAssessment (Placeholder)
+TraitAssessment is a placeholder entity for phenotype capture and uncertain genotype representation while deduction rules remain to be detailed.
+
 - Bounded context: Trait Assessment Placeholder.
-- Key attributes: id, traitIdentifier, phenotype (optional), genotype (optional), genotypeConfirmed (optional).
-- This business object is not yet completely defined and thus do not appears in chapter 3 diagram
+- Key attributes:
+    - id
+    - traitIdentifier (FR-003 specs/REQUIREMENTS.md)
+    - phenotype (optional) (FR-003 specs/REQUIREMENTS.md)
+    - genotype (optional) (FR-003 specs/REQUIREMENTS.md)
+    - genotypeConfirmed (optional) (FR-003 specs/REQUIREMENTS.md)
 - Key business rules:
-- TraitAssessment captures FR-003 scope as an explicit placeholder while deduction algorithms remain unspecified. (FR-003 specs/REQUIREMENTS.md).
-- Genotype can be unconfirmed and represent uncertainty. (FR-003 specs/REQUIREMENTS.md).
+    - TraitAssessment captures FR-003 as a placeholder capability while deduction rules remain unspecified (FR-003 specs/REQUIREMENTS.md).
+    - Genotype can be unconfirmed and represent uncertainty, including multiple alleles for a gene when needed (FR-003 specs/REQUIREMENTS.md).

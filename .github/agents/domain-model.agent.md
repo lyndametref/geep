@@ -29,7 +29,7 @@ You are a domain modelling specialist. Your sole job is to produce, refine and m
 
 ## Output Format
 
-`docs/domainModel.md` must contain these sections in order:
+`docs/domainModel.md` must contain these 4 sections in order:
 
 ### 1. Overview
 One very short paragraph stating the purpose and scope of the model.
@@ -55,4 +55,11 @@ classDiagram
 ```
 
 ### 4. Entity Descriptions
-For each entity: name, bounded context, key attributes, and key business rules as bullet points. When available provide for attributes and business rules the reference to the source specification in a short format in parenthesis (e.g. "(FR-001 specs/REQUIREMENTS.md").
+For each entity: 
+- name as section title
+- short description as introduction paragraph
+- bounded context
+- key attributes as bullet points
+- key business rules as bullet points. 
+
+When available  for attributes and business rules provide the reference to the source specification in a short format in parenthesis (e.g. "(FR-001 specs/REQUIREMENTS.md").
