@@ -1,10 +1,10 @@
 ---
 id: TASK-0003
 title: M2 Domain Model Contract
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-11 10:48'
+updated_date: '2026-05-11 10:49'
 labels:
   - mobile
   - domain
