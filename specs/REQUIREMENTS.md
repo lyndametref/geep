@@ -26,6 +26,7 @@
 - Description:
   - The system must store genealogy data as a graph structure.
   - The system must provide an interactive genealogy visualization.
+  - Out of scope: disputed parentage (multiple sire with dam during tupping season)
 - Acceptance Criteria:
   - Genealogy data is stored in a graph structure.
   - The genealogy view displays individuals as nodes with an icon and name or number.
