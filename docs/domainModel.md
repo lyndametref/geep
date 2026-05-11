@@ -1,221 +1,159 @@
 # 1. Overview
 
-This domain model defines the persistence-agnostic business objects and relationships for the mobile MVP scope covering individual management, genealogy, observations, future events, and the FR-003 trait deduction placeholder.
+This model captures the shared business meaning of individual lifecycle, genealogy, records, interventions, observations, and derived future planning for the Geep scope, without implementation or persistence details.
 
 ## 2. Context Map
 
 ```mermaid
 graph LR
-	IndividualMgmt["Individual Management"] --> Genealogy["Genealogy Graph"]
-	IndividualMgmt --> Observations["Observations and Journal"]
-	Observations --> FuturePlanning["Future Events and Reminders"]
-	IndividualMgmt --> TraitAssessment["Trait Assessment Placeholder"]
-	Genealogy --> TraitAssessment
+    IndividualMgmt["Individual Management"] --> Genealogy["Genealogy Graph"]
+    IndividualMgmt --> Records["Records and Journal"]
+    Records --> FuturePlanning["Future Events and Reminders"]
+    IndividualMgmt --> TraitAssessment["Trait Assessment Placeholder"]
+    Genealogy --> TraitAssessment
 ```
-
-Context relationships:
-- Individual Management is upstream for identity and lifecycle attributes used across the model.
-- Genealogy Graph uses individuals and role-based parentage links (at minimum sire/dam).
-- Observations and Journal records observation facts, treatment metadata, journal chronology, and references to supporting artifacts.
-- Future Events and Reminders is downstream of observations and stores derived planning obligations.
-- Trait Assessment Placeholder provides traceable FR-003 coverage without defining deduction algorithms.
 
 ## 3. Business Object Model
 
 ```mermaid
-erDiagram
-	INDIVIDUAL {
-		uuid id
-		string displayNameOrNumber
-		string bdtaNumber "(optional)"
-		date birthDate "(optional)"
-		date deathDate "(optional)"
-		enum sex "(optional)"
-		enum color "(optional)"
-		enum lifecycleStatus
-		boolean stillborn
-		date stillbornDate "(optional)"
-		decimal stillbornWeightKg "(optional)"
+classDiagram
+
+    class INDIVIDUAL
+    class RECORD
+    class ATTACHMENT
+
+ 	namespace INDIVIDUAL_SPECIALISATION {
+		class MALE
+		class FEMALE
 	}
 
-	OBSERVATION {
-		uuid id
-		enum observationType
-		string summary "(optional)"
-		string details "(optional)"
+	namespace RECORDS_SPECIALISATION {
+		class OBSERVATION
+		class INTERVENTION
+		class FUTURE_EVENT
 	}
 
-	TREATMENT {
-		uuid id
-		string medicationName
-		string dose
-		int meatQuarantineDays "(optional)"
-		int milkQuarantineDays "(optional)"
-		date meatQuarantineEndDate "(optional)"
-		date milkQuarantineEndDate "(optional)"
+ 	namespace FUTURE_EVENT_SPECIALISATION {
+		class PREDICTED_EVENT
+		class PLANNED_TASK
+		class WAITING_DELAY
 	}
+	
+	MALE --|> INDIVIDUAL
+	FEMALE  --|> INDIVIDUAL
 
-	FUTURE_EVENT {
-		uuid id
-		string title
-		date earliestDate "(optional)"
-		date latestDate "(optional)"
-		enum status
-		string rationale
-	}
+    OBSERVATION --|> RECORD
+    INTERVENTION --|> RECORD
+    FUTURE_EVENT --|> RECORD
 
-	PREDICTED_EVENT {
-		uuid id
-		string predictionBasis "(optional)"
-	}
+    PREDICTED_EVENT --|> FUTURE_EVENT
+    PLANNED_TASK --|> FUTURE_EVENT
+    WAITING_DELAY --|> FUTURE_EVENT
 
-	PLANNED_TASK {
-		uuid id
-		date plannedStartDate "(optional)"
-		date plannedEndDate "(optional)"
-		enum completionStatus
-	}
+    INDIVIDUAL "0..*" --> "0..1" FEMALE : has dam recorded
+    INDIVIDUAL "0..*" --> "0..1" MALE : has sire recorded
+    INDIVIDUAL "1" --> "0..*" RECORD 
+    RECORD "1" --> "0..*" ATTACHMENT
 
-	WAITING_DELAY {
-		uuid id
-		datetime delayStartAt
-		datetime delayElapsedAt
-		string delayReason
-	}
+    OBSERVATION "1" --> "0..*" FUTURE_EVENT : may produce
+    INTERVENTION "1" --> "0..*" FUTURE_EVENT : may produce
+  
+    FUTURE_EVENT "1" --> "0..*" RECORD : if realized, creates
 
-	JOURNAL_ENTRY {
-		uuid id
-		datetime entryAt
-		string narrative
-	}
-
-	ATTACHMENT {
-		uuid id
-		enum attachmentType
-		string label "(optional)"
-		datetime capturedAt "(optional)"
-	}
-
-	MEDICAL_ANALYSIS_RESULT {
-		uuid id
-		string analysisType
-		datetime resultAt
-		string resultSummary
-		string sourceLabOrVet "(optional)"
-	}
-
-	TRAIT_ASSESSMENT {
-		uuid id
-		string traitIdentifier
-		string phenotype "(optional)"
-		string genotype "(optional)"
-		boolean genotypeConfirmed
-		datetime assessedAt
-	}
-
-	INDIVIDUAL ||--o{ INDIVIDUAL : "has parent (sire or dam)"
-
-	INDIVIDUAL }o--o{ JOURNAL_ENTRY : "appears in journal of"
-	JOURNAL_ENTRY ||--o| OBSERVATION : "specializes as"
-	JOURNAL_ENTRY ||--o| TREATMENT : "specializes as"
-	JOURNAL_ENTRY ||--o| FUTURE_EVENT : "specializes as"
-	JOURNAL_ENTRY ||--o| MEDICAL_ANALYSIS_RESULT : "specializes as"
-	FUTURE_EVENT ||--o| PREDICTED_EVENT : "specializes as"
-	FUTURE_EVENT ||--o| PLANNED_TASK : "specializes as"
-	FUTURE_EVENT ||--o| WAITING_DELAY : "specializes as"
-	OBSERVATION ||--o{ FUTURE_EVENT : "may produce future events"
-	TREATMENT ||--o{ WAITING_DELAY : "may produce quarantine waiting delays"
-	FUTURE_EVENT ||--o{ OBSERVATION : "when realized, creates realization observation"
-
-	JOURNAL_ENTRY ||--o{ ATTACHMENT : "associates attachments"
-
-	INDIVIDUAL ||--o{ TRAIT_ASSESSMENT : "has trait assessments"
 ```
 
-## 4. Entity Catalog
+## 4. Entity Descriptions
 
 ### Individual
 - Bounded context: Individual Management.
-- Key attributes: id, displayNameOrNumber, bdtaNumber (optional), birthDate (optional), deathDate (optional), sex (optional), color (optional), lifecycleStatus, stillborn, stillbornDate (optional), stillbornWeightKg (optional).
+- Key attributes: id, displayNameOrNumber, bdtaNumber (optional), birthDate, deathDate (optional), sex, color (optional), living, stillborn.
 - Key business rules:
-- Each individual has one mandatory unique internal identifier.
-- BDTA number is optional at creation and may be assigned later.
-- Birth and death dates are recorded when known; for stillborn, birth and death occur on the same date.
-- Stillborn records are valid individuals with constrained lifecycle behavior (no post-birth observation progression).
+- Each individual has a mandatory unique internal identifier (FR-001 specs/REQUIREMENTS.md).
+- BDTA number can be assigned later and is not required at first capture. (FR-001 specs/REQUIREMENTS.md).
+- Stillborn individuals are represented with the same core identity and lineage fields; for stillborn, birth and death dates are the same and post-birth observation progression is constrained. (FR-001 specs/REQUIREMENTS.md).
+- Individual is specialized into MaleIndividual and FemaleIndividual according to recorded sex. (FR-001 specs/REQUIREMENTS.md) and stakeholder direction.
+- Parentage is modeled with two independent optional references: one dam (female parent) and one sire (male parent). (FR-001 specs/REQUIREMENTS.md), (FR-002 specs/REQUIREMENTS.md), and stakeholder direction.
+
+### Male 
+- Bounded context: Individual Management.
+- Key attributes: inherits Individual attributes.
+- Key business rules:
+- Male is a specialization of Individual for individuals recorded with male sex. (FR-001 specs/REQUIREMENTS.md) and stakeholder direction.
+- Male can be referenced as sire in parentage links. (FR-001 specs/REQUIREMENTS.md), (FR-002 specs/REQUIREMENTS.md), and stakeholder direction.
+
+### Female
+- Bounded context: Individual Management.
+- Key attributes: inherits Individual attributes.
+- Key business rules:
+- Female is a specialization of Individual for individuals recorded with female sex. (FR-001 specs/REQUIREMENTS.md) and stakeholder direction.
+- Female can be referenced as dam in parentage links. (FR-001 specs/REQUIREMENTS.md), (FR-002 specs/REQUIREMENTS.md), and stakeholder direction.
+
+
+### Record
+- Bounded context: Records and Journal.
+- Key attributes: id, entryAt.
+- Key business rules:
+- Record is the supertype for Observation, Intervention, and FutureEvent.
+- Each individual has a chronological record timeline. (FR-004 specs/REQUIREMENTS.md).
+- Records can include associated attachments metadata. (FR-004 specs/REQUIREMENTS.md).
 
 ### Observation
-- Bounded context: Observations and Journal.
-- Key attributes: id, observationType, summary (optional), details (optional).
+- Bounded context: Records and Journal.
+- Key attributes: id, observationType.
 - Key business rules:
-- Observation is a specialization of JournalEntry.
-- Observation types include weight evolution, health observations, and reproduction events.
-- One observation entry can concern one or multiple individuals.
+- Observation specializes Record.
+- Observation includes weight evolution, health, and reproduction event entries. (FR-004 specs/REQUIREMENTS.md).
+- Medical analysis results are modeled as observation content and do not require a separate business object. (FR-004 specs/REQUIREMENTS.md) and stakeholder direction.
+- One observation can be applied to multiple individuals (batch workflow result). (FR-004 specs/REQUIREMENTS.md).
 
-### Treatment
-- Bounded context: Observations and Journal.
-- Key attributes: id, medicationName, dose, meatQuarantineDays (optional), milkQuarantineDays (optional), meatQuarantineEndDate (optional), milkQuarantineEndDate (optional).
+### Intervention
+- Bounded context: Records and Journal.
+- Key attributes: id, interventionType, reason (optional).
 - Key business rules:
-- Treatment is a specialization of JournalEntry.
-- Treatment is captured when an observation records a medication action.
-- Quarantine metadata is represented separately for meat and milk periods.
+- Intervention specializes Record.
+- Intervention captures performed actions tied to flock management operations.
+- Intervention may produce one or many FutureEvent entries. Chapter 3 Business Object Model.
+- Treatment is modeled as intervention content and does not require a separate business object. (FR-004 specs/REQUIREMENTS.md), (FR-006 specs/REQUIREMENTS.md), and stakeholder direction.
 
 ### FutureEvent
 - Bounded context: Future Events and Reminders.
-- Key attributes: id, title, earliestDate (optional), latestDate (optional), status, rationale.
+- Key attributes: id.
 - Key business rules:
-- Future event is a specialization of JournalEntry.
-- Future event is a parent concept specialized by PredictedEvent, PlannedTask, and WaitingDelay.
-- Future events can be derived from triggering observations and treatment entries.
-- A future event may or may not happen; when it happens, realization is captured as a new observation entry.
+- FutureEvent specializes Record and is the parent concept for PredictedEvent, PlannedTask, and WaitingDelay.
+- Future events are observations or interventions and can later be realized by creating new records. (FR-004 specs/REQUIREMENTS.md), (FR-005 specs/REQUIREMENTS.md), and Chapter 3 Business Object Model.
 
 ### PredictedEvent
 - Bounded context: Future Events and Reminders.
-- Key attributes: id, predictionBasis (optional).
+- Key attributes: title, earliestDate, latestDate, status.
 - Key business rules:
-- PredictedEvent is a specialization of FutureEvent.
-- Represents events that might happen at an approximate date or date range.
-- PredictedEvent may never happen.
+- PredictedEvent specializes FutureEvent.
+- A mating observation can produce a predicted birth window between day 140 and day 150. (FR-004 specs/REQUIREMENTS.md).
+- Predicted events may never happen.
 
 ### PlannedTask
 - Bounded context: Future Events and Reminders.
-- Key attributes: id, plannedStartDate (optional), plannedEndDate (optional), completionStatus.
+- Key attributes: title, startReminderDate, dueDate, completionStatus.
 - Key business rules:
-- PlannedTask is a specialization of FutureEvent.
-- Represents a task expected within a planned time range.
-- Completion can be tracked; a task may remain uncompleted.
+- PlannedTask specializes FutureEvent.
+- Confirmed birth can derive a weaning planned task around 3 months later. (FR-004 specs/REQUIREMENTS.md).
 
 ### WaitingDelay
 - Bounded context: Future Events and Reminders.
-- Key attributes: id, delayStartAt, delayElapsedAt, delayReason.
+- Key attributes: title, delayElapsedAt, elapsed.
 - Key business rules:
-- WaitingDelay is a specialization of FutureEvent.
-- Represents elapsed waiting periods such as quarantine delays.
-- WaitingDelay is expected to happen when modeled.
-
-### JournalEntry
-- Bounded context: Observations and Journal.
-- Key attributes: id, entryAt, narrative.
-- Key business rules:
-- JournalEntry is the supertype for Observation, Treatment, FutureEvent, and MedicalAnalysisResult.
-- Each individual has a chronological journal timeline.
-- Journal includes observation facts, future-event facts, treatment traceability fields, and related references.
+- WaitingDelay specializes FutureEvent.
+- WaitingDelay models elapsed periods such as intervention-related quarantine windows. (FR-004 specs/REQUIREMENTS.md).
 
 ### Attachment
-- Bounded context: Observations and Journal.
+- Bounded context: Records and Journal.
 - Key attributes: id, attachmentType, label (optional), capturedAt (optional).
 - Key business rules:
-- Attachments are represented as metadata references (for example photo/PDF identity) associated with journal entries.
-
-### MedicalAnalysisResult
-- Bounded context: Observations and Journal.
-- Key attributes: id, analysisType, resultAt, resultSummary, sourceLabOrVet (optional).
-- Key business rules:
-- Medical analysis result is a specialization of JournalEntry.
-- Medical analysis outcomes are captured as structured journal-linked domain facts.
+- Attachment metadata is associated with records for evidence and reference (for example photo or PDF). (FR-004 specs/REQUIREMENTS.md).
 
 ### TraitAssessment (Placeholder)
 - Bounded context: Trait Assessment Placeholder.
-- Key attributes: id, traitIdentifier, phenotype (optional), genotype (optional), genotypeConfirmed, assessedAt.
+- Key attributes: id, traitIdentifier, phenotype (optional), genotype (optional), genotypeConfirmed (optional).
+- This business object is not yet completely defined and thus do not appears in chapter 3 diagram
 - Key business rules:
-- Provides FR-003 placeholder coverage only.
-- Genotype may be uncertain (genotypeConfirmed = false) pending later deduction-rule specifications.
+- TraitAssessment captures FR-003 scope as an explicit placeholder while deduction algorithms remain unspecified. (FR-003 specs/REQUIREMENTS.md).
+- Genotype can be unconfirmed and represent uncertainty. (FR-003 specs/REQUIREMENTS.md).
