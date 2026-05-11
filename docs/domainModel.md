@@ -140,7 +140,7 @@ Intervention specializes Record (FR-004 specs/REQUIREMENTS.md) and captures perf
     - selectedIndividuals (FR-004 specs/REQUIREMENTS.md)
 - Key business rules:
     - A single intervention may be applied to multiple selected individuals (FR-004 specs/REQUIREMENTS.md).
-    - Treatment quarantine is represented as separate meat and milk withdrawal periods when relevant (FR-004 specs/REQUIREMENTS.md, TASK-0003 assumption).
+    - Each type of Intervention can have specific attribute (for example dose quarantine periode for treatment)
 
 ### FutureEvent
 FutureEvent represents a derived event or reminder that is planned, predicted, waiting, realized, or aborted depending on the context. It specializes Record and is the parent concept for PredictedEvent, PlannedTask, and WaitingDelay (FR-004 specs/REQUIREMENTS.md, FR-005 specs/REQUIREMENTS.md).
