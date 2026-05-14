@@ -4,7 +4,7 @@ title: P8 Shared Multi-user Validation
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-14 19:13'
 labels:
   - platform
   - validation
@@ -19,7 +19,7 @@ ordinal: 25000
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Validate FR-011 and FR-012 cross-user behavior and auditability.
+Validate REQ-11 and REQ-12 cross-user behavior and auditability.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria

@@ -4,7 +4,7 @@ title: M15 MVP Acceptance Audit
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-14 19:13'
 labels:
   - mobile
   - acceptance
@@ -24,8 +24,12 @@ Validate mobile-only MVP readiness with evidence.
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
 - [ ] #1 End-to-end offline workflow passes.
-- [ ] #2 FR-001, FR-002, and FR-004 acceptance checks are signed off.
+- [ ] #2 Iteration 1 REQ scope sign-off is complete against TASK-0001 scope contract.
 <!-- AC:END -->
+
+
+
+
 
 ## Definition of Done
 <!-- DOD:BEGIN -->

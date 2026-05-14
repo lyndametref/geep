@@ -4,7 +4,7 @@ title: M8 Individuals Feature UI
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-14 19:13'
 labels:
   - mobile
   - ui
@@ -22,10 +22,14 @@ Build list, create/edit, and detail screens for individuals.
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 All FR-001 fields are manageable on device.
-- [ ] #2 Stillborn record flow is complete.
-- [ ] #3 BDTA assignment flow is complete.
+- [ ] #1 Stillborn record flow is complete.
+- [ ] #2 BDTA assignment flow is complete.
+- [ ] #3 All MVP individual fields and lifecycle semantics from REQ-01 are manageable on device.
 <!-- AC:END -->
+
+
+
+
 
 ## Definition of Done
 <!-- DOD:BEGIN -->

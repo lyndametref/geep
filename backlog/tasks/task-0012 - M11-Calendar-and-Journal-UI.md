@@ -4,7 +4,7 @@ title: M11 Calendar and Journal UI
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-14 19:13'
 labels:
   - mobile
   - ui
@@ -21,10 +21,6 @@ ordinal: 12000
 Show chronological journal and upcoming lifecycle reminders.
 <!-- SECTION:DESCRIPTION:END -->
 
-## Acceptance Criteria
-<!-- AC:BEGIN -->
-- [ ] #1 Derived reminders appear automatically in calendar and journal views.
-<!-- AC:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
@@ -32,3 +28,9 @@ Show chronological journal and upcoming lifecycle reminders.
 - [ ] #2 Documentation updated
 - [ ] #3 No regressions introduced
 <!-- DOD:END -->
+
+## Acceptance Criteria
+<!-- AC:BEGIN -->
+- [ ] #1 Chronological journal visibility is available for MVP observation-derived entries.
+- [ ] #2 Predicted events and reminders selected for MVP are visible in calendar/timeline surfaces.
+<!-- AC:END -->
