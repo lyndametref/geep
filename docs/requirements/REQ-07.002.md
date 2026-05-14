@@ -3,7 +3,7 @@
 As a sheperd, I want a bottle-feeding quantity calculator so that milk or cream quantities are estimated consistently.
 
 Group: REQ-07 Integrated Calculators
-Criticality Must have
+Criticality Can have
 
 ## Description
 The system includes a milk or cream quantity calculator for bottle-feeding.

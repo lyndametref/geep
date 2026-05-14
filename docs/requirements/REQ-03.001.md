@@ -3,7 +3,7 @@
 As a sheperd, I want to provide phenotype information for my sheep so that the system can support genotype deduction.
 
 Group: REQ-03 Phenotype and Genotype Deduction
-Criticality Must have
+Criticality Should have
 
 ## Description
 The system must allow the sheep owner to enter phenotype information for an individual.

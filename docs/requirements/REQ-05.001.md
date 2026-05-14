@@ -10,7 +10,6 @@ The calendar displays past events such as births, treatments, and weaning and ca
 
 ## Acceptance Criteria
 - The calendar displays past birth events.
-- The calendar displays past treatment events.
 - The calendar displays past hoof trimming.
 - The calendar displays past shearing.
 - The calendar displays past weaning events.

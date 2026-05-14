@@ -3,7 +3,7 @@
 As a sheperd, I want to manage pasture usage so that parasite exposure can be reduced.
 
 Group: REQ-10 Pasture Management and Mapping
-Criticality Must have
+Criticality Should have
 
 ## Description
 The system must support pasture usage tracking used in parasite-oriented rotation management, including movement recording, occupancy tracking, recovery quarantine calculation, and end-of-quarantine event creation.

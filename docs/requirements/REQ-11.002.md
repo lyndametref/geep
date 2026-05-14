@@ -3,7 +3,7 @@
 As a sheperd, I want to review and complete data from the web application so that office workflows are efficient and accurate.
 
 Group: REQ-11 Multi-Application Workflow
-Criticality Must have
+Criticality Should have
 
 ## Description
 Web users can create, review, and edit records, including genealogy and calendar information.

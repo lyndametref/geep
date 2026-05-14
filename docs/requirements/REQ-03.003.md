@@ -3,10 +3,10 @@
 As a sheperd, I want the system to propose possible genotypes for an individual so that I can reason about inherited traits with decision support.
 
 Group: REQ-03 Phenotype and Genotype Deduction
-Criticality Must have
+Criticality Can have
 
 ## Description
-The system must propose possible genotypes for an individual based on available ancestry genotype information, the individual's phenotype, and the phenotype of descendants.
+The system must propose possible genotypes for an individual based on available ancestry genotype information, the individual's phenotype, and the phenotype of descendants. The possible genotype entries that can be proposed should be configurable by the flock manager.
 
 ## Acceptance Criteria
 - The system can generate genotype propositions for an individual.

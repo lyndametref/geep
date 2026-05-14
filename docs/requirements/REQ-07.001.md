@@ -3,7 +3,7 @@
 As a sheperd, I want a lidocaine dosage calculator for castration so that dosage decisions are consistent and safer.
 
 Group: REQ-07 Integrated Calculators
-Criticality Must have
+Criticality Can have
 
 ## Description
 The system includes a lidocaine dosage calculator for castration.

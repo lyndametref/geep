@@ -3,7 +3,7 @@
 As a sheperd, I want changes made in one application to be available in the others after synchronization so that all users work with consistent data.
 
 Group: REQ-11 Multi-Application Workflow
-Criticality Must have
+Criticality Should have
 
 ## Description
 Changes made on one application are available to other authorized users after synchronization.

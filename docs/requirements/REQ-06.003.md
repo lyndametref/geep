@@ -3,7 +3,7 @@
 As a sheperd, I want stock to update automatically when treatments are recorded so that inventory stays accurate without manual recalculation.
 
 Group: REQ-06 Medication Management
-Criticality Must have
+Criticality Can have
 
 ## Description
 Medication stock must be updated automatically when a treatment is recorded in observations.

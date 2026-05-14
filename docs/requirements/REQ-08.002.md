@@ -3,7 +3,7 @@
 As a sheperd, I want visual references for FaMaCha methode so that I can assess animals health more consistently.
 
 Group: REQ-08 Cheat Sheets and References
-Criticality Must have
+Criticality Can have
 
 ## Description
 Visual references of the FaMaCha color scale are provided.

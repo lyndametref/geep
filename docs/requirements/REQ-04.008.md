@@ -3,7 +3,7 @@
 As a sheperd, I want treatment details and quarantine periods to be visible in the journal so that I can follow treatment protocols safely.
 
 Group: REQ-04 Observations and Automated Events
-Criticality Must have
+Criticality Should have
 
 ## Description
 The journal must store treatment details including treatment date, dose, and quarantine periods.

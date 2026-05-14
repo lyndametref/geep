@@ -12,13 +12,11 @@ Each individual entry includes at least:
 - dam (female parent)
 and if available:
 - sire (male parent)
-- basic color pattern 
 
 complete phenotyping is separated and will be included in REQ-03
 
 
 ## Acceptance Criteria
 - An individual entry includes a sex field.
-- An individual entry includes a basic color pattern field.
 - An individual entry includes parent references.
 - An individual entry includes an alive/dead status field.

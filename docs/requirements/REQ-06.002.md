@@ -3,7 +3,7 @@
 As a sheperd, I want to track drug stock movements and current stock levels so that medication availability remains visible and regulation are respected.
 
 Group: REQ-06 Medication Management
-Criticality Must have
+Criticality Can have
 
 ## Description
 The system must track drugs stock by recording received quantities and used quantities and by providing a stock overview.

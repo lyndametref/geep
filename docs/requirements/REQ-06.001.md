@@ -3,7 +3,7 @@
 As a sheperd, I want each drug definition to include key safety information so that treatments are managed correctly.
 
 Group: REQ-06 Medication Management
-Criticality Must have
+Criticality Can have
 
 ## Description
 Medication master data must include a drug name and quarantine periods. If available link to the medication can be saved as well as note on the drug usage.

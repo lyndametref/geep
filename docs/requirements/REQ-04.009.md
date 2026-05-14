@@ -3,7 +3,7 @@
 As a sheperd, I want medical analysis results to be stored in the journal so that I can review health evidence over time.
 
 Group: REQ-04 Observations and Automated Events
-Criticality Must have
+Criticality Should have
 
 ## Description
 The journal must store medical analysis results for individuals as observations.

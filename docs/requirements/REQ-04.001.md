@@ -10,3 +10,5 @@ Observation types include weight measurements, health observations, and reproduc
 
 ## Acceptance Criteria
 - The system supports observations of multiple type.
+- In the MVP a limited type of entry are available and evolution creates new entries
+- The entry to have from the begining are the weight evolution, mating observation and free-text observation about the sheep.

@@ -3,7 +3,7 @@
 As a sheperd, I want icon generation to reflect key phenotype traits so that icons remain meaningful and distinguishable.
 
 Group: REQ-09 Procedural Icon Generation
-Criticality Must have
+Criticality Can have
 
 ## Description
 Icon generation considers base color, agouti pattern, spotting, and dilution.

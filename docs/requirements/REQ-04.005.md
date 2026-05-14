@@ -3,7 +3,7 @@
 As a sheperd, I want treatment entries to include quarantine details so that I can respect meat and milk withdrawal periods.
 
 Group: REQ-04 Observations and Automated Events
-Criticality Must have
+Criticality Should have
 
 ## Description
 A treatment entry must support recording quarantine periods for meat and milk.
