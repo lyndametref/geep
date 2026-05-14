@@ -1,10 +1,10 @@
 ---
 id: TASK-0002
 title: M1 Android Workspace Bootstrap
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-12 19:23'
+updated_date: '2026-05-14 18:09'
 labels:
   - mobile
   - foundation
