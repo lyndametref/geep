@@ -2,7 +2,7 @@
 id: MILESTONE-1
 title: Iteration 1 Mobile-Only MVP
 status: Active
-description: Deliver an offline-first Android app for FR-001, FR-002, and FR-004 with no backend or web runtime dependency.
+description: Deliver an offline-first Android app for Iteration-1 REQ subset (REQ-01, REQ-02.001..REQ-02.003, REQ-04.001..REQ-04.003, REQ-04.006, REQ-04.007, REQ-04.010, REQ-05.002..REQ-05.003, REQ-11.001) with no backend or web runtime dependency.
 created_date: '2026-05-08 14:34'
 target_date: null
 ---
@@ -21,20 +21,25 @@ Deliver a fully offline mobile MVP with no backend or web runtime dependency.
 ## Scope
 
 ### Included
-- FR-001 Individual Management (mobile local)
-- FR-002 Genealogy and Parentage Graph (local)
-- FR-004 Observations and Automated Events (local)
+- REQ-01 Individual Management
+- REQ-02.001..REQ-02.003 Genealogy and Parentage Graph
+- REQ-04.001..REQ-04.003 Observations and Batch Entry
+- REQ-04.006 Confirmed Birth Follow-Up
+- REQ-04.007 Chronological Journal and Attachments
+- REQ-04.010 Key Care and Reproduction Reminders
+- REQ-05.002..REQ-05.003 Calendar Predicted Events and Reminders
+- REQ-11.001 Mobile Create/Update Workflows
 
 ### Excluded
-- FR-011 Multi-Application Workflow
-- FR-012 Multi-User Data Sharing
+- Any requirements outside the included REQ subset
+- Multi-user data sharing
 - Backend and web runtime dependencies
 
 ## Success Criteria
 
-- [ ] All 15 tasks completed and accepted
+- [ ] All Milestone 1 tasks completed and accepted
 - [ ] End-to-end offline workflow passes
-- [ ] FR-001, FR-002, FR-004 acceptance signed off
+- [ ] Included REQ subset acceptance signed off against TASK-0027 mapping
 - [ ] Performance targets met for 1,000+ individuals
 
 ## Tasks
@@ -54,3 +59,8 @@ Deliver a fully offline mobile MVP with no backend or web runtime dependency.
 - TASK-0014 - M13 Encrypted Backup Export and Import
 - TASK-0015 - M14 Test Harness and Quality Gates
 - TASK-0016 - M15 MVP Acceptance Audit
+- TASK-0028 - M16-Genealogy-Rendering-REQ-Compliance
+- TASK-0029 - M17-Birth-Follow-Up-and-Reminder-Types-Completion
+- TASK-0030 - M18-Journal-Listing-and-Attachment-Criteria-Completion
+- TASK-0031 - M19-Calendar-Predicted-Events-and-Reminders-Completion
+- TASK-0032 - M20-Mobile-Field-Create-Update-Completion
