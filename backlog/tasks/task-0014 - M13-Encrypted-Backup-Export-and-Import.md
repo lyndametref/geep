@@ -4,17 +4,19 @@ title: M13 Encrypted Backup Export and Import
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-14 20:19'
 labels:
   - mobile
   - backup
   - security
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0005
   - TASK-0012
   - TASK-0013
-ordinal: 14000
+priority: medium
+ordinal: 5100
 ---
 
 ## Description

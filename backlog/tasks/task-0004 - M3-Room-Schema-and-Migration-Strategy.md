@@ -4,14 +4,16 @@ title: M3 Room Schema and Migration Strategy
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-14 20:19'
 labels:
   - mobile
   - database
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0003
-ordinal: 4000
+priority: high
+ordinal: 4100
 ---
 
 ## Description

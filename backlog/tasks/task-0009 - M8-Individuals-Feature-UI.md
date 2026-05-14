@@ -4,14 +4,16 @@ title: M8 Individuals Feature UI
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-14 19:13'
+updated_date: '2026-05-14 20:19'
 labels:
   - mobile
   - ui
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0006
-ordinal: 9000
+priority: high
+ordinal: 4600
 ---
 
 ## Description

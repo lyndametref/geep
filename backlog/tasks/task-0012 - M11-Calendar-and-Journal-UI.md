@@ -4,15 +4,17 @@ title: M11 Calendar and Journal UI
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-14 19:13'
+updated_date: '2026-05-14 20:19'
 labels:
   - mobile
   - ui
   - calendar
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0007
-ordinal: 12000
+priority: high
+ordinal: 4900
 ---
 
 ## Description

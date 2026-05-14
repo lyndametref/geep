@@ -4,10 +4,11 @@ title: M14 Test Harness and Quality Gates
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-14 20:19'
 labels:
   - mobile
   - testing
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0007
@@ -15,7 +16,8 @@ dependencies:
   - TASK-0010
   - TASK-0011
   - TASK-0012
-ordinal: 15000
+priority: medium
+ordinal: 5200
 ---
 
 ## Description

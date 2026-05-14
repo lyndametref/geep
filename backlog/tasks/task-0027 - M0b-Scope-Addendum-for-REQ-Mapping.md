@@ -5,7 +5,7 @@ status: In Progress
 assignee:
   - '@github-copilot'
 created_date: '2026-05-14 19:17'
-updated_date: '2026-05-14 20:08'
+updated_date: '2026-05-14 20:20'
 labels:
   - planning
   - scope
@@ -49,6 +49,8 @@ Kept Milestone 1 task list unchanged in this pass per user request.
 Created TASK-0028..TASK-0032 to cover uncovered REQ clusters: REQ-02.002/02.003, REQ-04.006/04.010, REQ-04.007, REQ-05.002/05.003, and REQ-11.001.
 
 Updated Milestone 1 task list to include TASK-0028, TASK-0029, TASK-0030, TASK-0031, and TASK-0032.
+
+Reprioritized Milestone 1 To Do tasks with explicit priority and ordinal sequencing; added needs-refinement label to enforce refine-before-implementation workflow for TASK-0004..TASK-0016 and TASK-0028..TASK-0032.
 <!-- SECTION:NOTES:END -->
 
 ## Definition of Done

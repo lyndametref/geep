@@ -4,11 +4,13 @@ title: M19-Calendar-Predicted-Events-and-Reminders-Completion
 status: To Do
 assignee: []
 created_date: '2026-05-14 20:07'
-updated_date: '2026-05-14 20:10'
-labels: []
+updated_date: '2026-05-14 20:19'
+labels:
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies: []
-ordinal: 30000
+priority: high
+ordinal: 4925
 ---
 
 ## Description

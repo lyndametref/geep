@@ -4,11 +4,13 @@ title: M16-Genealogy-Rendering-REQ-Compliance
 status: To Do
 assignee: []
 created_date: '2026-05-14 20:07'
-updated_date: '2026-05-14 20:10'
-labels: []
+updated_date: '2026-05-14 20:19'
+labels:
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies: []
-ordinal: 27000
+priority: high
+ordinal: 4850
 ---
 
 ## Description

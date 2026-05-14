@@ -4,14 +4,16 @@ title: M5 Repository Layer
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-14 20:19'
 labels:
   - mobile
   - architecture
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0004
-ordinal: 6000
+priority: high
+ordinal: 4300
 ---
 
 ## Description

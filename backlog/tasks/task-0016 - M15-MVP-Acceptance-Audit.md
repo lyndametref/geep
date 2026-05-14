@@ -4,15 +4,17 @@ title: M15 MVP Acceptance Audit
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-14 19:13'
+updated_date: '2026-05-14 20:19'
 labels:
   - mobile
   - acceptance
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0014
   - TASK-0015
-ordinal: 16000
+priority: low
+ordinal: 5300
 ---
 
 ## Description

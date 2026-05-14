@@ -4,14 +4,16 @@ title: M6 Lifecycle Rules Engine
 status: To Do
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-08 14:36'
+updated_date: '2026-05-14 20:19'
 labels:
   - mobile
   - rules
+  - needs-refinement
 milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0006
-ordinal: 7000
+priority: high
+ordinal: 4400
 ---
 
 ## Description
