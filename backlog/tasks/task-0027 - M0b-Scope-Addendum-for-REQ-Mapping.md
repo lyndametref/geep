@@ -1,18 +1,18 @@
 ---
 id: TASK-0027
 title: M0b Scope Addendum for REQ Mapping
-status: In Progress
+status: Done
 assignee:
   - '@github-copilot'
 created_date: '2026-05-14 19:17'
-updated_date: '2026-05-14 20:20'
+updated_date: '2026-05-14 20:34'
 labels:
   - planning
   - scope
   - traceability
 milestone: Iteration 1 Mobile-Only MVP
 dependencies: []
-ordinal: 26000
+ordinal: 2000
 ---
 
 ## Description
@@ -55,7 +55,7 @@ Reprioritized Milestone 1 To Do tasks with explicit priority and ordinal sequenc
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 Tests pass
-- [ ] #2 Documentation updated
-- [ ] #3 No regressions introduced
+- [x] #1 Tests pass
+- [x] #2 Documentation updated
+- [x] #3 No regressions introduced
 <!-- DOD:END -->
