@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="net.madscientists.geep.core.database.GeepDatabaseTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-05-15T21:29:27.363Z" hostname="Keristraza" time="4.748">
+  <properties/>
+  <testcase name="batchRecord_Association_Persistence" classname="net.madscientists.geep.core.database.GeepDatabaseTest" time="4.622"/>
+  <testcase name="individual_CRUD_VerifiesAllFields" classname="net.madscientists.geep.core.database.GeepDatabaseTest" time="0.047"/>
+  <testcase name="attachment_FullCRUD_WithCascadingDelete" classname="net.madscientists.geep.core.database.GeepDatabaseTest" time="0.038"/>
+  <testcase name="record_PolymorphicCRUD_EnsuresDataIntegrity" classname="net.madscientists.geep.core.database.GeepDatabaseTest" time="0.041"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

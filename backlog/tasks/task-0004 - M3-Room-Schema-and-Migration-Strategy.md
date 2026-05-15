@@ -1,10 +1,10 @@
 ---
 id: TASK-0004
 title: M3 Room Schema and Migration Strategy
-status: To Do
+status: Done
 assignee: []
 created_date: '2026-05-08 14:35'
-updated_date: '2026-05-14 20:33'
+updated_date: '2026-05-15 21:32'
 labels:
   - mobile
   - database
@@ -12,7 +12,7 @@ milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0003
 priority: high
-ordinal: 4100
+ordinal: 3000
 ---
 
 ## Description
