@@ -4,9 +4,11 @@ title: 'M4-LSB: Add input validation to all user-facing forms'
 status: To Do
 assignee: []
 created_date: '2026-05-17 19:26'
+updated_date: '2026-05-17 19:56'
 labels:
   - mobile
   - security
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0005
 references:
@@ -15,8 +17,8 @@ modified_files:
   - appAndroid/feature-individuals/src
   - appAndroid/feature-genealogy/src
   - appAndroid/feature-journal/src
-priority: medium
-ordinal: 28000
+priority: high
+ordinal: 5010
 ---
 
 ## Description

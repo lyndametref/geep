@@ -4,9 +4,11 @@ title: 'M4-LSB: Enable ProGuard/R8 obfuscation for release builds'
 status: To Do
 assignee: []
 created_date: '2026-05-17 19:26'
+updated_date: '2026-05-17 19:56'
 labels:
   - mobile
   - build
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0005
 references:
@@ -14,8 +16,8 @@ references:
 modified_files:
   - appAndroid/app/build.gradle.kts
   - appAndroid/app/proguard-rules.pro
-priority: high
-ordinal: 27000
+priority: medium
+ordinal: 5020
 ---
 
 ## Description

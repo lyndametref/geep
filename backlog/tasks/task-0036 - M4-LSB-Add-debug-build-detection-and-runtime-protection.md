@@ -4,15 +4,17 @@ title: 'M4-LSB: Add debug-build detection and runtime protection'
 status: To Do
 assignee: []
 created_date: '2026-05-17 19:26'
+updated_date: '2026-05-17 19:56'
 labels:
   - mobile
   - security
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0005
 references:
   - docs/MOBILE_SECURITY_POLICY.md
 priority: medium
-ordinal: 29000
+ordinal: 5030
 ---
 
 ## Description

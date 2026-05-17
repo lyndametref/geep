@@ -4,10 +4,11 @@ title: 'M4-LSB: Implement Android Keystore-backed data encryption'
 status: To Do
 assignee: []
 created_date: '2026-05-17 19:26'
-updated_date: '2026-05-17 19:29'
+updated_date: '2026-05-17 19:56'
 labels:
   - mobile
   - security
+milestone: Iteration 1 Mobile-Only MVP
 dependencies:
   - TASK-0005
 references:
@@ -16,7 +17,7 @@ modified_files:
   - appAndroid/app/build.gradle.kts
   - appAndroid/core-database/build.gradle.kts
 priority: high
-ordinal: 32000
+ordinal: 5000
 ---
 
 ## Description
