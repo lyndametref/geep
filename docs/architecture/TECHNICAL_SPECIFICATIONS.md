@@ -100,6 +100,10 @@
 ---
 
 ## Security Requirements
+**NFR-019: zero UX friction**
+- Usability is key for field work, security is efficient but invisible.
+- Security controls operate with  zero UX friction: users are never asked to enter a passphrase or PIN, configure encryption settings, or perform manual security actions for data access
+- The only security element acceptable is the login between the different elements of the system (login t0 access the backend), and it must be minimised.
 
 **NFR-009: Authentication and Identity Management**
 - Requirement: All user access must authenticate via OAuth2/OpenID Connect using Keycloak as the identity provider.
