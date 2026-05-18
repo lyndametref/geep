@@ -1,19 +1,4 @@
-# 1. Overview
-
-This model captures the shared business meaning of individual lifecycle, genealogy, observations, care, derived planning, and the REQ-03.001, REQ-03.002, REQ-03.003, and REQ-03.004 placeholder for Geep, without implementation or persistence details.
-
-## 2. Context Map
-
-```mermaid
-graph LR
-    IndividualMgmt["Individual Management"] --> Genealogy["Genealogy Graph"]
-    IndividualMgmt --> Journal["Journal"]
-    Journal --> Planning["Future Events and Reminders"]
-    IndividualMgmt --> TraitAssessment["Trait Assessment Placeholder"]
-    Genealogy --> TraitAssessment
-```
-
-## 3. Business Object Model
+# Business Object Model
 
 ```mermaid
 classDiagram
@@ -22,25 +7,25 @@ classDiagram
     class RECORD
     class ATTACHMENT
 
- 	namespace INDIVIDUAL_SPECIALISATION {
-		class MALE
-		class FEMALE
-	}
+    namespace INDIVIDUAL_SPECIALISATION {
+        class MALE
+        class FEMALE
+    }
 
-	namespace RECORDS_SPECIALISATION {
-		class OBSERVATION
-		class INTERVENTION
-		class FUTURE_EVENT
-	}
+    namespace RECORDS_SPECIALISATION {
+        class OBSERVATION
+        class INTERVENTION
+        class FUTURE_EVENT
+    }
 
- 	namespace FUTURE_EVENT_SPECIALISATION {
-		class PREDICTED_EVENT
-		class PLANNED_TASK
-		class WAITING_DELAY
-	}
-	
-	MALE --|> INDIVIDUAL
-	FEMALE  --|> INDIVIDUAL
+    namespace FUTURE_EVENT_SPECIALISATION {
+        class PREDICTED_EVENT
+        class PLANNED_TASK
+        class WAITING_DELAY
+    }
+
+    MALE --|> INDIVIDUAL
+    FEMALE --|> INDIVIDUAL
 
     OBSERVATION --|> RECORD
     INTERVENTION --|> RECORD
@@ -52,17 +37,16 @@ classDiagram
 
     INDIVIDUAL "0..*" --> "0..1" FEMALE : has dam recorded
     INDIVIDUAL "0..*" --> "0..1" MALE : has sire recorded
-    INDIVIDUAL "1" --> "0..*" RECORD 
+    INDIVIDUAL "1" --> "0..*" RECORD
     RECORD "1" --> "0..*" ATTACHMENT
 
     OBSERVATION "1" --> "0..*" FUTURE_EVENT : may produce
     INTERVENTION "1" --> "0..*" FUTURE_EVENT : may produce
-  
-    FUTURE_EVENT "1" --> "0..*" RECORD : if realized, creates
 
+    FUTURE_EVENT "1" --> "0..*" RECORD : if realized, creates
 ```
 
-## 4. Entity Descriptions
+## Business object Descriptions
 
 ### Individual
 Individual represents a sheep in the flock with identity, lifecycle, and lineage information.
@@ -161,7 +145,7 @@ FutureEvent represents a derived event or reminder that is planned, predicted, w
     - Aborted or never-occurring future events are treated as a domain assumption (TASK-0003 assumption).
 
 ### PredictedEvent
-PredictedEvent is a FutureEvent used for probabilistic  outcomes based on prior records. 
+PredictedEvent is a FutureEvent used for probabilistic  outcomes based on prior records.
 - Bounded context: Future Events and Reminders.
 - Key attributes:
     - earliestDate (REQ-04.004 docs/requirements)
@@ -171,7 +155,7 @@ PredictedEvent is a FutureEvent used for probabilistic  outcomes based on prior 
     - Mating observation can produce a predicted birth window between day 140 and day 150 (REQ-04.004 docs/requirements).
 
 ### PlannedTask
-PlannedTask is a FutureEvent representing a concrete upcoming action to perform. 
+PlannedTask is a FutureEvent representing a concrete upcoming action to perform.
 
 - Bounded context: Future Events and Reminders.
 - Key attributes:

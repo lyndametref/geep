@@ -56,13 +56,16 @@ Must contain these elements in order:
 - A title `Context Map`
 - One very short paragraph stating the purpose and scope of the model.
 - A Mermaid `graph LR` diagram showing bounded contexts and the relationships between them (e.g. shared kernel, upstream/downstream).
+- A section `Context Descriptions` containing one subsection per bounded context with:
+    - context name as subsection title
+    - a short paragraph describing the context purpose and scope.
 
 ### `business-object-model.md`
 
 Must contain these elements in order:
 
 - A title `Business Object Model `
-- A Mermaid `classDiagram` covering all Business Objects and their relationships. Don't show attributes. Use UML notation.
+- A Mermaid `graph LR` covering all Business Objects and their relationships. Don't show attributes. Draw the context each Business Objects belong to.
 - A section `Business object Descriptions` with the following information for each Business object:
     - name as section title
     - short description as introduction paragraph
