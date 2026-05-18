@@ -182,6 +182,130 @@ sanitize_description() {
   printf '%s' "$value"
 }
 
+extract_allowed_skills_from_text() {
+  local text="$1"
+  printf '%s\n' "$text" | awk '
+    BEGIN { capture=0 }
+    {
+      if (!capture && $0 ~ /^Allowed skills:[[:space:]]*$/) {
+        capture=1
+        next
+      }
+      if (capture) {
+        if ($0 ~ /^[[:space:]]*-[[:space:]]*[^[:space:]].*$/) {
+          line=$0
+          sub(/^[[:space:]]*-[[:space:]]*/, "", line)
+          sub(/[[:space:]]+$/, "", line)
+          print line
+          next
+        }
+        if ($0 ~ /^[[:space:]]*$/) {
+          next
+        }
+        exit
+      }
+    }
+  '
+}
+
+extract_allowed_skills_from_claude_json() {
+  local source_file="$1"
+  jq -r '
+    (.allowed_skills // .allowedSkills // [])
+    | if type == "array" then .[] else empty end
+  ' "$source_file" 2>/dev/null || true
+}
+
+unique_skill_list() {
+  local combined="$1"
+  awk '
+    {
+      line=$0
+      sub(/^[[:space:]]+/, "", line)
+      sub(/[[:space:]]+$/, "", line)
+      if (line == "") next
+      if (!seen[line]++) print line
+    }
+  ' <<< "$combined"
+}
+
+merge_skill_lists() {
+  local first_list="$1"
+  local second_list="$2"
+  unique_skill_list "$(printf '%s\n%s\n' "$first_list" "$second_list")"
+}
+
+remove_allowed_skills_section() {
+  local text="$1"
+  printf '%s\n' "$text" | awk '
+    BEGIN { skipping=0 }
+    {
+      if (!skipping && $0 ~ /^Allowed skills:[[:space:]]*$/) {
+        skipping=1
+        next
+      }
+      if (skipping) {
+        if ($0 ~ /^[[:space:]]*-[[:space:]]*[^[:space:]].*$/) {
+          next
+        }
+        if ($0 ~ /^[[:space:]]*$/) {
+          next
+        }
+        skipping=0
+      }
+      print
+    }
+  '
+}
+
+format_allowed_skills_block() {
+  local skills_list="$1"
+  local formatted
+  formatted="Allowed skills:"
+  while IFS= read -r skill; do
+    [[ -z "$skill" ]] && continue
+    formatted+=$'\n'
+    formatted+="  - $skill"
+  done <<< "$skills_list"
+  printf '%s\n' "$formatted"
+}
+
+upsert_allowed_skills_in_body() {
+  local body="$1"
+  local skills_list="$2"
+  local unique
+  local cleaned
+  local block
+
+  unique="$(unique_skill_list "$skills_list")"
+  cleaned="$(remove_allowed_skills_section "$body")"
+
+  if [[ -z "$unique" ]]; then
+    printf '%s\n' "$cleaned"
+    return 0
+  fi
+
+  block="$(format_allowed_skills_block "$unique")"
+
+  printf '%s\n' "$cleaned" | awk -v block="$block" '
+    BEGIN { inserted=0 }
+    {
+      if (!inserted && $0 ~ /^Hints on arguments the user can provide:[[:space:]]*$/) {
+        print block
+        print ""
+        inserted=1
+      }
+      print
+    }
+    END {
+      if (!inserted) {
+        print ""
+        print block
+      }
+    }
+  '
+}
+
 action="export"
 selected_agents=()
 while [[ $# -gt 0 ]]; do
@@ -241,6 +365,7 @@ export_one_claude_agent() {
   description="$(sanitize_description "$description")"
 
   prompt="$(strip_frontmatter "$source_file")"
+  prompt="$(upsert_allowed_skills_in_body "$prompt" "$(extract_allowed_skills_from_text "$prompt")")"
 
   mkdir -p "$(dirname "$target_file")"
 
@@ -268,6 +393,7 @@ import_one_claude_agent() {
   [[ -z "$description" ]] && description="$name"
 
   prompt="$(jq -r '.prompt' "$source_file")"
+  prompt="$(upsert_allowed_skills_in_body "$prompt" "$(merge_skill_lists "$(extract_allowed_skills_from_text "$prompt")" "$(extract_allowed_skills_from_claude_json "$source_file")")")"
 
   mkdir -p "$target_dir"
 

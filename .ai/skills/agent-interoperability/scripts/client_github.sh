@@ -137,6 +137,192 @@ sanitize_description() {
   printf '%s' "$value"
 }
 
+extract_allowed_skills_from_text() {
+  local text="$1"
+  printf '%s\n' "$text" | awk '
+    BEGIN { capture=0 }
+    {
+      if (!capture && $0 ~ /^Allowed skills:[[:space:]]*$/) {
+        capture=1
+        next
+      }
+      if (capture) {
+        if ($0 ~ /^[[:space:]]*-[[:space:]]*[^[:space:]].*$/) {
+          line=$0
+          sub(/^[[:space:]]*-[[:space:]]*/, "", line)
+          sub(/[[:space:]]+$/, "", line)
+          print line
+          next
+        }
+        if ($0 ~ /^[[:space:]]*$/) {
+          next
+        }
+        exit
+      }
+    }
+  '
+}
+
+extract_allowed_skills_from_markdown_frontmatter() {
+  local source_file="$1"
+  awk '
+    function trim(v) {
+      gsub(/^[[:space:]]+/, "", v)
+      gsub(/[[:space:]]+$/, "", v)
+      gsub(/^"/, "", v)
+      gsub(/"$/, "", v)
+      gsub(/^\047/, "", v)
+      gsub(/\047$/, "", v)
+      return v
+    }
+    BEGIN { in_frontmatter=0; capture_list=0 }
+    NR == 1 && /^---$/ { in_frontmatter=1; next }
+    in_frontmatter && /^---$/ { exit }
+    in_frontmatter {
+      lowered=$0
+      sub(/^[[:space:]]+/, "", lowered)
+      split(lowered, parts, ":")
+      key=parts[1]
+      if (key ~ /^(allowed-skills|allowed_skills|allowedSkills|skills)$/) {
+        line=$0
+        sub(/^[^:]*:[[:space:]]*/, "", line)
+        if (line ~ /^\[/) {
+          gsub(/^\[/, "", line)
+          gsub(/\]$/, "", line)
+          n=split(line, arr, /,/) 
+          for (i=1; i<=n; i++) {
+            value=trim(arr[i])
+            if (value != "") print value
+          }
+          capture_list=0
+        } else if (line ~ /^$/) {
+          capture_list=1
+        } else {
+          value=trim(line)
+          if (value != "") print value
+          capture_list=0
+        }
+        next
+      }
+      if (capture_list) {
+        if ($0 ~ /^[[:space:]]*-[[:space:]]+/) {
+          value=$0
+          sub(/^[[:space:]]*-[[:space:]]+/, "", value)
+          value=trim(value)
+          if (value != "") print value
+          next
+        }
+        if ($0 ~ /^[[:space:]]*$/) {
+          next
+        }
+        capture_list=0
+      }
+    }
+  ' "$source_file"
+}
+
+unique_skill_list() {
+  local combined="$1"
+  awk '
+    {
+      line=$0
+      sub(/^[[:space:]]+/, "", line)
+      sub(/[[:space:]]+$/, "", line)
+      if (line == "") next
+      if (!seen[line]++) print line
+    }
+  ' <<< "$combined"
+}
+
+merge_skill_lists() {
+  local first_list="$1"
+  local second_list="$2"
+  unique_skill_list "$(printf '%s\n%s\n' "$first_list" "$second_list")"
+}
+
+remove_allowed_skills_section() {
+  local text="$1"
+  printf '%s\n' "$text" | awk '
+    BEGIN { skipping=0 }
+    {
+      if (!skipping && $0 ~ /^Allowed skills:[[:space:]]*$/) {
+        skipping=1
+        next
+      }
+      if (skipping) {
+        if ($0 ~ /^[[:space:]]*-[[:space:]]*[^[:space:]].*$/) {
+          next
+        }
+        if ($0 ~ /^[[:space:]]*$/) {
+          next
+        }
+        skipping=0
+      }
+      print
+    }
+  '
+}
+
+format_allowed_skills_block() {
+  local skills_list="$1"
+  local formatted
+  formatted="Allowed skills:"
+  while IFS= read -r skill; do
+    [[ -z "$skill" ]] && continue
+    formatted+=$'\n'
+    formatted+="  - $skill"
+  done <<< "$skills_list"
+  printf '%s\n' "$formatted"
+}
+
+upsert_allowed_skills_in_body() {
+  local body="$1"
+  local skills_list="$2"
+  local unique
+  local cleaned
+  local block
+
+  unique="$(unique_skill_list "$skills_list")"
+  cleaned="$(remove_allowed_skills_section "$body")"
+
+  if [[ -z "$unique" ]]; then
+    printf '%s\n' "$cleaned"
+    return 0
+  fi
+
+  block="$(format_allowed_skills_block "$unique")"
+
+  printf '%s\n' "$cleaned" | awk -v block="$block" '
+    BEGIN { inserted=0 }
+    {
+      if (!inserted && $0 ~ /^Hints on arguments the user can provide:[[:space:]]*$/) {
+        print block
+        print ""
+        inserted=1
+      }
+      print
+    }
+    END {
+      if (!inserted) {
+        print ""
+        print block
+      }
+    }
+  '
+}
+
+emit_allowed_skills_frontmatter() {
+  local skills_list="$1"
+  local unique
+  unique="$(unique_skill_list "$skills_list")"
+  [[ -z "$unique" ]] && return 0
+  printf '%s\n' 'allowed-skills:'
+  while IFS= read -r skill; do
+    [[ -z "$skill" ]] && continue
+    printf '  - "%s"\n' "$skill"
+  done <<< "$unique"
+}
+
 extract_capabilities() {
   local source_file="$1"
   awk '
@@ -322,7 +508,7 @@ export_one_github_agent() {
   local source_file="$1"
   local agent_slug="$2"
   local target_file="$github_agents_root/${agent_slug}.md"
-  local title description mission mission_you_are mission_your_job capabilities constraints source_body
+  local title description mission mission_you_are mission_your_job capabilities constraints source_body allowed_skills
 
   title="$(extract_frontmatter_value "$source_file" name)"
   [[ -z "$title" ]] && title="$(extract_frontmatter_value "$source_file" title)"
@@ -347,6 +533,8 @@ export_one_github_agent() {
   constraints="$(extract_constraints_list "$source_file")"
 
   source_body="$(strip_frontmatter "$source_file")"
+  allowed_skills="$(extract_allowed_skills_from_text "$source_body")"
+  source_body="$(upsert_allowed_skills_in_body "$source_body" "$allowed_skills")"
 
   mkdir -p "$(dirname "$target_file")"
 
@@ -363,6 +551,7 @@ export_one_github_agent() {
     if [[ -n "$constraints" ]]; then
       printf 'constraints:\n%s\n' "$constraints"
     fi
+    emit_allowed_skills_frontmatter "$allowed_skills"
     printf 'temperature: 0.3\n'
     printf '%s\n\n' '---'
     if [[ -n "$source_body" ]]; then
@@ -377,7 +566,7 @@ import_one_github_agent() {
   local agent_slug="$2"
   local target_dir="$canonical_agents_root/$agent_slug"
   local target_file="$target_dir/AGENT.md"
-  local title description mission capabilities constraints body
+  local title description mission capabilities constraints body allowed_skills_from_body allowed_skills_from_frontmatter allowed_skills
 
   title="$(awk '/^---$/ {f++} f==1 && /^title:/ {sub(/^title:[[:space:]]*/, ""); sub(/^"/, ""); sub(/"$/, ""); print; exit}' "$source_file")"
   description="$(awk '/^---$/ {f++} f==1 && /^description:/ {sub(/^description:[[:space:]]*/, ""); sub(/^"/, ""); sub(/"$/, ""); print; exit}' "$source_file")"
@@ -385,6 +574,10 @@ import_one_github_agent() {
   capabilities="$(awk '/^---$/ {f++} f==1 && /^capabilities:/ {sub(/^capabilities:[[:space:]]*/, ""); sub(/^\[/, ""); sub(/\]$/, ""); print; exit}' "$source_file")"
   constraints="$(awk '/^constraints:/ {in_constraints=1; next} in_constraints && /^---/ {exit} in_constraints && /^  - / {sub(/^  - /, ""); print}' "$source_file")"
   body="$(awk 'BEGIN{frontmatter=0} /^---$/ {frontmatter++; next} frontmatter<2{next} {print}' "$source_file")"
+  allowed_skills_from_body="$(extract_allowed_skills_from_text "$body")"
+  allowed_skills_from_frontmatter="$(extract_allowed_skills_from_markdown_frontmatter "$source_file")"
+  allowed_skills="$(merge_skill_lists "$allowed_skills_from_body" "$allowed_skills_from_frontmatter")"
+  body="$(upsert_allowed_skills_in_body "$body" "$allowed_skills")"
 
   mkdir -p "$target_dir"
   {

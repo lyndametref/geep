@@ -39,12 +39,17 @@ Ensure `.ai/agents` remains the canonical source of truth for agent definitions.
      ./client_<client>.sh --export
      ```
    - Example: `./client_github.sh --export`
+   - Metadata conversion rule: each client script converts the canonical `Allowed skills:` metadata section to the client file metadata when supported (`allowed-skills` in YAML frontmatter), while preserving the canonical section in agent content.
 
-4. **Verify Outputs**:
+4. **Import Metadata Preservation**:
+   - Import operations normalize and preserve `Allowed skills:` in canonical format exactly as used in `.ai/agents/<slug>/AGENT.md` (same structure as the terminologist agent).
+   - If a client file includes `allowed-skills` metadata, it is merged into the canonical `Allowed skills:` section without duplicates.
+
+5. **Verify Outputs**:
    - Ensure generated files exist in the appropriate directories.
    - Example: `.claude/agents/<slug>.json`, `.github/agents/<slug>.md`.
 
-5. **Skill Linking**:
+6. **Skill Linking**:
    - For Gemini, use the Gemini client script action:
       ```bash
       ./.ai/skills/agent-interoperability/scripts/client_gemini.sh --create-skill-link
