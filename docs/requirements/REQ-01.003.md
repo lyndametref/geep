@@ -1,6 +1,6 @@
 # REQ-01.003: For individual entries without an assigned BDTA number yet, the system allows later BDTA assignment.
 
-As a sheperd, I want to create individual entries even when the BDTA number is not yet available so that I can capture important information immediately and complete identification later.
+As a shepherd, I want to create individual entries even when the BDTA number is not yet available so that I can capture important information immediately and complete identification later.
 
 Group: REQ-01 Individual Management
 Criticality Must have

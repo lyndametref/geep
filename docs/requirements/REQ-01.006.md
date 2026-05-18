@@ -1,6 +1,6 @@
 # REQ-01.006: Each individual can be represented by a portrait chosen from observations or by a procedurally generated icon.
 
-As a sheperd, I want each individual entry to have a visual representation so that I can identify animals quickly.
+As a shepherd, I want each individual entry to have a visual representation so that I can identify animals quickly.
 
 Group: REQ-01 Individual Management
 Criticality Should have

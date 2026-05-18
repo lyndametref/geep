@@ -1,6 +1,6 @@
 # REQ-05.003: The calendar integrates reminders
 
-As a sheperd, I want reminders to appear in the calendar so that I can plan upcoming care actions.
+As a shepherd, I want reminders to appear in the calendar so that I can plan upcoming care actions.
 
 Group: REQ-05 Calendar View
 Criticality Must have

@@ -1,6 +1,6 @@
 # REQ-10.002: Pasture management supports parasite-oriented rotation operations.
 
-As a sheperd, I want to manage pasture usage so that parasite exposure can be reduced.
+As a shepherd, I want to manage pasture usage so that parasite exposure can be reduced.
 
 Group: REQ-10 Pasture Management and Mapping
 Criticality Should have

@@ -1,6 +1,6 @@
 # REQ-01.004: Each individual entry includes a birth date, with an optional death date; for stillborn entries, both dates are the same.
 
-As a sheperd, I want to record birth and, when dead, death dates for each sheep so that lifecycle information remains complete and accurate.
+As a shepherd, I want to record birth and, when dead, death dates for each sheep so that lifecycle information remains complete and accurate.
 
 Group: REQ-01 Individual Management
 Criticality Must have

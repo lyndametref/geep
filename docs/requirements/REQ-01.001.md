@@ -1,6 +1,6 @@
 # REQ-01.001: Each individual must have a unique identifier
 
-As a sheperd, I want a unique identifier to be created for each sheep so that I can record information about them without relying on names or manually assigning unique numbers.
+As a shepherd, I want a unique identifier to be created for each sheep so that I can record information about them without relying on names or manually assigning unique numbers.
 
 Group: REQ-01 Individual Management
 Criticality Must have

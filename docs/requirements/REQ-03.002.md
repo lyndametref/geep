@@ -1,6 +1,6 @@
 # REQ-03.002: The sheep owner can enter genotype information.
 
-As a sheperd, I want to enter genotype information even when I am not fully certain so that I can keep partial knowledge and refine it later.
+As a shepherd, I want to enter genotype information even when I am not fully certain so that I can keep partial knowledge and refine it later.
 
 Group: REQ-03 Phenotype and Genotype Deduction
 Criticality Should have

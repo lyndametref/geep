@@ -1,6 +1,6 @@
 # REQ-01.002: Each individual entry can have an official number associated.
 
-As a sheperd, I want to be able to provide an official number for my animals, either at creation or later, so that I can comply with regulations while keeping flexibility on when I make the assignment.
+As a shepherd, I want to be able to provide an official number for my animals, either at creation or later, so that I can comply with regulations while keeping flexibility on when I make the assignment.
 
 Group: REQ-01 Individual Management
 Criticality Must have

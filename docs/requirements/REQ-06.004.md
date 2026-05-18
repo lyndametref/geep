@@ -1,6 +1,6 @@
 # REQ-06.004: Manual stock correction is possible.
 
-As a sheperd, I want to manually correct stock levels so that inventory remains accurate when adjustments are needed.
+As a shepherd, I want to manually correct stock levels so that inventory remains accurate when adjustments are needed.
 
 Group: REQ-06 Medication Management
 Criticality Can have

@@ -1,6 +1,6 @@
 # REQ-04.001: Observation types include weight evolution, health observations, and reproduction events.
 
-As a sheperd, I want to record different kinds of observations so that I can track the important events and conditions affecting my animals.
+As a shepherd, I want to record different kinds of observations so that I can track the important events and conditions affecting my animals.
 
 Group: REQ-04 Observations and Reproductive Planning
 Criticality Must have

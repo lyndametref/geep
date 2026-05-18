@@ -1,6 +1,6 @@
 # REQ-04.002: Batch entry allows applying the same entry to multiple selected individuals.
 
-As a sheperd, I want to apply the same entry to multiple animals at once so that repetitive work is reduced.
+As a shepherd, I want to apply the same entry to multiple animals at once so that repetitive work is reduced.
 
 Group: REQ-04 Observations and Automated Events
 Criticality Must have

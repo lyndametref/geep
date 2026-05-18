@@ -1,6 +1,6 @@
 # REQ-02.002: The genealogy view displays individuals as nodes with an icon and a display label.
 
-As a sheperd, I want each animal to be clearly identifiable in the genealogy view so that I can navigate lineage quickly.
+As a shepherd, I want each animal to be clearly identifiable in the genealogy view so that I can navigate lineage quickly.
 
 Group: REQ-02 Genealogy and Parentage Graph
 Criticality Must have

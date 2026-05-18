@@ -1,6 +1,6 @@
 # REQ-09.001: Icon generation considers base color, agouti pattern, spotting, and dilution.
 
-As a sheperd, I want icon generation to reflect key phenotype traits so that icons remain meaningful and distinguishable.
+As a shepherd, I want icon generation to reflect key phenotype traits so that icons remain meaningful and distinguishable.
 
 Group: REQ-09 Procedural Icon Generation
 Criticality Can have

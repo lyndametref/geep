@@ -1,6 +1,6 @@
 # REQ-03.001: The sheep owner can provide phenotype information.
 
-As a sheperd, I want to provide phenotype information for my sheep so that the system can support genotype deduction.
+As a shepherd, I want to provide phenotype information for my sheep so that the system can support genotype deduction.
 
 Group: REQ-03 Phenotype and Genotype Deduction
 Criticality Should have

@@ -1,6 +1,6 @@
 # REQ-05.002: The calendar integrates predicted future events such as birth.
 
-As a sheperd, I want predicted events to appear in the calendar so that I can anticipate upcoming flock operations.
+As a shepherd, I want predicted events to appear in the calendar so that I can anticipate upcoming flock operations.
 
 Group: REQ-05 Calendar View
 Criticality Must have

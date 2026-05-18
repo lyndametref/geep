@@ -1,6 +1,6 @@
 # REQ-04.004: A mating observation produces a birth planned event at a range of 140 to 150 days after observation.
 
-As a sheperd, I want mating observations to automatically generate expected birth planning events so that reproductive follow-up is timely.
+As a shepherd, I want mating observations to automatically generate expected birth planning events so that reproductive follow-up is timely.
 
 Group: REQ-04 Observations and Reproductive Planning
 Criticality Should have

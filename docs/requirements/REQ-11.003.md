@@ -1,6 +1,6 @@
 # REQ-11.003: Changes made on one application are available to other applications after synchronization.
 
-As a sheperd, I want changes made in one application to be available in the others after synchronization so that all users work with consistent data.
+As a shepherd, I want changes made in one application to be available in the others after synchronization so that all users work with consistent data.
 
 Group: REQ-11 Multi-Application Workflow
 Criticality Should have

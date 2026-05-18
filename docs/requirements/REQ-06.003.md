@@ -1,6 +1,6 @@
 # REQ-06.003: Medication stock is automatically updated when a treatment is entered in observations.
 
-As a sheperd, I want stock to update automatically when treatments are recorded so that inventory stays accurate without manual recalculation.
+As a shepherd, I want stock to update automatically when treatments are recorded so that inventory stays accurate without manual recalculation.
 
 Group: REQ-06 Medication Management
 Criticality Can have

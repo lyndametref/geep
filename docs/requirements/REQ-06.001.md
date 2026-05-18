@@ -1,6 +1,6 @@
 # REQ-06.001: Medication master data includes information about drugs.
 
-As a sheperd, I want each drug definition to include key safety information so that treatments are managed correctly.
+As a shepherd, I want each drug definition to include key safety information so that treatments are managed correctly.
 
 Group: REQ-06 Medication Management
 Criticality Can have

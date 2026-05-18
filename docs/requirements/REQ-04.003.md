@@ -1,6 +1,6 @@
 # REQ-04.003: Individuals can be selected for batch processes through filters or manual selection.
 
-As a sheperd, I want to select animals efficiently for batch operations so that I can apply entries to the right set of individuals.
+As a shepherd, I want to select animals efficiently for batch operations so that I can apply entries to the right set of individuals.
 
 Group: REQ-04 Observations and Automated Events
 Criticality Must have
