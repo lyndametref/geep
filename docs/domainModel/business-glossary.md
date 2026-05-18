@@ -25,18 +25,23 @@ Canonical glossary for business terms used across requirements, domain model, sp
 | Dose | The quantity of drug administered to an individual. |
 | FaMaCha | Visual scoring method based on mucous membrane color. |
 | Flock | A group of sheep managed together under a single owner or manager. |
+| Flock Entry | The joining of an Individual into the Flock, with a recorded reason (birth or purchase) and date. |
+| Flock Exit | The departure of an Individual from the Flock, with a recorded reason (sold, slaughtered, deceased) and date. |
 | Flock Manager | The user role responsible for managing the flock and configuring system options. |
+| Flock Member | An Individual that is currently part of the Flock Manager's active flock. |
 | Future Event | A derived event or reminder that is planned, predicted, waiting, realized, or aborted, depending on context.|
 | Genealogy Graph | A graph structure where Individuals are nodes and parentage relationships are edges, enabling ancestry-based reasoning and navigation. |
 | Genotype | Genetic makeup of an Individual. |
 | Genotype Deduction | System-proposed possible genotypes for an Individual based on ancestry, phenotype, and descendant phenotype. |
 | Hoof Trimming | An Intervention for hoof care. |
-| Individual | A sheep in the flock. |
+| Individual | A sheep managed or referenced in the system. |
 | Intervention | A type of Record capturing performed actions, care, and treatment information (e.g., shearing, hoof trimming, treatment administration). |
 | Journal | A chronological record of Observations and Interventions associated with one or more Individuals. |
 | Lambing | The process of giving birth in a ewe. |
+| Lineage Individual | An Individual that exists in the system for genealogy purposes but was never part of the current flock manager's active flock. |
 | Meat Quarantine Period | The withdrawal period after treatment during which meat from the treated animal must not be used. |
 | Medical Analysis Result | A health analysis result (e.g., lab test) stored as an Observation in an Individual's journal. |
+| Membership Timeline | The chronological sequence of FLOCK_ENTRY and FLOCK_EXIT Observations for an Individual relative to the Flock. |
 | Medication / Drug | A substance used in treatments. |
 | Medication Stock | Tracked inventory of drugs. |
 | Milk Quarantine Period | The withdrawal period after treatment during which milk from the treated animal must not be used. |

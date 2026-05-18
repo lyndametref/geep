@@ -4,23 +4,23 @@ This model captures the shared business meaning of individual lifecycle, genealo
 
 ```mermaid
 graph LR
-    IndividualMgmt["Individual Management"] --> Genealogy["Genealogy Graph"]
-    IndividualMgmt --> Journal["Journaling"]
+    IndividualMgmt["Individual Management"] -->|includes refs| Genealogy["Genealogy Graph"]
+    IndividualMgmt -->|excludes refs| Journal["Journaling"]
     Journal --> Planning["Planning"]
-    IndividualMgmt --> TraitAssessment["Trait Assessment Placeholder"]
+    IndividualMgmt -->|excludes refs| TraitAssessment["Trait Assessment Placeholder"]
     Genealogy --> TraitAssessment
 ```
 
 ## Context Descriptions
 
 ### Individual Management
-Manages the lifecycle and identity of individuals, including registration, status, and parentage links used by downstream contexts.
+Manages the lifecycle and identity of individuals, including registration, status, flock membership, and parentage links used by downstream contexts. Individual Management owns the `belongsToFlock` flag that downstream contexts must respect for filtering lineage individuals.
 
 ### Genealogy Graph
-Represents lineage relationships between individuals and supports ancestry-based reasoning and navigation.
+Represents lineage relationships between individuals and supports ancestry-based reasoning and navigation. Includes lineage individuals (belongsToFlock = false) in the graph.
 
 ### Journaling
-Captures observations, interventions, and related evidence as chronological records associated with one or more individuals.
+Captures observations, interventions, and related evidence as chronological records associated with one or more individuals. Excludes lineage individuals from day-to-day journal operations.
 
 ### Planning
 Holds future-oriented items derived from journal activity, including predictions, planned actions, and waiting delays.

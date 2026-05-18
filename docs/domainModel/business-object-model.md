@@ -62,7 +62,7 @@ graph LR
 ## Business object Descriptions
 
 ### Individual
-Individual represents a sheep in the flock with identity, lifecycle, and lineage information.
+Individual represents a sheep managed or referenced in the system, with identity, lifecycle, lineage information, and flock membership tracking.
 
 - Bounded context: Individual Management.
 - Key attributes:
@@ -75,6 +75,7 @@ Individual represents a sheep in the flock with identity, lifecycle, and lineage
     - colorPattern (optional) (REQ-01.005)
     - living (REQ-01.005)
     - stillborn (REQ-01.004)
+    - belongsToFlock (REQ-01.008)
     - sire (optional) (REQ-01.005)
     - dam (optional) (REQ-01.005)
 - Key business rules:
@@ -85,6 +86,9 @@ Individual represents a sheep in the flock with identity, lifecycle, and lineage
     - For stillborns, living status is treated as always dead (TASK-0003 assumption).
     - Parentage is modeled with sire and dam links (REQ-01.005).
     - At most one sire and at most one dam, and parent role sex semantics, are treated as domain assumptions (TASK-0003 assumption).
+    - An individual with `belongsToFlock = false` and no FLOCK_ENTRY or FLOCK_EXIT Observations is a **Lineage individual**: excluded from day-to-day flock management views (observations, interventions, batch operations, dashboards) but visible in genealogy graph and parentage views (REQ-01.008).
+    - An individual with `belongsToFlock = true` has or will have FLOCK_ENTRY or FLOCK_EXIT Observations tracking its entries and exits from the active flock (REQ-01.008).
+    - Whether an individual is currently in the active flock is derived from the latest membership Observation: if the latest is FLOCK_ENTRY (no subsequent FLOCK_EXIT), the individual is a current flock member (REQ-01.008).
 
 ### Male
 Male is a specialization of Individual for individuals recorded with male sex.
@@ -115,17 +119,22 @@ Record is the shared journal entry supertype for Observation, Intervention, and 
     - Records may have attachments for evidence or reference, such as photos or PDFs (REQ-04.006).
 
 ### Observation
-Observation specializes Record and covers weight evolution, health observations, medical analysis results, and reproduction events.
+Observation specializes Record and covers weight evolution, health observations, medical analysis results, reproduction events, and flock membership events.
 
 - Bounded context: Journaling.
 - Key attributes:
-    - observationType (REQ-04.001)
+    - observationType (REQ-04.001, REQ-01.008)
     - observedAt (TASK-0003 assumption)
-    - content (REQ-04.007)
+    - content (REQ-04.007, REQ-01.008)
     - selectedIndividuals (REQ-04.002, REQ-04.003)
 - Key business rules:
     - A single observation may be applied to multiple selected individuals (REQ-04.002).
     - Medical analysis results are stored as observation content and do not require a separate business object (REQ-04.007).
+    - Observation types include FLOCK_ENTRY and FLOCK_EXIT for tracking flock membership (REQ-01.008).
+    - A FLOCK_ENTRY observation records the reason (BIRTH or PURCHASE) and entry date via observedAt (REQ-01.008).
+    - A FLOCK_EXIT observation records the reason (SOLD, SLAUGHTERED, or DECEASED) and exit date via observedAt (REQ-01.008).
+    - Birth entry observedAt must match the individual's birthDate (REQ-01.004, REQ-01.008).
+    - Exit reason DECEASED requires the individual's deathDate to be set; observedAt must equal the deathDate (REQ-01.004, REQ-01.008).
 
 ### Intervention
 Intervention specializes Record and captures performed actions, care, and treatment information.
@@ -183,7 +192,7 @@ WaitingDelay is a FutureEvent representing a delay interval that must elapse bef
 - Key attributes:
     - title
     - delayElapsedAt (REQ-13.004)
-    - elapsed (REQ-13.004)
+    - elapsed: Boolean (REQ-13.004)
 - Key business rules:
     - WaitingDelay models elapsed periods such as intervention-related quarantine windows (REQ-13.004).
 
