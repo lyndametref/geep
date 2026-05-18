@@ -1,6 +1,7 @@
 .idea
 .github
 .claude
+.gemini
 .opencode
 opencode.json
 GEMINI.md
