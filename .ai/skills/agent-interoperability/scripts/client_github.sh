@@ -540,19 +540,11 @@ export_one_github_agent() {
 
   {
     printf '%s\n' '---'
-    printf 'title: "%s"\n' "$title"
+    printf 'name: "%s"\n' "$title"
     printf 'description: "%s"\n' "$description"
-    if [[ -n "$mission" ]]; then
-      printf 'mission: "%s"\n' "$(printf '%s' "$mission" | sed 's/"/\\"/g')"
-    fi
     if [[ -n "$capabilities" ]]; then
-      printf 'capabilities: [%s]\n' "$capabilities"
+      printf 'tools: [%s]\n' "$capabilities"
     fi
-    if [[ -n "$constraints" ]]; then
-      printf 'constraints:\n%s\n' "$constraints"
-    fi
-    emit_allowed_skills_frontmatter "$allowed_skills"
-    printf 'temperature: 0.3\n'
     printf '%s\n\n' '---'
     if [[ -n "$source_body" ]]; then
       printf '%s\n' "$source_body"
@@ -569,9 +561,11 @@ import_one_github_agent() {
   local title description mission capabilities constraints body allowed_skills_from_body allowed_skills_from_frontmatter allowed_skills
 
   title="$(awk '/^---$/ {f++} f==1 && /^title:/ {sub(/^title:[[:space:]]*/, ""); sub(/^"/, ""); sub(/"$/, ""); print; exit}' "$source_file")"
+  [[ -z "$title" ]] && title="$(awk '/^---$/ {f++} f==1 && /^name:/ {sub(/^name:[[:space:]]*/, ""); sub(/^"/, ""); sub(/"$/, ""); print; exit}' "$source_file")"
   description="$(awk '/^---$/ {f++} f==1 && /^description:/ {sub(/^description:[[:space:]]*/, ""); sub(/^"/, ""); sub(/"$/, ""); print; exit}' "$source_file")"
   mission="$(awk '/^---$/ {f++} f==1 && /^mission:/ {sub(/^mission:[[:space:]]*/, ""); sub(/^"/, ""); sub(/"$/, ""); print; exit}' "$source_file")"
   capabilities="$(awk '/^---$/ {f++} f==1 && /^capabilities:/ {sub(/^capabilities:[[:space:]]*/, ""); sub(/^\[/, ""); sub(/\]$/, ""); print; exit}' "$source_file")"
+  [[ -z "$capabilities" ]] && capabilities="$(awk '/^---$/ {f++} f==1 && /^tools:/ {sub(/^tools:[[:space:]]*/, ""); sub(/^\[/, ""); sub(/\]$/, ""); print; exit}' "$source_file")"
   constraints="$(awk '/^constraints:/ {in_constraints=1; next} in_constraints && /^---/ {exit} in_constraints && /^  - / {sub(/^  - /, ""); print}' "$source_file")"
   body="$(awk 'BEGIN{frontmatter=0} /^---$/ {frontmatter++; next} frontmatter<2{next} {print}' "$source_file")"
   allowed_skills_from_body="$(extract_allowed_skills_from_text "$body")"
