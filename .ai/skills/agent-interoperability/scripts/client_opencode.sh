@@ -3,16 +3,31 @@
 set -euo pipefail
 
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-
-selected_agents=()
-
-echo "Completed ${action} for ${client_name} agents."
-set -euo pipefail
-
-script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)"
 repo_root="$(cd "$script_dir/../../../.." && pwd)"
 canonical_agents_root="$repo_root/.ai/agents"
 opencode_agents_root="$repo_root/.opencode/agents"
+opencode_skills_link="$repo_root/.opencode/skills"
+
+ensure_symlink() {
+  local link_path="$1"
+  local target_path="$2"
+  local current_target
+
+  mkdir -p "$(dirname "$link_path")"
+
+  if [[ -L "$link_path" ]]; then
+    current_target="$(readlink "$link_path")"
+    if [[ "$current_target" == "$target_path" ]]; then
+      return 0
+    fi
+    rm "$link_path"
+  elif [[ -e "$link_path" ]]; then
+    echo "Refusing to replace non-symlink path: $link_path" >&2
+    exit 1
+  fi
+
+  ln -s "$target_path" "$link_path"
+}
 
 slugify() {
   local value="$1"
@@ -228,10 +243,12 @@ emit_opencode_permissions() {
 
 usage() {
   cat <<'EOF'
-Usage: client_opencode.sh --export|--import [--agent <slug>]...
+Usage: client_opencode.sh --export|--import|--create-skill-link|--create_skill_link [--agent <slug>]...
 
   --export   Export OpenCode agents from .ai/agents to .opencode/agents in OpenCode format.
   --import   Import OpenCode agents from .opencode/agents to .ai/agents (agnostic format).
+  --create-skill-link, --create_skill_link
+             Create/refresh .opencode/skills symlink to ../.ai/skills/.
   --agent    Restrict to a specific agent slug (can be repeated).
 EOF
 }
@@ -247,6 +264,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --import)
       action="import"
+      shift
+      ;;
+    --create-skill-link|--create_skill_link)
+      action="create_skill_link"
       shift
       ;;
     --agent)
@@ -269,6 +290,11 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
+
+create_skill_link() {
+  ensure_symlink "$opencode_skills_link" "../.ai/skills/"
+  echo "Linked OpenCode skills directory to .ai/skills."
+}
 
 export_one_opencode_agent() {
   local source_file="$1"
@@ -383,6 +409,8 @@ if [[ "$action" == "export" ]]; then
 elif [[ "$action" == "import" ]]; then
   main_import
   echo "Completed import for opencode agents."
+elif [[ "$action" == "create_skill_link" ]]; then
+  create_skill_link
 else
   echo "Unknown action: $action" >&2
   exit 1

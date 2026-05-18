@@ -6,10 +6,32 @@ script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(cd "$script_dir/../../../.." && pwd)"
 canonical_agents_root="$repo_root/.ai/agents"
 gemini_agents_root="$repo_root/.gemini/agents"
+gemini_skills_link="$repo_root/.gemini/skills"
+
+ensure_symlink() {
+  local link_path="$1"
+  local target_path="$2"
+  local current_target
+
+  mkdir -p "$(dirname "$link_path")"
+
+  if [[ -L "$link_path" ]]; then
+    current_target="$(readlink "$link_path")"
+    if [[ "$current_target" == "$target_path" ]]; then
+      return 0
+    fi
+    rm "$link_path"
+  elif [[ -e "$link_path" ]]; then
+    echo "Refusing to replace non-symlink path: $link_path" >&2
+    exit 1
+  fi
+
+  ln -s "$target_path" "$link_path"
+}
 
 usage() {
   cat <<'EOF'
-Usage: client_gemini.sh --export [--agent <slug>]... | --import [--agent <slug>]...
+Usage: client_gemini.sh --export|--import|--create-skill-link|--create_skill_link [--agent <slug>]...
 
 Gemini Agent Interoperability Script
 -------------------------------------
@@ -19,6 +41,8 @@ Exports or imports agent definitions between the canonical agnostic format (.ai/
 Options:
   --export         Export agents from .ai/agents to .gemini/agents in Gemini format.
   --import         Import agents from .gemini/agents to .ai/agents in canonical format.
+  --create-skill-link, --create_skill_link
+                   Create/refresh .gemini/skills symlink to ../.ai/skills/.
   --agent <slug>   Restrict to a specific agent slug (can be repeated).
   -h, --help       Show this help message and exit.
 
@@ -41,6 +65,9 @@ Examples:
 
   # Import all agents from Gemini format
   ./client_gemini.sh --import
+
+  # Create or refresh Gemini skills symlink
+  ./client_gemini.sh --create-skill-link
 
   # Import only a specific agent
   ./client_gemini.sh --import --agent my-agent
@@ -155,6 +182,48 @@ sanitize_description() {
   printf '%s' "$value"
 }
 
+action="export"
+selected_agents=()
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --export)
+      action="export"
+      shift
+      ;;
+    --import)
+      action="import"
+      shift
+      ;;
+    --create-skill-link|--create_skill_link)
+      action="create_skill_link"
+      shift
+      ;;
+    --agent)
+      if [[ $# -lt 2 ]]; then
+        echo "--agent requires a value" >&2
+        usage
+        exit 1
+      fi
+      selected_agents+=("$(slugify "$2")")
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "Unknown argument: $1" >&2
+      usage
+      exit 1
+      ;;
+  esac
+done
+
+create_skill_link() {
+  ensure_symlink "$gemini_skills_link" "../.ai/skills/"
+  echo "Linked Gemini skills directory to .ai/skills."
+}
+
 export_one_gemini_agent() {
   local source_file="$1"
   local agent_slug="$2"
@@ -264,7 +333,9 @@ if [[ "$action" == "export" ]]; then
 elif [[ "$action" == "import" ]]; then
   main_import
   echo "Completed import for gemini agents."
+elif [[ "$action" == "create_skill_link" ]]; then
+  create_skill_link
 else
-  echo "Invalid action. Use --export or --import."
+  echo "Unknown action: $action" >&2
   exit 1
 fi

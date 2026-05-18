@@ -19,11 +19,11 @@ Ensure `.ai/agents` remains the canonical source of truth for agent definitions.
 
 ## Procedure
 1. **Client-Specific Scripts**:
-   - Use the following scripts for import/export operations:
-     - **GitHub Copilot**: `./.ai/skills/agent-interoperability/scripts/client_github.sh --import|--export`
-     - **Claude Code**: `./.ai/skills/agent-interoperability/scripts/client_claude.sh --import|--export`
-     - **OpenCode**: `./.ai/skills/agent-interoperability/scripts/client_opencode.sh --import|--export`
-     - **Gemini**: `./.ai/skills/agent-interoperability/scripts/client_gemini.sh --import|--export`
+   - Use the following scripts for import/export/link operations:
+      - **GitHub Copilot**: `./.ai/skills/agent-interoperability/scripts/client_github.sh --import|--export|--create-skill-link|--create_skill_link`
+      - **Claude Code**: `./.ai/skills/agent-interoperability/scripts/client_claude.sh --import|--export|--create-skill-link|--create_skill_link`
+      - **OpenCode**: `./.ai/skills/agent-interoperability/scripts/client_opencode.sh --import|--export|--create-skill-link|--create_skill_link`
+      - **Gemini**: `./.ai/skills/agent-interoperability/scripts/client_gemini.sh --import|--export|--create-skill-link|--create_skill_link`
    - Add `--agent <slug>` to process specific agents.
 
 2. **Import Agents**:
@@ -45,11 +45,39 @@ Ensure `.ai/agents` remains the canonical source of truth for agent definitions.
    - Example: `.claude/agents/<slug>.json`, `.github/agents/<slug>.md`.
 
 5. **Skill Linking**:
-   - Use `link_skills.sh` to create symlinks for shared skills:
-     ```bash
-     ./.ai/skills/agent-interoperability/scripts/link_skills.sh
-     ```
-   - This links `.ai/skills` to client-specific skill directories.
+   - For Gemini, use the Gemini client script action:
+      ```bash
+      ./.ai/skills/agent-interoperability/scripts/client_gemini.sh --create-skill-link
+      ```
+   - Alternate alias accepted by the script:
+      ```bash
+      ./.ai/skills/agent-interoperability/scripts/client_gemini.sh --create_skill_link
+      ```
+   - For Claude Code, use the Claude client script action:
+      ```bash
+      ./.ai/skills/agent-interoperability/scripts/client_claude.sh --create-skill-link
+      ```
+   - Alternate alias accepted by the script:
+      ```bash
+      ./.ai/skills/agent-interoperability/scripts/client_claude.sh --create_skill_link
+      ```
+   - For GitHub Copilot, use the GitHub client script action:
+      ```bash
+      ./.ai/skills/agent-interoperability/scripts/client_github.sh --create-skill-link
+      ```
+   - Alternate alias accepted by the script:
+      ```bash
+      ./.ai/skills/agent-interoperability/scripts/client_github.sh --create_skill_link
+      ```
+   - For OpenCode, use only the OpenCode client script action:
+       ```bash
+      ./.ai/skills/agent-interoperability/scripts/client_opencode.sh --create-skill-link
+       ```
+   - Alternate alias accepted by the script:
+      ```bash
+      ./.ai/skills/agent-interoperability/scripts/client_opencode.sh --create_skill_link
+      ```
+   - Do not rely on shared linker scripts when working with OpenCode.
 
 ## Decision Points
 - If conflicts arise (e.g., multiple client files for the same agent slug), prioritize the first valid source and log provenance in the canonical file.
