@@ -1,7 +1,7 @@
 ---
 name: agent-interoperability
-description: 'Import agent definitions from Claude Code, OpenCode, GitHub Copilot, and Gemini into the canonical .ai/agents format; export canonical agents back to those clients; and expose .ai/skills via POSIX symlinks.'
-argument-hint: 'Optional: import agents, export agents, sync both directions, or link skills.'
+description: 'Manage agent definitions across multiple clients (Claude, OpenCode, GitHub Copilot, Gemini) by importing/exporting agents to/from the canonical .ai/agents format.'
+argument-hint: 'Optional: import agents, export agents, or create symlinks.'
 user-invocable: true
 disable-model-invocation: false
 ---
@@ -9,49 +9,52 @@ disable-model-invocation: false
 # Agent Interoperability
 
 ## Outcome
-Keep `.ai/agents` as the canonical source of truth, import agents from any supported client layout into that format, export canonical agents back to client-ready files, and make skills from `.ai/skills` available to multiple AI clients using symbolic links.
+Ensure `.ai/agents` remains the canonical source of truth for agent definitions. Facilitate seamless import/export of agents between `.ai/agents` and client-specific formats (Claude, OpenCode, GitHub Copilot, Gemini).
 
 ## When To Use
-- You add or update an agent in `.ai/agents` and need synced versions for multiple AI clients.
-- You create an agent in `.github/agents`, `.claude/agents`, `.opencode/agents`, or `.gemini/agents` and want it normalized into `.ai/agents`.
-- You want one source of truth for skills in `.ai/skills`.
-- You need repeatable, idempotent setup scripts for local onboarding.
+- You need to synchronize agent definitions between `.ai/agents` and client-specific directories.
+- You want to export canonical agents to client-ready formats.
+- You need to import client-specific agents into the canonical `.ai/agents` format.
+- You want to create symlinks for shared skills.
 
 ## Procedure
-1. Import client agents into the canonical format:
-   - Run `./.ai/skills/agent-interoperability/scripts/import_agents.sh`.
-   - This scans supported client layouts and writes normalized agents into `.ai/agents/*/AGENT.md`.
-2. Export canonical agents back to clients when needed:
-   - Run `./.ai/skills/agent-interoperability/scripts/export_agents.sh`.
-   - This regenerates client-ready files in:
-     - `.github/agents/*.agent.md`
-     - `.claude/agents/*.md`
-     - `.opencode/agents/*.md`
-     - `.gemini/agents/*.md`
-3. Or do both at once:
-   - Run `./.ai/skills/agent-interoperability/scripts/sync_agents.sh`.
-   - `./.ai/skills/agent-interoperability/scripts/convert_agents.sh` remains as a compatibility wrapper.
-2. Link shared skills into client paths:
-   - Run `./.ai/skills/agent-interoperability/scripts/link_skills.sh`.
-   - This creates/updates symlinks from each client skills directory to each skill under `.ai/skills`.
-3. Verify outputs:
-   - Confirm generated files exist in the canonical and client target directories.
-   - Confirm links with `ls -l .github/skills .claude/skills .opencode/skills .gemini/skills`.
+1. **Client-Specific Scripts**:
+   - Use the following scripts for import/export operations:
+     - **GitHub Copilot**: `./.ai/skills/agent-interoperability/scripts/client_github.sh --import|--export`
+     - **Claude Code**: `./.ai/skills/agent-interoperability/scripts/client_claude.sh --import|--export`
+     - **OpenCode**: `./.ai/skills/agent-interoperability/scripts/client_opencode.sh --import|--export`
+     - **Gemini**: `./.ai/skills/agent-interoperability/scripts/client_gemini.sh --import|--export`
+   - Add `--agent <slug>` to process specific agents.
+
+2. **Import Agents**:
+   - Import agents from client-specific directories into `.ai/agents`:
+     ```bash
+     ./client_<client>.sh --import
+     ```
+   - Example: `./client_claude.sh --import --agent my-agent`
+
+3. **Export Agents**:
+   - Export agents from `.ai/agents` to client-specific formats:
+     ```bash
+     ./client_<client>.sh --export
+     ```
+   - Example: `./client_github.sh --export`
+
+4. **Verify Outputs**:
+   - Ensure generated files exist in the appropriate directories.
+   - Example: `.claude/agents/<slug>.json`, `.github/agents/<slug>.md`.
+
+5. **Skill Linking**:
+   - Use `link_skills.sh` to create symlinks for shared skills:
+     ```bash
+     ./.ai/skills/agent-interoperability/scripts/link_skills.sh
+     ```
+   - This links `.ai/skills` to client-specific skill directories.
 
 ## Decision Points
-- If multiple client files map to the same agent slug, the importer keeps the first supported source it finds and records source provenance in the canonical file.
-- If a client has no official agent schema, keep generated files as descriptive markdown prompts for manual use.
-- If source content lacks frontmatter, fall back to the filename and first heading for normalization.
+- If conflicts arise (e.g., multiple client files for the same agent slug), prioritize the first valid source and log provenance in the canonical file.
+- Ensure all client-specific formats adhere to their respective schemas (e.g., JSON for Claude, YAML for OpenCode).
 
-## Quality Checks
-- Every supported client-format agent can be normalized into `.ai/agents/*/AGENT.md`.
-- Every `.ai/agents/*/AGENT.md` can be regenerated into each target client directory.
-- Conversion is idempotent (re-running scripts updates files and links cleanly).
-- Skills remain authored once under `.ai/skills` and exposed via symlinks only.
-
-## Scripts
-- [import_agents.sh](./scripts/import_agents.sh)
-- [export_agents.sh](./scripts/export_agents.sh)
-- [sync_agents.sh](./scripts/sync_agents.sh)
-- [convert_agents.sh](./scripts/convert_agents.sh)
-- [link_skills.sh](./scripts/link_skills.sh)
+## Notes
+- These scripts are client-centric and designed for modularity.
+- Avoid direct edits to `.ai/agents` or client directories; use the provided scripts for consistency.
