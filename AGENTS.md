@@ -1,21 +1,24 @@
-# AGENT.md
+# AGENTS
 
 ## Purpose
 This file defines how coding and documentation agents should operate in this repository.
 
-## Single repository
-This repository will contain all the applications for the Geep ecosystem as well as the backlog and the requirements.
+## Project Structure
+
+This single repository will contain all the applications for the Geep ecosystem as well as the backlog and the requirements.
+
 Here is the structure:
 - `backlog/` : Tasks, project-specific docs, and decisions.
 - `docs/` : Domain reference material and requirements.
+  - `docs/architecture/**.md`: architecture documentation of the whole ecosystem
+  - `docs/businessRules/**.md` : business rules used in the ovin flock management
+  - `docs/domainModel/**.md` : domain model for the ovin flock management
+  - `docs/requirements/**.md` : Business requirements for the ovin flock management tool. No technical requirements allowed here.
+  - `docs/specs/**.md` : technical specification of the ovin flock management tool.
 - `appAndroid/` : Android application source code.
-
-## Repository Focus
-Geep is planned and documented through requirements and backlog artifacts.
-Primary source-of-truth areas:
-- `.agents` : AI agent definitions.
-- `docs/` : Domain reference material and architecture contracts.
-- `backlog/` : Milestones, tasks, decisions, and completion tracking.
+- `.ai` : source of truth of ai tools configuration
+  - `.ai/agents`: AI agents definitions
+  - `.ai/skills`: AI skills definitions
 
 DO NOT change this folder hierarchy.
 
