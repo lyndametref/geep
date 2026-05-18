@@ -137,6 +137,100 @@ sanitize_description() {
   printf '%s' "$value"
 }
 
+extract_capabilities() {
+  local source_file="$1"
+  awk '
+    BEGIN { in_capabilities=0; count=0 }
+    /^## Metadata/ { in_metadata=1; next }
+    in_metadata && /^Allowed actions:/ { in_capabilities=1; next }
+    in_metadata && in_capabilities && /^[[:space:]]*- / {
+      line=$0
+      sub(/^[[:space:]]*- /, "", line)
+      sub(/: .*/, "", line)
+      if (count > 0) printf ", "
+      printf "\"%s\"", line
+      count++
+    }
+    in_metadata && in_capabilities && /^[[:space:]]*$/ { exit }
+    in_metadata && /^##/ && !/^## Metadata/ { in_metadata=0 }
+  ' "$source_file"
+}
+
+extract_constraints_list() {
+  local source_file="$1"
+  awk '
+    BEGIN { in_constraints=0; count=0 }
+    /^## Constraints/ { in_constraints=1; next }
+    in_constraints && /^- / {
+      line=$0
+      sub(/^- /, "", line)
+      if (count > 0) printf "\n"
+      printf "  - \"%s\"", line
+      count++
+    }
+    in_constraints && /^##/ { exit }
+  ' "$source_file"
+}
+
+extract_mission_statement() {
+  local source_file="$1"
+  awk '
+    BEGIN { in_mission=0; mission="" }
+    /^## Mission statement/ { in_mission=1; next }
+    in_mission && /^##/ { exit }
+    in_mission && /^[[:space:]]*$/ {
+      if (mission != "") exit
+      next
+    }
+    in_mission {
+      line=$0
+      sub(/^[[:space:]]+/, "", line)
+      sub(/[[:space:]]+$/, "", line)
+      if (line != "") {
+        mission = line
+        exit
+      }
+    }
+    END { print mission }
+  ' "$source_file"
+}
+
+extract_mission_you_are() {
+  local source_file="$1"
+  awk '
+    BEGIN { in_mission=0 }
+    /^## Mission statement/ { in_mission=1; next }
+    in_mission && /^##/ { exit }
+    in_mission {
+      if ($0 ~ /^You are a/) {
+        line=$0
+        sub(/^[[:space:]]+/, "", line)
+        sub(/[[:space:]]+$/, "", line)
+        print line
+        exit
+      }
+    }
+  ' "$source_file"
+}
+
+extract_mission_your_job() {
+  local source_file="$1"
+  awk '
+    BEGIN { in_mission=0 }
+    /^## Mission statement/ { in_mission=1; next }
+    in_mission && /^##/ { exit }
+    in_mission {
+      if ($0 ~ /^Your/) {
+        line=$0
+        sub(/^[[:space:]]+/, "", line)
+        sub(/[[:space:]]+$/, "", line)
+        print line
+        exit
+      }
+    }
+  ' "$source_file"
+}
+
 usage() {
   cat <<'EOF'
 Usage: client_github.sh --export|--import|--create-skill-link|--create_skill_link [--agent <slug>]...
@@ -228,17 +322,29 @@ export_one_github_agent() {
   local source_file="$1"
   local agent_slug="$2"
   local target_file="$github_agents_root/${agent_slug}.md"
-  local title description source_body
+  local title description mission mission_you_are mission_your_job capabilities constraints source_body
 
   title="$(extract_frontmatter_value "$source_file" name)"
   [[ -z "$title" ]] && title="$(extract_frontmatter_value "$source_file" title)"
   [[ -z "$title" ]] && title="$(extract_first_heading "$source_file")"
   [[ -z "$title" ]] && title="$agent_slug"
 
-  description="$(extract_frontmatter_value "$source_file" description)"
+  # Try to extract "You are a..." and "Your job is..." from mission statement
+  mission_you_are="$(extract_mission_you_are "$source_file")"
+  mission_your_job="$(extract_mission_your_job "$source_file")"
+
+  # Use extracted parts, fallback to description/summary if needed
+  description="$mission_you_are"
+  [[ -z "$description" ]] && description="$(extract_frontmatter_value "$source_file" description)"
   [[ -z "$description" ]] && description="$(extract_summary "$source_file")"
   [[ -z "$description" ]] && description="$title"
   description="$(sanitize_description "$description")"
+
+  mission="$mission_your_job"
+  [[ -z "$mission" ]] && mission="$(extract_mission_statement "$source_file")"
+
+  capabilities="$(extract_capabilities "$source_file")"
+  constraints="$(extract_constraints_list "$source_file")"
 
   source_body="$(strip_frontmatter "$source_file")"
 
@@ -248,6 +354,16 @@ export_one_github_agent() {
     printf '%s\n' '---'
     printf 'title: "%s"\n' "$title"
     printf 'description: "%s"\n' "$description"
+    if [[ -n "$mission" ]]; then
+      printf 'mission: "%s"\n' "$(printf '%s' "$mission" | sed 's/"/\\"/g')"
+    fi
+    if [[ -n "$capabilities" ]]; then
+      printf 'capabilities: [%s]\n' "$capabilities"
+    fi
+    if [[ -n "$constraints" ]]; then
+      printf 'constraints:\n%s\n' "$constraints"
+    fi
+    printf 'temperature: 0.3\n'
     printf '%s\n\n' '---'
     if [[ -n "$source_body" ]]; then
       printf '%s\n' "$source_body"
@@ -261,10 +377,13 @@ import_one_github_agent() {
   local agent_slug="$2"
   local target_dir="$canonical_agents_root/$agent_slug"
   local target_file="$target_dir/AGENT.md"
-  local title description body
+  local title description mission capabilities constraints body
 
   title="$(awk '/^---$/ {f++} f==1 && /^title:/ {sub(/^title:[[:space:]]*/, ""); sub(/^"/, ""); sub(/"$/, ""); print; exit}' "$source_file")"
   description="$(awk '/^---$/ {f++} f==1 && /^description:/ {sub(/^description:[[:space:]]*/, ""); sub(/^"/, ""); sub(/"$/, ""); print; exit}' "$source_file")"
+  mission="$(awk '/^---$/ {f++} f==1 && /^mission:/ {sub(/^mission:[[:space:]]*/, ""); sub(/^"/, ""); sub(/"$/, ""); print; exit}' "$source_file")"
+  capabilities="$(awk '/^---$/ {f++} f==1 && /^capabilities:/ {sub(/^capabilities:[[:space:]]*/, ""); sub(/^\[/, ""); sub(/\]$/, ""); print; exit}' "$source_file")"
+  constraints="$(awk '/^constraints:/ {in_constraints=1; next} in_constraints && /^---/ {exit} in_constraints && /^  - / {sub(/^  - /, ""); print}' "$source_file")"
   body="$(awk 'BEGIN{frontmatter=0} /^---$/ {frontmatter++; next} frontmatter<2{next} {print}' "$source_file")"
 
   mkdir -p "$target_dir"
@@ -272,6 +391,12 @@ import_one_github_agent() {
     printf '---\n'
     printf 'title: "%s"\n' "$title"
     printf 'description: "%s"\n' "$description"
+    if [[ -n "$mission" ]]; then
+      printf 'mission: "%s"\n' "$mission"
+    fi
+    if [[ -n "$capabilities" ]]; then
+      printf 'capabilities: [%s]\n' "$capabilities"
+    fi
     printf '---\n\n'
     if [[ -n "$body" ]]; then
       printf '%s\n' "$body"
