@@ -43,6 +43,7 @@ Secondary references may exist in other docs, but new business glossary entries 
 4. Edit glossary entries.
 - Keep definitions short, explicit, and non-circular.
 - Prefer one-sentence definitions plus one context clause when needed.
+- Defintion do not include business rules, only the meaning of the term. 
 - Keep formatting aligned with each target file style (bullet list vs markdown table).
 
 5. Propagate reference updates.
