@@ -66,9 +66,4 @@ Create an applications ecosystem to support seamlessly the management of an ovin
 - Automated backups available locally and optionally in the cloud.
 - Kubernetes used for scaling.
 
-## Glossary
-- BDTA: Animal identifier referenced in the individual management requirements.
-- BCS: Body Condition Score.
-- FaMaCha: A visual scoring method based on mucous membrane color.
-- Parentage Graph: Interactive representation of ancestor and descendant relationships.
-- Quarantine Period: Withdrawal period after treatment for meat or milk usage.
+

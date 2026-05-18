@@ -193,7 +193,7 @@
 
 ---
 
-## Glossary
+## Technical Glossary
 
 | Term | Definition |
 |------|-----------|
