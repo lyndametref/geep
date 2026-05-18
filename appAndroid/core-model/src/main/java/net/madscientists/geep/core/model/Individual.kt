@@ -12,7 +12,6 @@ data class Individual(
     val colorPattern: String? = null,
     val living: Boolean = true,
     val stillborn: Boolean = false,
-    val portraitReference: String? = null,
     val sireId: String? = null,
     val damId: String? = null,
     val notes: String? = null

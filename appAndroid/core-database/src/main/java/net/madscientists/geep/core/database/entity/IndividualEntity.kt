@@ -17,7 +17,6 @@ data class IndividualEntity(
     val colorPattern: String?,
     val living: Boolean,
     val stillborn: Boolean,
-    val portraitReference: String?,
     val sireId: String?,
     val damId: String?,
     val notes: String? = null

@@ -66,7 +66,6 @@ class GeepDatabaseTest {
             colorPattern = "White",
             living = true,
             stillborn = false,
-            portraitReference = "ref/1",
             sireId = "ram-1",
             damId = "ewe-1"
         )
@@ -177,6 +176,6 @@ class GeepDatabaseTest {
     private fun createSheep(id: String) = IndividualEntity(
         id = id, name = "Sheep $id", bdtaNumber = null, birthDate = LocalDate.now(),
         deathDate = null, sex = Sex.FEMALE, colorPattern = null, living = true, stillborn = false,
-        portraitReference = null, sireId = null, damId = null
+        sireId = null, damId = null
     )
 }

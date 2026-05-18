@@ -21,7 +21,7 @@ class GeepMigrationTest {
     val helper: MigrationTestHelper = MigrationTestHelper(
         InstrumentationRegistry.getInstrumentation(),
         GeepDatabase::class.java,
-        listOf(), // No manual migrations needed as we use AutoMigration
+        listOf(GeepDatabase.MIGRATION_2_3),
         FrameworkSQLiteOpenHelperFactory()
     )
 
@@ -35,10 +35,8 @@ class GeepMigrationTest {
     @Test
     @Throws(IOException::class)
     fun migrate_1_to_2_autoMigration() {
-        // 1. Create DB at version 1
         var db = helper.createDatabase(TEST_DB, 1)
 
-        // 2. Insert data using raw SQLite
         val values = ContentValues().apply {
             put("id", "sheep-v1")
             put("name", "Legacy Sheep")
@@ -50,23 +48,56 @@ class GeepMigrationTest {
         db.insert("individuals", SQLiteDatabase.CONFLICT_REPLACE, values)
         db.close()
 
-        // 3. Migrate to version 2
-        // runMigrationsAndValidate will automatically detect AutoMigrations if defined in GeepDatabase
         db = helper.runMigrationsAndValidate(TEST_DB, 2, true)
 
-        // 4. Verify data integrity and schema consistency
         val cursor = db.query("SELECT * FROM individuals WHERE id = 'sheep-v1'")
         assertEquals(true, cursor.moveToFirst())
-        
-        // Verify old data survived
+
         val nameIndex = cursor.getColumnIndex("name")
         assertEquals("Legacy Sheep", cursor.getString(nameIndex))
 
-        // Verify baseline columns remain available after migration
         assertEquals(true, cursor.getColumnIndex("birthDate") != -1)
         assertEquals(true, cursor.getColumnIndex("sex") != -1)
         assertEquals(true, cursor.getColumnIndex("living") != -1)
-        
+
+        cursor.close()
+        db.close()
+    }
+
+    @Test
+    @Throws(IOException::class)
+    fun migrate_2_to_3_dropsPortraitReference() {
+        var db = helper.createDatabase(TEST_DB, 2)
+
+        val values = ContentValues().apply {
+            put("id", "sheep-v2")
+            put("name", "Portrait Sheep")
+            put("birthDate", "2024-06-01")
+            put("sex", "MALE")
+            put("living", 1)
+            put("stillborn", 0)
+            put("portraitReference", "ref/portrait-123")
+            put("notes", "Has portrait")
+        }
+        db.insert("individuals", SQLiteDatabase.CONFLICT_REPLACE, values)
+        db.close()
+
+        db = helper.runMigrationsAndValidate(TEST_DB, 3, true, GeepDatabase.MIGRATION_2_3)
+
+        // Verify data survived
+        val cursor = db.query("SELECT * FROM individuals WHERE id = 'sheep-v2'")
+        assertEquals(true, cursor.moveToFirst())
+
+        val nameIndex = cursor.getColumnIndex("name")
+        assertEquals("Portrait Sheep", cursor.getString(nameIndex))
+
+        // Verify portraitReference column was dropped
+        assertEquals(-1, cursor.getColumnIndex("portraitReference"))
+
+        // Verify other columns still exist
+        assertEquals(true, cursor.getColumnIndex("notes") != -1)
+        assertEquals(true, cursor.getColumnIndex("birthDate") != -1)
+
         cursor.close()
         db.close()
     }
