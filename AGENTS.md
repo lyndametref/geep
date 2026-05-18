@@ -9,7 +9,7 @@ This single repository will contain all the applications for the Geep ecosystem 
 
 Here is the structure:
 - `backlog/` : Tasks, project-specific docs, and decisions.
-- `docs/` : Domain reference material and requirements.
+- `docs/` : Project documentation. Contains all documentation about requirements, architecture, domain model and technical specification.
   - `docs/architecture/**.md`: architecture documentation of the whole ecosystem
   - `docs/businessRules/**.md` : business rules used in the ovin flock management
   - `docs/domainModel/**.md` : domain model for the ovin flock management
