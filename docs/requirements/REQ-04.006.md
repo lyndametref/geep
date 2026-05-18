@@ -1,15 +1,21 @@
-# REQ-04.006: A confirmed birth proposes creation of lamb records as well as a weaning event 3 months later.
+# REQ-04.006: Each individual has a chronological journal.
 
-As a sheperd, I want confirmed births to generate follow-up actions so that newborn tracking and weaning planning are not missed.
+As a shepherd, I want each individual to have a chronological journal with possibility to add attachments to entries so that I can review history with supporting evidence.
 
-Group: REQ-04 Observations and Automated Events
+Group: REQ-04 Observations and Reproductive Planning
 Criticality Must have
 
 ## Description
-A confirmed birth must trigger a proposal to create lamb entries and a planned weaning event three months later for all the lambs.
+Each individual entry must provide a chronological journal that supports attachments, such as photos and PDF documents.
 
 ## Acceptance Criteria
-- When a birth is confirmed, the system proposes creating lamb entries.
-- When a birth is confirmed, the system generates a planned weaning event three months after the confirmed birth date for each created lamb.
-- Multiple lambs can be associated to a single birth event for the dam
-- only ewe (female individual) can have birth events recorded.
+- Journal items are displayed in chronological order.
+- Journal items support photo attachments.
+- Journal items support PDF attachments.
+- Journal items can be listed for a single individual 
+- Journal items can be listed for multiple individuals selected by:
+    - ancestry
+    - date of birth
+    - sex 
+- Selection criteria can be added with the product evolution
+

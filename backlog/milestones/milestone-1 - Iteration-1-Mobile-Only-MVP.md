@@ -2,7 +2,7 @@
 id: MILESTONE-1
 title: Iteration 1 Mobile-Only MVP
 status: Active
-description: Deliver an offline-first Android app for Iteration-1 REQ subset (REQ-01, REQ-02.001..REQ-02.003, REQ-04.001..REQ-04.003, REQ-04.006, REQ-04.007, REQ-04.010, REQ-05.002..REQ-05.003, REQ-11.001) with no backend or web runtime dependency.
+description: Deliver an offline-first Android app for Iteration-1 REQ subset (REQ-01, REQ-02.001..REQ-02.003, REQ-04.001..REQ-04.003, REQ-04.005, REQ-04.006, REQ-13.006, REQ-05.002..REQ-05.003, REQ-11.001) with no backend or web runtime dependency.
 created_date: '2026-05-08 14:34'
 target_date: null
 ---
@@ -24,9 +24,9 @@ Deliver a fully offline mobile MVP with no backend or web runtime dependency.
 - REQ-01 Individual Management
 - REQ-02.001..REQ-02.003 Genealogy and Parentage Graph
 - REQ-04.001..REQ-04.003 Observations and Batch Entry
-- REQ-04.006 Confirmed Birth Follow-Up
-- REQ-04.007 Chronological Journal and Attachments
-- REQ-04.010 Key Care and Reproduction Reminders
+- REQ-04.005 Confirmed Birth Follow-Up
+- REQ-04.006 Chronological Journal and Attachments
+- REQ-13.006 Key Care and Reproduction Reminders
 - REQ-05.002..REQ-05.003 Calendar Predicted Events and Reminders
 - REQ-11.001 Mobile Create/Update Workflows
 

@@ -1,21 +1,14 @@
-# REQ-04.007: Each individual has a chronological journal.
+# REQ-04.007: The journal stores medical analysis results.
 
-As a sheperd, I want each individual to have a chronological journal with possibility to add attachments to entries so that I can review history with supporting evidence.
+As a shepherd, I want medical analysis results to be stored in the journal so that I can review health evidence over time.
 
-Group: REQ-04 Observations and Automated Events
-Criticality Must have
+Group: REQ-04 Observations and Reproductive Planning
+Criticality Should have
 
 ## Description
-Each individual entry must provide a chronological journal that supports attachments, such as photos and PDF documents.
+The journal must store medical analysis results for individuals as observations.
 
 ## Acceptance Criteria
-- Journal items are displayed in chronological order.
-- Journal items support photo attachments.
-- Journal items support PDF attachments.
-- Journal items can be listed for a single individual 
-- Journal items can be listed for multiple individuals selected by:
-    - ancestry
-    - date of birth
-    - sex 
-- Selection criteria can be added with the product evolution
-
+- Journal entries support recording medical analysis results.
+- Medical analysis results are linked to the relevant individual journal.
+- Medical analyses are treated as observations.

@@ -23,7 +23,7 @@ Document the authoritative REQ-based scope mapping after requirement format spli
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [x] #1 Defines Iteration-1 included scope as REQ-01, REQ-02.001..REQ-02.003, REQ-04.001..REQ-04.003, REQ-04.006,REQ-04.007,REQ-04.010,REQ-05.002..REQ-05.003 and REQ-11.001
+- [x] #1 Defines Iteration-1 included scope as REQ-01, REQ-02.001..REQ-02.003, REQ-04.001..REQ-04.003, REQ-04.005,REQ-04.006,REQ-13.006,REQ-05.002..REQ-05.003 and REQ-11.001
 <!-- AC:END -->
 
 ## Implementation Plan

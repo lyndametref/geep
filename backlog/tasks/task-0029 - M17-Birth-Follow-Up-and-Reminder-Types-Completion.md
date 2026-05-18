@@ -16,15 +16,15 @@ ordinal: 4750
 ## Description
 
 <!-- SECTION:DESCRIPTION:BEGIN -->
-Close REQ-04.006 and REQ-04.010 explicit coverage gaps for Iteration 1 lifecycle outcomes and reminder types.
+Close REQ-04.005 and REQ-13.006 explicit coverage gaps for Iteration 1 lifecycle outcomes and reminder types.
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 REQ-04.006: Confirmed birth proposes creation of lamb records for the dam event context.
-- [ ] #2 REQ-04.006: Confirmed birth generates a planned weaning event around 3 months later for each created lamb.
-- [ ] #3 REQ-04.006: Birth event recording is constrained to ewe/female individuals.
-- [ ] #4 REQ-04.010: Reminder support explicitly includes hoof trimming and shearing reminder types.
+- [ ] #1 REQ-04.005: Confirmed birth proposes creation of lamb records for the dam event context.
+- [ ] #2 REQ-04.005: Confirmed birth generates a planned weaning event around 3 months later for each created lamb.
+- [ ] #3 REQ-04.005: Birth event recording is constrained to ewe/female individuals.
+- [ ] #4 REQ-13.006: Reminder support explicitly includes hoof trimming and shearing reminder types.
 <!-- AC:END -->
 
 ## Definition of Done

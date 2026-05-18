@@ -111,8 +111,8 @@ Record is the shared journal entry supertype for Observation, Intervention, and 
 - Key attributes:
     - id
 - Key business rules:
-    - A record can appear in the journal of one or more individuals so batch capture is represented without losing per-individual chronology (REQ-04.002, REQ-04.007).
-    - Records may have attachments for evidence or reference, such as photos or PDFs (REQ-04.007).
+    - A record can appear in the journal of one or more individuals so batch capture is represented without losing per-individual chronology (REQ-04.002, REQ-04.006).
+    - Records may have attachments for evidence or reference, such as photos or PDFs (REQ-04.006).
 
 ### Observation
 Observation specializes Record and covers weight evolution, health observations, medical analysis results, and reproduction events.
@@ -121,23 +121,23 @@ Observation specializes Record and covers weight evolution, health observations,
 - Key attributes:
     - observationType (REQ-04.001)
     - observedAt (TASK-0003 assumption)
-    - content (REQ-04.009)
+    - content (REQ-04.007)
     - selectedIndividuals (REQ-04.002, REQ-04.003)
 - Key business rules:
     - A single observation may be applied to multiple selected individuals (REQ-04.002).
-    - Medical analysis results are stored as observation content and do not require a separate business object (REQ-04.009).
+    - Medical analysis results are stored as observation content and do not require a separate business object (REQ-04.007).
 
 ### Intervention
 Intervention specializes Record and captures performed actions, care, and treatment information.
 
 - Bounded context: Journaling.
 - Key attributes:
-    - interventionType (REQ-04.005)
-    - performedAt (REQ-04.008)
-    - selectedIndividuals (REQ-04.002, REQ-04.003)
+    - interventionType (REQ-13.001)
+    - performedAt (REQ-13.005)
+    - selectedIndividuals (REQ-13.002, REQ-13.003)
 - Key business rules:
-    - A single intervention may be applied to multiple selected individuals (REQ-04.002).
-    - Intervention data can include treatment dose and quarantine-related information (REQ-04.005, REQ-04.008).
+    - A single intervention may be applied to multiple selected individuals (REQ-13.002).
+    - Intervention data can include treatment dose and quarantine-related information (REQ-13.004, REQ-13.005).
 
 ### FutureEvent
 FutureEvent represents a derived event or reminder that is planned, predicted, waiting, realized, or aborted depending on context.
@@ -145,11 +145,11 @@ FutureEvent represents a derived event or reminder that is planned, predicted, w
 - Bounded context: Planning.
 - Key attributes:
     - id
-    - futureEventType (REQ-04.004, REQ-04.005, REQ-04.006, REQ-04.010, REQ-05.002, REQ-05.003)
+    - futureEventType (REQ-04.004, REQ-13.004, REQ-04.005, REQ-13.006, REQ-05.002, REQ-05.003)
     - status (TASK-0003 assumption)
-    - sourceRecord (REQ-04.004, REQ-04.005, REQ-04.006)
+    - sourceRecord (REQ-04.004, REQ-13.004, REQ-04.005)
 - Key business rules:
-    - Future events are derived from observations or interventions (REQ-04.004, REQ-04.005, REQ-04.006).
+    - Future events are derived from observations or interventions (REQ-04.004, REQ-13.004, REQ-04.005).
     - Realization of future events through concrete records is treated as a domain assumption (TASK-0003 assumption).
     - Aborted or never-occurring future events are treated as a domain assumption (TASK-0003 assumption).
 
@@ -170,11 +170,11 @@ PlannedTask is a FutureEvent representing a concrete upcoming action to perform.
 - Bounded context: Planning.
 - Key attributes:
     - title
-    - reminderDate (REQ-04.006, REQ-04.010, REQ-05.003)
-    - dueDate (REQ-04.006, REQ-05.002)
+    - reminderDate (REQ-04.005, REQ-13.006, REQ-05.003)
+    - dueDate (REQ-04.005, REQ-05.002)
     - completionStatus (TASK-0003 assumption)
 - Key business rules:
-    - A confirmed birth can derive a weaning planned task around 3 months later (REQ-04.006).
+    - A confirmed birth can derive a weaning planned task around 3 months later (REQ-04.005).
 
 ### WaitingDelay
 WaitingDelay is a FutureEvent representing a delay interval that must elapse before normal operations resume.
@@ -182,10 +182,10 @@ WaitingDelay is a FutureEvent representing a delay interval that must elapse bef
 - Bounded context: Planning.
 - Key attributes:
     - title
-    - delayElapsedAt (REQ-04.005)
-    - elapsed (REQ-04.005)
+    - delayElapsedAt (REQ-13.004)
+    - elapsed (REQ-13.004)
 - Key business rules:
-    - WaitingDelay models elapsed periods such as intervention-related quarantine windows (REQ-04.005).
+    - WaitingDelay models elapsed periods such as intervention-related quarantine windows (REQ-13.004).
 
 ### Attachment
 Attachment represents documentary evidence linked to a record.
@@ -193,8 +193,8 @@ Attachment represents documentary evidence linked to a record.
 - Bounded context: Journaling.
 - Key attributes:
     - id
-    - attachmentType (REQ-04.007)
+    - attachmentType (REQ-04.006)
     - label (optional)
     - capturedAt (optional)
 - Key business rules:
-    - Attachment metadata is associated with records for evidence and reference, such as photos or PDFs (REQ-04.007).
+    - Attachment metadata is associated with records for evidence and reference, such as photos or PDFs (REQ-04.006).

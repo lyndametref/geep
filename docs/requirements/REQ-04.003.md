@@ -6,7 +6,7 @@ Group: REQ-04 Observations and Automated Events
 Criticality Must have
 
 ## Description
-The system must allow individuals to be selected for batch operations either through filters, such as age or sex, or through manual selection.
+The system must allow individuals to be selected for batch operations either through filters, such as age or sex, or through manual selection. For batch intervention selection, see REQ-13.003.
 
 ## Acceptance Criteria
 - Individuals can be selected through an age filter.

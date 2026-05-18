@@ -1,13 +1,15 @@
-# REQ-04.005: A treatment observation records a quarantine period for meat or milk.
+# REQ-04.005: A confirmed birth proposes creation of lamb records as well as a weaning event 3 months later.
 
-As a sheperd, I want treatment entries to include quarantine details so that I can respect meat and milk withdrawal periods.
+As a shepherd, I want confirmed births to generate follow-up actions so that newborn tracking and weaning planning are not missed.
 
-Group: REQ-04 Observations and Automated Events
-Criticality Should have
+Group: REQ-04 Observations and Reproductive Planning
+Criticality Must have
 
 ## Description
-A treatment entry must support recording quarantine periods for meat and milk.
+A confirmed birth must trigger a proposal to create lamb entries and a planned weaning event three months later for all the lambs.
 
 ## Acceptance Criteria
-- A treatment entry supports recording a quarantine period for meat.
-- A treatment entry supports recording a quarantine period for milk.
+- When a birth is confirmed, the system proposes creating lamb entries.
+- When a birth is confirmed, the system generates a planned weaning event three months after the confirmed birth date for each created lamb.
+- Multiple lambs can be associated to a single birth event for the dam
+- only ewe (female individual) can have birth events recorded.

@@ -6,9 +6,8 @@ Group: REQ-04 Observations and Automated Events
 Criticality Must have
 
 ## Description
-The system must support a generic batch-entry capability so that the same entry can be applied to multiple selected individuals in one operation. This capability applies to observation entries defined in this group and to treatment entries specified in later requirements.
+The system must support a generic batch-entry capability so that the same entry can be applied to multiple selected individuals in one operation. This capability applies to observation entries defined in this group. For batch entry of interventions, see REQ-13.002.
 
 ## Acceptance Criteria
-- The system supports selecting multiple individuals for a batch entry operation.
+- The system supports selecting multiple individuals for a batch observation operation.
 - The same observation entry can be applied to all selected individuals in one operation.
-- The same treatment entry can be applied to all selected individuals in one operation when treatment support is available.

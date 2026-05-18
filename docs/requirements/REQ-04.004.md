@@ -2,7 +2,7 @@
 
 As a sheperd, I want mating observations to automatically generate expected birth planning events so that reproductive follow-up is timely.
 
-Group: REQ-04 Observations and Automated Events
+Group: REQ-04 Observations and Reproductive Planning
 Criticality Should have
 
 ## Description
