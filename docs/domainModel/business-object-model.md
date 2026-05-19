@@ -115,7 +115,7 @@ Record is the shared journal entry supertype for Observation, Intervention, and 
 - Key attributes:
     - id
 - Key business rules:
-    - A record can appear in the journal of one or more individuals so batch capture is represented without losing per-individual chronology (REQ-04.002, REQ-04.006).
+    - A record belongs to exactly one individual. Batch capture (REQ-04.002, REQ-13.002) requires the creation of one record per selected individual.
     - Records may have attachments for evidence or reference, such as photos or PDFs (REQ-04.006).
 
 ### Observation
@@ -126,9 +126,7 @@ Observation specializes Record and covers weight evolution, health observations,
     - observationType (REQ-04.001, REQ-01.008)
     - observedAt (TASK-0003 assumption)
     - content (REQ-04.007, REQ-01.008)
-    - selectedIndividuals (REQ-04.002, REQ-04.003)
 - Key business rules:
-    - A single observation may be applied to multiple selected individuals (REQ-04.002).
     - Medical analysis results are stored as observation content and do not require a separate business object (REQ-04.007).
     - Observation types include FLOCK_ENTRY and FLOCK_EXIT for tracking flock membership (REQ-01.008).
     - A FLOCK_ENTRY observation records the reason (BIRTH or PURCHASE) and entry date via observedAt (REQ-01.008).
@@ -143,9 +141,7 @@ Intervention specializes Record and captures performed actions, care, and treatm
 - Key attributes:
     - interventionType (REQ-13.001)
     - performedAt (REQ-13.005)
-    - selectedIndividuals (REQ-13.002, REQ-13.003)
 - Key business rules:
-    - A single intervention may be applied to multiple selected individuals (REQ-13.002).
     - Intervention data can include treatment dose and quarantine-related information (REQ-13.004, REQ-13.005).
 
 ### FutureEvent
