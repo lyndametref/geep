@@ -23,6 +23,7 @@ Canonical glossary for business terms used across requirements, domain model, sp
 | Dam | The female parent of an Individual. |
 | Descendant | A succeeding Individual in lineage, reachable through child relationships. |
 | Dose | The quantity of drug administered to an individual. |
+| Ear Tag | An alphanumeric identifier assigned to an Individual, typically displayed on a physical ear tag, used for farm-level identification. |
 | FaMaCha | Visual scoring method based on mucous membrane color. |
 | Flock | A group of sheep managed together under a single owner or manager. |
 | Flock Entry | The joining of an Individual into the Flock, with a recorded reason (birth or purchase) and date. |
