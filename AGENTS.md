@@ -44,6 +44,9 @@ DO NOT change this folder hierarchy.
 - Concrete acceptance criteria where applicable.
 - No ambiguous status language (use explicit states like planned, in-progress, blocked, completed).
 
+## Coding rules
+- never use timestamps without timezone. 
+
 ## Backlog.md Skill
 
 Detailed backlog.md CLI usage instructions are available in the skill at `.opencode/skills/backlog-md/SKILL.md`.
