@@ -5,7 +5,7 @@ erDiagram
     individuals {
         long id PK
         string name
-        string earTag
+        string earTagId
         date* birthDate
         date deathDate
         Sex* sex
@@ -85,7 +85,6 @@ erDiagram
 
 - Mandatory (non-null) columns are marked with `*` after the type. Columns without `*` are nullable. Primary keys are inherently mandatory and are not double-marked.
 - `sireId`, `damId`, and `sourceRecordId` are logical references only (no Room `ForeignKey` constraint configured).
-- `individualId` on `records` replaces the earlier `individual_record_cross_ref` join table. Batch-entry (multiple individuals per record) is delegated to UI orchestration rather than encoded in the data structure, keeping the schema simple.
 - Indexes: `observations(recordId)`, `interventions(recordId)`, `future_events(recordId)`, `predicted_events(futureEventId)`, `planned_tasks(futureEventId)`, `waiting_delays(futureEventId)`, `attachments(recordId)`, `records(individualId)`.
 - Foreign keys with `ON DELETE CASCADE`: all subtype tables cascade to their parent.
 - **Record Type**: recordType can only have the values `OBSERVATION`, `INTERVENTION`, or `FUTURE_EVENT`.

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="net.madscientists.geep.core.database.dao.AttachmentDaoTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-05-22T07:59:35.607Z" hostname="Keristraza" time="0.296">
+  <properties/>
+  <testcase name="getAttachmentById_WithNonExistentId_ReturnsNull" classname="net.madscientists.geep.core.database.dao.AttachmentDaoTest" time="0.04"/>
+  <testcase name="insertAttachment_WithDuplicateId_ReplacesExistingAttachment" classname="net.madscientists.geep.core.database.dao.AttachmentDaoTest" time="0.036"/>
+  <testcase name="updateAttachment_WithValidData_UpdatesAttachment" classname="net.madscientists.geep.core.database.dao.AttachmentDaoTest" time="0.039"/>
+  <testcase name="updateAttachment_WithNonExistentAttachment_DoesNotThrow" classname="net.madscientists.geep.core.database.dao.AttachmentDaoTest" time="0.037"/>
+  <testcase name="getAllAttachments_WithMultipleAttachments_ReturnsAllAttachments" classname="net.madscientists.geep.core.database.dao.AttachmentDaoTest" time="0.037"/>
+  <testcase name="deleteAttachment_WithNonExistentAttachment_DoesNotThrow" classname="net.madscientists.geep.core.database.dao.AttachmentDaoTest" time="0.034"/>
+  <testcase name="insertAttachment_WithValidData_InsertsAttachment" classname="net.madscientists.geep.core.database.dao.AttachmentDaoTest" time="0.031"/>
+  <testcase name="deleteAttachment_WithExistingAttachment_DeletesAttachment" classname="net.madscientists.geep.core.database.dao.AttachmentDaoTest" time="0.04"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

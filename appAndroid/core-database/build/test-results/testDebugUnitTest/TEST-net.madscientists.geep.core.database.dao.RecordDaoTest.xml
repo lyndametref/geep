@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="net.madscientists.geep.core.database.dao.RecordDaoTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2026-05-22T07:59:36.296Z" hostname="Keristraza" time="0.597">
+  <properties/>
+  <testcase name="insertRecord_WithValidData_ReturnsSuccess" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.032"/>
+  <testcase name="insertRecord_WithDuplicateId_ReplacesExistingRecord" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.05"/>
+  <testcase name="insertObservation_WithValidData_InsertsObservation" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.038"/>
+  <testcase name="getRecordsByIndividualId_WithNoRecords_ReturnsEmptyList" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.034"/>
+  <testcase name="insertWaitingDelay_WithValidData_InsertsWaitingDelay" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.038"/>
+  <testcase name="getPredictedEventByFutureEventId_WithNonExistentFutureEventId_ReturnsNull" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.029"/>
+  <testcase name="insertFutureEvent_WithValidData_InsertsFutureEvent" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.031"/>
+  <testcase name="getObservationByRecordId_WithNonExistentRecordId_ReturnsNull" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.025"/>
+  <testcase name="getAllRecords_WithMultipleRecords_ReturnsAllRecords" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.03"/>
+  <testcase name="getPlannedTaskByFutureEventId_WithNonExistentFutureEventId_ReturnsNull" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.033"/>
+  <testcase name="insertIntervention_WithValidData_InsertsIntervention" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.032"/>
+  <testcase name="updateRecord_WithValidData_UpdatesRecord" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.036"/>
+  <testcase name="getWaitingDelayByFutureEventId_WithNonExistentFutureEventId_ReturnsNull" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.029"/>
+  <testcase name="insertPredictedEvent_WithValidData_InsertsPredictedEvent" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.028"/>
+  <testcase name="deleteRecord_WithExistingRecord_DeletesRecord" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.033"/>
+  <testcase name="getFutureEventByRecordId_WithNonExistentRecordId_ReturnsNull" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.035"/>
+  <testcase name="insertPlannedTask_WithValidData_InsertsPlannedTask" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.03"/>
+  <testcase name="getInterventionByRecordId_WithNonExistentRecordId_ReturnsNull" classname="net.madscientists.geep.core.database.dao.RecordDaoTest" time="0.031"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

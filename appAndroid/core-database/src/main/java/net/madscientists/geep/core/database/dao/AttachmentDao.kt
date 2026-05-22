@@ -24,7 +24,7 @@ interface AttachmentDao {
     suspend fun deleteAttachment(attachment: AttachmentEntity)
 
     @Query("SELECT * FROM attachments WHERE id = :id")
-    suspend fun getAttachmentById(id: String): AttachmentEntity?
+    suspend fun getAttachmentById(id: Long): AttachmentEntity?
 
     @Query("SELECT * FROM attachments")
     fun getAllAttachments(): Flow<List<AttachmentEntity>>

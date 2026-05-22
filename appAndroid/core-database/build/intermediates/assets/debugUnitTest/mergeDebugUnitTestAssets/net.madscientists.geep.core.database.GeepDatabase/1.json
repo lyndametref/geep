@@ -2,16 +2,16 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "aadb5a823dc2c6d5741e8e26ae18a278",
+    "identityHash": "ee694efb61e3eb092f0a900633eaa110",
     "entities": [
       {
         "tableName": "individuals",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `name` TEXT, `bdtaNumber` TEXT, `birthDate` TEXT NOT NULL, `deathDate` TEXT, `sex` TEXT NOT NULL, `colorPattern` TEXT, `living` INTEGER NOT NULL, `stillborn` INTEGER NOT NULL, `portraitReference` TEXT, `sireId` TEXT, `damId` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT, `earTagId` TEXT, `birthDate` TEXT NOT NULL, `deathDate` TEXT, `sex` TEXT NOT NULL, `colorPattern` TEXT, `living` INTEGER NOT NULL, `stillborn` INTEGER NOT NULL, `belongsToFlock` INTEGER NOT NULL, `sireId` INTEGER, `damId` INTEGER, `notes` TEXT, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "id",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -21,8 +21,8 @@
             "notNull": false
           },
           {
-            "fieldPath": "bdtaNumber",
-            "columnName": "bdtaNumber",
+            "fieldPath": "earTagId",
+            "columnName": "earTagId",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -63,20 +63,26 @@
             "notNull": true
           },
           {
-            "fieldPath": "portraitReference",
-            "columnName": "portraitReference",
-            "affinity": "TEXT",
-            "notNull": false
+            "fieldPath": "belongsToFlock",
+            "columnName": "belongsToFlock",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "sireId",
             "columnName": "sireId",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": false
           },
           {
             "fieldPath": "damId",
             "columnName": "damId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "notes",
+            "columnName": "notes",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -92,12 +98,12 @@
       },
       {
         "tableName": "records",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `timestamp` TEXT NOT NULL, `type` TEXT NOT NULL, `observationType` TEXT, `content` TEXT, `interventionType` TEXT, `status` TEXT, `sourceRecordId` TEXT, `earliestDate` TEXT, `latestDate` TEXT, `title` TEXT, `reminderDate` TEXT, `dueDate` TEXT, `delayElapsedAt` TEXT, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `timestamp` TEXT NOT NULL, `recordType` TEXT NOT NULL, `individualId` INTEGER, `sourceRecordId` INTEGER, PRIMARY KEY(`id`), FOREIGN KEY(`individualId`) REFERENCES `individuals`(`id`) ON UPDATE NO ACTION ON DELETE SET NULL )",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "id",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -107,75 +113,21 @@
             "notNull": true
           },
           {
-            "fieldPath": "type",
-            "columnName": "type",
+            "fieldPath": "recordType",
+            "columnName": "recordType",
             "affinity": "TEXT",
             "notNull": true
           },
           {
-            "fieldPath": "observationType",
-            "columnName": "observationType",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "content",
-            "columnName": "content",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "interventionType",
-            "columnName": "interventionType",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "status",
-            "columnName": "status",
-            "affinity": "TEXT",
+            "fieldPath": "individualId",
+            "columnName": "individualId",
+            "affinity": "INTEGER",
             "notNull": false
           },
           {
             "fieldPath": "sourceRecordId",
             "columnName": "sourceRecordId",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "earliestDate",
-            "columnName": "earliestDate",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "latestDate",
-            "columnName": "latestDate",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "title",
-            "columnName": "title",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "reminderDate",
-            "columnName": "reminderDate",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "dueDate",
-            "columnName": "dueDate",
-            "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "delayElapsedAt",
-            "columnName": "delayElapsedAt",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": false
           }
         ],
@@ -185,23 +137,393 @@
             "id"
           ]
         },
-        "indices": [],
-        "foreignKeys": []
+        "indices": [
+          {
+            "name": "index_records_individualId",
+            "unique": false,
+            "columnNames": [
+              "individualId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_records_individualId` ON `${TABLE_NAME}` (`individualId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "individuals",
+            "onDelete": "SET NULL",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "individualId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "observations",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`recordId` INTEGER NOT NULL, `observedAt` TEXT NOT NULL, `content` TEXT NOT NULL, PRIMARY KEY(`recordId`), FOREIGN KEY(`recordId`) REFERENCES `records`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "recordId",
+            "columnName": "recordId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "observedAt",
+            "columnName": "observedAt",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "recordId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_observations_recordId",
+            "unique": false,
+            "columnNames": [
+              "recordId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_observations_recordId` ON `${TABLE_NAME}` (`recordId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "records",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "recordId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "interventions",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`recordId` INTEGER NOT NULL, `performedAt` TEXT NOT NULL, `content` TEXT NOT NULL, PRIMARY KEY(`recordId`), FOREIGN KEY(`recordId`) REFERENCES `records`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "recordId",
+            "columnName": "recordId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "performedAt",
+            "columnName": "performedAt",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "recordId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_interventions_recordId",
+            "unique": false,
+            "columnNames": [
+              "recordId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_interventions_recordId` ON `${TABLE_NAME}` (`recordId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "records",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "recordId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "future_events",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`recordId` INTEGER NOT NULL, PRIMARY KEY(`recordId`), FOREIGN KEY(`recordId`) REFERENCES `records`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "recordId",
+            "columnName": "recordId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "recordId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_future_events_recordId",
+            "unique": false,
+            "columnNames": [
+              "recordId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_future_events_recordId` ON `${TABLE_NAME}` (`recordId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "records",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "recordId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "predicted_events",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`futureEventId` INTEGER NOT NULL, `status` TEXT, `earliestDate` TEXT NOT NULL, `latestDate` TEXT NOT NULL, `content` TEXT, PRIMARY KEY(`futureEventId`), FOREIGN KEY(`futureEventId`) REFERENCES `future_events`(`recordId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "futureEventId",
+            "columnName": "futureEventId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "earliestDate",
+            "columnName": "earliestDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latestDate",
+            "columnName": "latestDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "futureEventId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_predicted_events_futureEventId",
+            "unique": false,
+            "columnNames": [
+              "futureEventId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_predicted_events_futureEventId` ON `${TABLE_NAME}` (`futureEventId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "future_events",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "futureEventId"
+            ],
+            "referencedColumns": [
+              "recordId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "planned_tasks",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`futureEventId` INTEGER NOT NULL, `status` TEXT, `reminderDate` TEXT NOT NULL, `dueDate` TEXT NOT NULL, `content` TEXT NOT NULL, PRIMARY KEY(`futureEventId`), FOREIGN KEY(`futureEventId`) REFERENCES `future_events`(`recordId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "futureEventId",
+            "columnName": "futureEventId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "reminderDate",
+            "columnName": "reminderDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dueDate",
+            "columnName": "dueDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "futureEventId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_planned_tasks_futureEventId",
+            "unique": false,
+            "columnNames": [
+              "futureEventId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_planned_tasks_futureEventId` ON `${TABLE_NAME}` (`futureEventId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "future_events",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "futureEventId"
+            ],
+            "referencedColumns": [
+              "recordId"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "waiting_delays",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`futureEventId` INTEGER NOT NULL, `status` TEXT, `title` TEXT NOT NULL, `delayElapsedAt` TEXT NOT NULL, `content` TEXT, PRIMARY KEY(`futureEventId`), FOREIGN KEY(`futureEventId`) REFERENCES `future_events`(`recordId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "futureEventId",
+            "columnName": "futureEventId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "delayElapsedAt",
+            "columnName": "delayElapsedAt",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "content",
+            "columnName": "content",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "futureEventId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_waiting_delays_futureEventId",
+            "unique": false,
+            "columnNames": [
+              "futureEventId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_waiting_delays_futureEventId` ON `${TABLE_NAME}` (`futureEventId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "future_events",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "futureEventId"
+            ],
+            "referencedColumns": [
+              "recordId"
+            ]
+          }
+        ]
       },
       {
         "tableName": "attachments",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` TEXT NOT NULL, `recordId` TEXT NOT NULL, `attachmentType` TEXT NOT NULL, `uri` TEXT NOT NULL, `label` TEXT, `capturedAt` TEXT, PRIMARY KEY(`id`), FOREIGN KEY(`recordId`) REFERENCES `records`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `recordId` INTEGER NOT NULL, `attachmentType` TEXT NOT NULL, `uri` TEXT NOT NULL, `label` TEXT, `capturedAt` TEXT, PRIMARY KEY(`id`), FOREIGN KEY(`recordId`) REFERENCES `records`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "id",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
             "fieldPath": "recordId",
             "columnName": "recordId",
-            "affinity": "TEXT",
+            "affinity": "INTEGER",
             "notNull": true
           },
           {
@@ -259,81 +581,12 @@
             ]
           }
         ]
-      },
-      {
-        "tableName": "individual_record_cross_ref",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`individualId` TEXT NOT NULL, `recordId` TEXT NOT NULL, PRIMARY KEY(`individualId`, `recordId`), FOREIGN KEY(`individualId`) REFERENCES `individuals`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`recordId`) REFERENCES `records`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
-        "fields": [
-          {
-            "fieldPath": "individualId",
-            "columnName": "individualId",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "recordId",
-            "columnName": "recordId",
-            "affinity": "TEXT",
-            "notNull": true
-          }
-        ],
-        "primaryKey": {
-          "autoGenerate": false,
-          "columnNames": [
-            "individualId",
-            "recordId"
-          ]
-        },
-        "indices": [
-          {
-            "name": "index_individual_record_cross_ref_individualId",
-            "unique": false,
-            "columnNames": [
-              "individualId"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_individual_record_cross_ref_individualId` ON `${TABLE_NAME}` (`individualId`)"
-          },
-          {
-            "name": "index_individual_record_cross_ref_recordId",
-            "unique": false,
-            "columnNames": [
-              "recordId"
-            ],
-            "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_individual_record_cross_ref_recordId` ON `${TABLE_NAME}` (`recordId`)"
-          }
-        ],
-        "foreignKeys": [
-          {
-            "table": "individuals",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "individualId"
-            ],
-            "referencedColumns": [
-              "id"
-            ]
-          },
-          {
-            "table": "records",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "recordId"
-            ],
-            "referencedColumns": [
-              "id"
-            ]
-          }
-        ]
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'aadb5a823dc2c6d5741e8e26ae18a278')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ee694efb61e3eb092f0a900633eaa110')"
     ]
   }
 }

@@ -18,7 +18,7 @@ import java.lang.Object;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -55,8 +55,8 @@ public final class AttachmentDao_Impl implements AttachmentDao {
       @Override
       protected void bind(@NonNull final SupportSQLiteStatement statement,
           @NonNull final AttachmentEntity entity) {
-        statement.bindString(1, entity.getId());
-        statement.bindString(2, entity.getRecordId());
+        statement.bindLong(1, entity.getId());
+        statement.bindLong(2, entity.getRecordId());
         statement.bindString(3, entity.getAttachmentType());
         statement.bindString(4, entity.getUri());
         if (entity.getLabel() == null) {
@@ -64,7 +64,7 @@ public final class AttachmentDao_Impl implements AttachmentDao {
         } else {
           statement.bindString(5, entity.getLabel());
         }
-        final String _tmp = __converters.dateToTimestamp(entity.getCapturedAt());
+        final String _tmp = __converters.instantToString(entity.getCapturedAt());
         if (_tmp == null) {
           statement.bindNull(6);
         } else {
@@ -82,7 +82,7 @@ public final class AttachmentDao_Impl implements AttachmentDao {
       @Override
       protected void bind(@NonNull final SupportSQLiteStatement statement,
           @NonNull final AttachmentEntity entity) {
-        statement.bindString(1, entity.getId());
+        statement.bindLong(1, entity.getId());
       }
     };
     this.__updateAdapterOfAttachmentEntity = new EntityDeletionOrUpdateAdapter<AttachmentEntity>(__db) {
@@ -95,8 +95,8 @@ public final class AttachmentDao_Impl implements AttachmentDao {
       @Override
       protected void bind(@NonNull final SupportSQLiteStatement statement,
           @NonNull final AttachmentEntity entity) {
-        statement.bindString(1, entity.getId());
-        statement.bindString(2, entity.getRecordId());
+        statement.bindLong(1, entity.getId());
+        statement.bindLong(2, entity.getRecordId());
         statement.bindString(3, entity.getAttachmentType());
         statement.bindString(4, entity.getUri());
         if (entity.getLabel() == null) {
@@ -104,13 +104,13 @@ public final class AttachmentDao_Impl implements AttachmentDao {
         } else {
           statement.bindString(5, entity.getLabel());
         }
-        final String _tmp = __converters.dateToTimestamp(entity.getCapturedAt());
+        final String _tmp = __converters.instantToString(entity.getCapturedAt());
         if (_tmp == null) {
           statement.bindNull(6);
         } else {
           statement.bindString(6, _tmp);
         }
-        statement.bindString(7, entity.getId());
+        statement.bindLong(7, entity.getId());
       }
     };
   }
@@ -173,12 +173,12 @@ public final class AttachmentDao_Impl implements AttachmentDao {
   }
 
   @Override
-  public Object getAttachmentById(final String id,
+  public Object getAttachmentById(final long id,
       final Continuation<? super AttachmentEntity> $completion) {
     final String _sql = "SELECT * FROM attachments WHERE id = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
-    _statement.bindString(_argIndex, id);
+    _statement.bindLong(_argIndex, id);
     final CancellationSignal _cancellationSignal = DBUtil.createCancellationSignal();
     return CoroutinesRoom.execute(__db, false, _cancellationSignal, new Callable<AttachmentEntity>() {
       @Override
@@ -194,10 +194,10 @@ public final class AttachmentDao_Impl implements AttachmentDao {
           final int _cursorIndexOfCapturedAt = CursorUtil.getColumnIndexOrThrow(_cursor, "capturedAt");
           final AttachmentEntity _result;
           if (_cursor.moveToFirst()) {
-            final String _tmpId;
-            _tmpId = _cursor.getString(_cursorIndexOfId);
-            final String _tmpRecordId;
-            _tmpRecordId = _cursor.getString(_cursorIndexOfRecordId);
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final long _tmpRecordId;
+            _tmpRecordId = _cursor.getLong(_cursorIndexOfRecordId);
             final String _tmpAttachmentType;
             _tmpAttachmentType = _cursor.getString(_cursorIndexOfAttachmentType);
             final String _tmpUri;
@@ -208,14 +208,14 @@ public final class AttachmentDao_Impl implements AttachmentDao {
             } else {
               _tmpLabel = _cursor.getString(_cursorIndexOfLabel);
             }
-            final LocalDateTime _tmpCapturedAt;
+            final Instant _tmpCapturedAt;
             final String _tmp;
             if (_cursor.isNull(_cursorIndexOfCapturedAt)) {
               _tmp = null;
             } else {
               _tmp = _cursor.getString(_cursorIndexOfCapturedAt);
             }
-            _tmpCapturedAt = __converters.fromTimestamp(_tmp);
+            _tmpCapturedAt = __converters.fromInstant(_tmp);
             _result = new AttachmentEntity(_tmpId,_tmpRecordId,_tmpAttachmentType,_tmpUri,_tmpLabel,_tmpCapturedAt);
           } else {
             _result = null;
@@ -248,10 +248,10 @@ public final class AttachmentDao_Impl implements AttachmentDao {
           final List<AttachmentEntity> _result = new ArrayList<AttachmentEntity>(_cursor.getCount());
           while (_cursor.moveToNext()) {
             final AttachmentEntity _item;
-            final String _tmpId;
-            _tmpId = _cursor.getString(_cursorIndexOfId);
-            final String _tmpRecordId;
-            _tmpRecordId = _cursor.getString(_cursorIndexOfRecordId);
+            final long _tmpId;
+            _tmpId = _cursor.getLong(_cursorIndexOfId);
+            final long _tmpRecordId;
+            _tmpRecordId = _cursor.getLong(_cursorIndexOfRecordId);
             final String _tmpAttachmentType;
             _tmpAttachmentType = _cursor.getString(_cursorIndexOfAttachmentType);
             final String _tmpUri;
@@ -262,14 +262,14 @@ public final class AttachmentDao_Impl implements AttachmentDao {
             } else {
               _tmpLabel = _cursor.getString(_cursorIndexOfLabel);
             }
-            final LocalDateTime _tmpCapturedAt;
+            final Instant _tmpCapturedAt;
             final String _tmp;
             if (_cursor.isNull(_cursorIndexOfCapturedAt)) {
               _tmp = null;
             } else {
               _tmp = _cursor.getString(_cursorIndexOfCapturedAt);
             }
-            _tmpCapturedAt = __converters.fromTimestamp(_tmp);
+            _tmpCapturedAt = __converters.fromInstant(_tmp);
             _item = new AttachmentEntity(_tmpId,_tmpRecordId,_tmpAttachmentType,_tmpUri,_tmpLabel,_tmpCapturedAt);
             _result.add(_item);
           }

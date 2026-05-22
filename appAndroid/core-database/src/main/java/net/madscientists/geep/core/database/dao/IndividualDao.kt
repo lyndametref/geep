@@ -26,7 +26,7 @@ interface IndividualDao {
     suspend fun deleteIndividual(individual: IndividualEntity)
 
     @Query("SELECT * FROM individuals WHERE id = :id")
-    suspend fun getIndividualById(id: String): IndividualEntity?
+    suspend fun getIndividualById(id: Long): IndividualEntity?
 
     @Query("SELECT * FROM individuals")
     fun getAllIndividuals(): Flow<List<IndividualEntity>>

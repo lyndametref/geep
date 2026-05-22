@@ -3,154 +3,154 @@
 3    package="net.madscientists.geep.core.database.test" >
 4
 5    <uses-sdk
-5-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:5:5-74
+5-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:5:5-74
 6        android:minSdkVersion="35"
-6-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:5:15-41
+6-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:5:15-41
 7        android:targetSdkVersion="35" />
-7-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:5:42-71
+7-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:5:42-71
 8
 9    <instrumentation
-9-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:11:5-13:91
+9-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:11:5-13:91
 10        android:name="android.test.InstrumentationTestRunner"
-10-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:11:22-75
+10-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:11:22-75
 11        android:label="Tests for net.madscientists.geep.core.database.test"
-11-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:13:22-89
+11-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:13:22-89
 12        android:targetPackage="net.madscientists.geep.core.database.test" />
-12-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:12:22-87
+12-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:12:22-87
 13
 14    <permission
-14-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/ff50074ecbb24e06a31e4dc2d2d8820b/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+14-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/c99d4f7d51ba66df5bb321d7b890a3a8/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
 15        android:name="net.madscientists.geep.core.database.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-15-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/ff50074ecbb24e06a31e4dc2d2d8820b/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+15-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/c99d4f7d51ba66df5bb321d7b890a3a8/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
 16        android:protectionLevel="signature" />
-16-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/ff50074ecbb24e06a31e4dc2d2d8820b/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+16-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/c99d4f7d51ba66df5bb321d7b890a3a8/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
 17
 18    <uses-permission android:name="net.madscientists.geep.core.database.test.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-18-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/ff50074ecbb24e06a31e4dc2d2d8820b/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
-18-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/ff50074ecbb24e06a31e4dc2d2d8820b/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+18-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/c99d4f7d51ba66df5bb321d7b890a3a8/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+18-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/c99d4f7d51ba66df5bb321d7b890a3a8/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
 19    <uses-permission android:name="android.permission.REORDER_TASKS" />
-19-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:24:5-72
-19-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:24:22-69
+19-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:24:5-72
+19-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:24:22-69
 20
 21    <application
-21-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:7:5-9:19
+21-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:7:5-9:19
 22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-22-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/ff50074ecbb24e06a31e4dc2d2d8820b/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
+22-->[androidx.core:core:1.15.0] /home/lyly/.gradle/caches/8.13/transforms/c99d4f7d51ba66df5bb321d7b890a3a8/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
 23        android:debuggable="true" >
-23-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:7:18-43
+23-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:7:18-43
 24        <uses-library android:name="android.test.runner" />
-24-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:8:9-60
-24-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest17529547830832709875.xml:8:23-57
+24-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:8:9-60
+24-->/home/lyly/Documents/Dev/Geep/appAndroid/core-database/build/intermediates/tmp/manifest/test/debug/tempFile1ProcessTestManifest7640805867881583899.xml:8:23-57
 25
 26        <service
-26-->[androidx.room:room-runtime:2.6.1] /home/lyly/.gradle/caches/8.13/transforms/c2f3b4416228823f3234fece2a03d53d/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+26-->[androidx.room:room-runtime:2.6.1] /home/lyly/.gradle/caches/8.13/transforms/e8e9c595ebbfe418761be35fe8352c09/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
 27            android:name="androidx.room.MultiInstanceInvalidationService"
-27-->[androidx.room:room-runtime:2.6.1] /home/lyly/.gradle/caches/8.13/transforms/c2f3b4416228823f3234fece2a03d53d/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+27-->[androidx.room:room-runtime:2.6.1] /home/lyly/.gradle/caches/8.13/transforms/e8e9c595ebbfe418761be35fe8352c09/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
 28            android:directBootAware="true"
-28-->[androidx.room:room-runtime:2.6.1] /home/lyly/.gradle/caches/8.13/transforms/c2f3b4416228823f3234fece2a03d53d/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+28-->[androidx.room:room-runtime:2.6.1] /home/lyly/.gradle/caches/8.13/transforms/e8e9c595ebbfe418761be35fe8352c09/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
 29            android:exported="false" />
-29-->[androidx.room:room-runtime:2.6.1] /home/lyly/.gradle/caches/8.13/transforms/c2f3b4416228823f3234fece2a03d53d/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+29-->[androidx.room:room-runtime:2.6.1] /home/lyly/.gradle/caches/8.13/transforms/e8e9c595ebbfe418761be35fe8352c09/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
 30
 31        <activity
-31-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:27:9-34:20
+31-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:27:9-34:20
 32            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
-32-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:28:13-99
+32-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:28:13-99
 33            android:exported="true"
-33-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:29:13-36
+33-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:29:13-36
 34            android:theme="@style/WhiteBackgroundTheme" >
-34-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:30:13-56
+34-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:30:13-56
 35            <intent-filter android:priority="-100" >
-35-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:31:13-33:29
-35-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:31:28-51
+35-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:31:13-33:29
+35-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:31:28-51
 36                <category android:name="android.intent.category.LAUNCHER" />
-36-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:32:17-77
-36-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:32:27-74
+36-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:32:17-77
+36-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:32:27-74
 37            </intent-filter>
 38        </activity>
 39        <activity
-39-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:35:9-42:20
+39-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:35:9-42:20
 40            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
-40-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:36:13-95
+40-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:36:13-95
 41            android:exported="true"
-41-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:37:13-36
+41-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:37:13-36
 42            android:theme="@style/WhiteBackgroundTheme" >
-42-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:38:13-56
+42-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:38:13-56
 43            <intent-filter android:priority="-100" >
-43-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:31:13-33:29
-43-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:31:28-51
+43-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:31:13-33:29
+43-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:31:28-51
 44                <category android:name="android.intent.category.LAUNCHER" />
-44-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:32:17-77
-44-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:32:27-74
+44-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:32:17-77
+44-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:32:27-74
 45            </intent-filter>
 46        </activity>
 47        <activity
-47-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:43:9-50:20
+47-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:43:9-50:20
 48            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
-48-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:44:13-103
+48-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:44:13-103
 49            android:exported="true"
-49-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:45:13-36
+49-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:45:13-36
 50            android:theme="@style/WhiteBackgroundDialogTheme" >
-50-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:46:13-62
+50-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:46:13-62
 51            <intent-filter android:priority="-100" >
-51-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:31:13-33:29
-51-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:31:28-51
+51-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:31:13-33:29
+51-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:31:28-51
 52                <category android:name="android.intent.category.LAUNCHER" />
-52-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:32:17-77
-52-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/48f9cc12a974d832615fc468e476d42b/transformed/core-1.7.0/AndroidManifest.xml:32:27-74
+52-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:32:17-77
+52-->[androidx.test:core:1.7.0] /home/lyly/.gradle/caches/8.13/transforms/c5b119d35018fe4bf8919fee8bd4d60b/transformed/core-1.7.0/AndroidManifest.xml:32:27-74
 53            </intent-filter>
 54        </activity>
 55
 56        <provider
-56-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
+56-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:24:9-32:20
 57            android:name="androidx.startup.InitializationProvider"
-57-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:25:13-67
+57-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:25:13-67
 58            android:authorities="net.madscientists.geep.core.database.test.androidx-startup"
-58-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:26:13-68
+58-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:26:13-68
 59            android:exported="false" >
-59-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:27:13-37
+59-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:27:13-37
 60            <meta-data
-60-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+60-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
 61                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-61-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+61-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
 62                android:value="androidx.startup" />
-62-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+62-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
 63        </provider>
 64
 65        <receiver
-65-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+65-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
 66            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-66-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+66-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
 67            android:directBootAware="false"
-67-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+67-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
 68            android:enabled="true"
-68-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+68-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
 69            android:exported="true"
-69-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+69-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
 70            android:permission="android.permission.DUMP" >
-70-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+70-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
 71            <intent-filter>
-71-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+71-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
 72                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-72-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
-72-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+72-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+72-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
 73            </intent-filter>
 74            <intent-filter>
-74-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+74-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
 75                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-75-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
-75-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
 76            </intent-filter>
 77            <intent-filter>
-77-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+77-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
 78                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-78-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
-78-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
 79            </intent-filter>
 80            <intent-filter>
-80-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
 81                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
-81-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/5445a4e558aa68d12b21f97716a1d677/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/lyly/.gradle/caches/8.13/transforms/d5c5a4f0754514b6ba6c981cb297c22e/transformed/profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
 82            </intent-filter>
 83        </receiver>
 84    </application>

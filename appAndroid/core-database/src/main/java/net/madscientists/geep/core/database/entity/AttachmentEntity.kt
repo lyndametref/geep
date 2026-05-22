@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import java.time.LocalDateTime
+import java.time.Instant
 
 @Entity(
     tableName = "attachments",
@@ -20,10 +20,10 @@ import java.time.LocalDateTime
 )
 data class AttachmentEntity(
     @PrimaryKey
-    val id: String,
-    val recordId: String,
+    val id: Long,
+    val recordId: Long,
     val attachmentType: String,
     val uri: String,
     val label: String?,
-    val capturedAt: LocalDateTime?
+    val capturedAt: Instant?
 )

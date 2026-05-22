@@ -27,6 +27,6 @@ import androidx.room.Index
     ]
 )
 data class IndividualRecordCrossRef(
-    val individualId: String,
-    val recordId: String
+    val individualId: Long,
+    val recordId: Long
 )

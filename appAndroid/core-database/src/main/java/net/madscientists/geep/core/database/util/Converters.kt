@@ -1,24 +1,25 @@
 package net.madscientists.geep.core.database.util
 
 import androidx.room.TypeConverter
-import net.madscientists.geep.core.model.FutureEventStatus
+import net.madscientists.geep.core.model.DelayStatus
+import net.madscientists.geep.core.model.PredictionStatus
 import net.madscientists.geep.core.model.Sex
+import net.madscientists.geep.core.model.TaskStatus
+import java.time.Instant
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class Converters {
-    private val dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME
     private val dateFormatter = DateTimeFormatter.ISO_LOCAL_DATE
 
     @TypeConverter
-    fun fromTimestamp(value: String?): LocalDateTime? {
-        return value?.let { LocalDateTime.parse(it, dateTimeFormatter) }
+    fun fromInstant(value: String?): Instant? {
+        return value?.let { Instant.parse(it) }
     }
 
     @TypeConverter
-    fun dateToTimestamp(date: LocalDateTime?): String? {
-        return date?.format(dateTimeFormatter)
+    fun instantToString(instant: Instant?): String? {
+        return instant?.toString()
     }
 
     @TypeConverter
@@ -27,7 +28,7 @@ class Converters {
     }
 
     @TypeConverter
-    fun localDateToTimestamp(date: LocalDate?): String? {
+    fun localDateToString(date: LocalDate?): String? {
         return date?.format(dateFormatter)
     }
 
@@ -42,12 +43,32 @@ class Converters {
     }
 
     @TypeConverter
-    fun fromFutureEventStatus(value: String?): FutureEventStatus? {
-        return value?.let { FutureEventStatus.valueOf(it) }
+    fun fromPredictionStatus(value: String?): PredictionStatus? {
+        return value?.let { PredictionStatus.valueOf(it) }
     }
 
     @TypeConverter
-    fun futureEventStatusToString(status: FutureEventStatus?): String? {
+    fun predictionStatusToString(status: PredictionStatus?): String? {
+        return status?.name
+    }
+
+    @TypeConverter
+    fun fromTaskStatus(value: String?): TaskStatus? {
+        return value?.let { TaskStatus.valueOf(it) }
+    }
+
+    @TypeConverter
+    fun taskStatusToString(status: TaskStatus?): String? {
+        return status?.name
+    }
+
+    @TypeConverter
+    fun fromDelayStatus(value: String?): DelayStatus? {
+        return value?.let { DelayStatus.valueOf(it) }
+    }
+
+    @TypeConverter
+    fun delayStatusToString(status: DelayStatus?): String? {
         return status?.name
     }
 }
