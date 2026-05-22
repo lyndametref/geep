@@ -68,7 +68,7 @@ Individual represents a sheep managed or referenced in the system, with identity
 - Key attributes:
     - id (REQ-01.001)
     - name (optional)
-    - bdtaNumber (optional) (REQ-01.002, REQ-01.003)
+    - earTagId (optional) (REQ-01.002, REQ-01.003)
     - birthDate (REQ-01.004)
     - deathDate (optional) (REQ-01.004)
     - sex (REQ-01.005)
