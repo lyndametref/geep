@@ -61,4 +61,4 @@ Android/Room does not support native "down" migrations. In case of a failed migr
 - Increments: +1 for every schema change after MVP release.
 
 ## Schema History
-Schema snapshots are located in `appAndroid/core-database/schemas/`. These files are under version control and must not be modified manually.
+Schema snapshots are located in `apps/appAndroid/core-database/schemas/`. These files are under version control and must not be modified manually.

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="net.madscientists.geep.core.database.dao.IndividualDaoTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-05-22T19:41:26.836Z" hostname="Keristraza" time="0.253">
+  <properties/>
+  <testcase name="insertIndividual_WithNullEarTagId_InsertsIndividual" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.023"/>
+  <testcase name="insertIndividual_WithDuplicateId_ReplacesExistingIndividual" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.027"/>
+  <testcase name="updateIndividual_WithValidData_UpdatesIndividual" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.022"/>
+  <testcase name="getAllIndividuals_WithMultipleIndividuals_ReturnsAllIndividuals" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.03"/>
+  <testcase name="updateIndividual_WithNonExistentIndividual_DoesNotThrow" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.021"/>
+  <testcase name="insertIndividual_WithValidData_InsertsIndividual" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.028"/>
+  <testcase name="getIndividualById_WithNonExistentId_ReturnsNull" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.021"/>
+  <testcase name="deleteIndividual_WithNonExistentIndividual_DoesNotThrow" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.03"/>
+  <testcase name="insertIndividual_WithNullColorPattern_InsertsIndividual" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.025"/>
+  <testcase name="deleteIndividual_WithExistingIndividual_DeletesIndividual" classname="net.madscientists.geep.core.database.dao.IndividualDaoTest" time="0.026"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

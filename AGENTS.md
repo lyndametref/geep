@@ -15,12 +15,11 @@ Here is the structure:
   - `docs/domainModel/**.md` : domain model for the ovin flock management
   - `docs/requirements/**.md` : Business requirements for the ovin flock management tool. No technical requirements allowed here.
   - `docs/specs/**.md` : technical specification of the ovin flock management tool.
-- `appAndroid/` : Android application source code.
+- `apps/` : Contains all application source code.
+  - `apps/appAndroid/` : Android application source code.
 - `.ai` : source of truth of ai tools configuration
   - `.ai/agents`: AI agents definitions
   - `.ai/skills`: AI skills definitions
-
-DO NOT change this folder hierarchy.
 
 ## Working Rules For Agents
 1. **Read Before Action**
