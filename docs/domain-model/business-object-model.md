@@ -32,7 +32,6 @@ graph LR
 
         Observation -.-> Record
         Intervention -.-> Record
-        FutureEvent -.-> Record
 
         PredictedEvent -.-> FutureEvent
         PlannedTask -.-> FutureEvent
