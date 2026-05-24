@@ -11,8 +11,8 @@ Here is the structure:
 - `backlog/` : Tasks, project-specific docs, and decisions.
 - `docs/` : Project documentation. Contains all documentation about requirements, architecture, domain model and technical specification.
   - `docs/architecture/**.md`: architecture documentation of the whole ecosystem
-  - `docs/businessRules/**.md` : business rules used in the ovin flock management
-  - `docs/domainModel/**.md` : domain model for the ovin flock management
+  - `docs/business-rules/**.md` : business rules used in the ovin flock management
+  - `docs/domain-model/**.md` : domain model for the ovin flock management
   - `docs/requirements/**.md` : Business requirements for the ovin flock management tool. No technical requirements allowed here.
   - `docs/specs/**.md` : technical specification of the ovin flock management tool.
 - `apps/` : Contains all application source code.

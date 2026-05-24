@@ -6,7 +6,7 @@ Accepted
 
 ## Context
 
-The original domain model (docs/domainModel/business-object-model.md) specifies that "a record can appear in the journal of one or more individuals so batch capture is represented without losing per-individual chronology" (line 118). This business rule supports REQ-04.002 (batch entry for observations) and REQ-13.002 (batch entry for interventions), both of which require that a single observation or intervention can be applied to multiple selected individuals in one operation.
+The original domain model (docs/domain-model/business-object-model.md) specifies that "a record can appear in the journal of one or more individuals so batch capture is represented without losing per-individual chronology" (line 118). This business rule supports REQ-04.002 (batch entry for observations) and REQ-13.002 (batch entry for interventions), both of which require that a single observation or intervention can be applied to multiple selected individuals in one operation.
 
 One option is to implement this requirement with a many-to-many join table:
 
