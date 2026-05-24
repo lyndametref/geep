@@ -65,141 +65,63 @@ graph LR
 Individual represents a sheep managed or referenced in the system, with identity, lifecycle, lineage information, and flock membership tracking.
 
 - Bounded context: Individual Management.
-- Key attributes:
-    - id (REQ-01.001)
-    - name (optional)
-    - earTagId (optional) (REQ-01.002, REQ-01.003)
-    - birthDate (REQ-01.004)
-    - deathDate (optional) (REQ-01.004)
-    - sex (REQ-01.005)
-    - colorPattern (optional) (REQ-01.005)
-    - living (REQ-01.005)
-    - stillborn (REQ-01.004)
-    - belongsToFlock (REQ-01.008)
-    - sire (optional) (REQ-01.005)
-    - dam (optional) (REQ-01.005)
-- Key business rules:
-    - Each individual has a mandatory unique internal identifier (REQ-01.001).
-    - BDTA number can be assigned later and is not required at first capture (REQ-01.003).
-    - Stillborn individuals keep birth and death dates as the same date (REQ-01.004).
-    - No post-birth observations for stillborns are treated as a domain assumption (TASK-0003 assumption).
-    - For stillborns, living status is treated as always dead (TASK-0003 assumption).
-    - Parentage is modeled with sire and dam links (REQ-01.005).
-    - At most one sire and at most one dam, and parent role sex semantics, are treated as domain assumptions (TASK-0003 assumption).
-    - An individual with `belongsToFlock = false` and no FLOCK_ENTRY or FLOCK_EXIT Observations is a **Lineage individual**: excluded from day-to-day flock management views (observations, interventions, batch operations, dashboards) but visible in genealogy graph and parentage views (REQ-01.008).
-    - An individual with `belongsToFlock = true` has or will have FLOCK_ENTRY or FLOCK_EXIT Observations tracking its entries and exits from the active flock (REQ-01.008).
-    - Whether an individual is currently in the active flock is derived from the latest membership Observation: if the latest is FLOCK_ENTRY (no subsequent FLOCK_EXIT), the individual is a current flock member (REQ-01.008).
+
 
 ### Male
-Male is a specialization of Individual for individuals recorded with male sex.
+Male is a specialization of Individual for individuals recorded with male sex. Different business rules will apply to male and female.
 
 - Bounded context: Individual Management.
-- Key attributes:
-    - Inherits Individual attributes (REQ-01.005).
-- Key business rules:
-    - Male can play the sire role in parentage links (TASK-0003 assumption).
+
 
 ### Female
-Female is a specialization of Individual for individuals recorded with female sex.
+Female is a specialization of Individual for individuals recorded with female sex. Different business rules will apply to male and female.
 
 - Bounded context: Individual Management.
-- Key attributes:
-    - Inherits Individual attributes (REQ-01.005).
-- Key business rules:
-    - Female can play the dam role in parentage links (TASK-0003 assumption).
+
 
 ### Record
 Record is the shared journal entry supertype for Observation, Intervention, and FutureEvent.
 
 - Bounded context: Journaling.
-- Key attributes:
-    - id
-- Key business rules:
-    - A record belongs to exactly one individual. Batch capture (REQ-04.002, REQ-13.002) requires the creation of one record per selected individual.
-    - Records may have attachments for evidence or reference, such as photos or PDFs (REQ-04.006).
+
 
 ### Observation
 Observation specializes Record and covers weight evolution, health observations, medical analysis results, reproduction events, and flock membership events.
 
 - Bounded context: Journaling.
-- Key attributes:
-    - observationType (REQ-04.001, REQ-01.008)
-    - observedAt (TASK-0003 assumption)
-    - content (REQ-04.007, REQ-01.008)
-- Key business rules:
-    - Medical analysis results are stored as observation content and do not require a separate business object (REQ-04.007).
-    - Observation types include FLOCK_ENTRY and FLOCK_EXIT for tracking flock membership (REQ-01.008).
-    - A FLOCK_ENTRY observation records the reason (BIRTH or PURCHASE) and entry date via observedAt (REQ-01.008).
-    - A FLOCK_EXIT observation records the reason (SOLD, SLAUGHTERED, or DECEASED) and exit date via observedAt (REQ-01.008).
-    - Birth entry observedAt must match the individual's birthDate (REQ-01.004, REQ-01.008).
-    - Exit reason DECEASED requires the individual's deathDate to be set; observedAt must equal the deathDate (REQ-01.004, REQ-01.008).
+
 
 ### Intervention
 Intervention specializes Record and captures performed actions, care, and treatment information.
 
 - Bounded context: Journaling.
-- Key attributes:
-    - interventionType (REQ-13.001)
-    - performedAt (REQ-13.005)
-- Key business rules:
-    - Intervention data can include treatment dose and quarantine-related information (REQ-13.004, REQ-13.005).
+
 
 ### FutureEvent
 FutureEvent represents a derived event or reminder that is planned, predicted, waiting, realized, or aborted depending on context.
 
 - Bounded context: Planning.
-- Key attributes:
-    - id
-    - futureEventType (REQ-04.004, REQ-13.004, REQ-04.005, REQ-13.006, REQ-05.002, REQ-05.003)
-    - status (TASK-0003 assumption)
-    - sourceRecord (REQ-04.004, REQ-13.004, REQ-04.005)
-- Key business rules:
-    - Future events are derived from observations or interventions (REQ-04.004, REQ-13.004, REQ-04.005).
-    - Realization of future events through concrete records is treated as a domain assumption (TASK-0003 assumption).
-    - Aborted or never-occurring future events are treated as a domain assumption (TASK-0003 assumption).
+
 
 ### PredictedEvent
 PredictedEvent is a FutureEvent used for probabilistic outcomes based on prior records.
 
 - Bounded context: Planning.
-- Key attributes:
-    - earliestDate (REQ-04.004)
-    - latestDate (REQ-04.004)
-    - status (TASK-0003 assumption)
-- Key business rules:
-    - Mating observation can produce a predicted birth window between day 140 and day 150 (REQ-04.004).
+
 
 ### PlannedTask
 PlannedTask is a FutureEvent representing a concrete upcoming action to perform.
 
 - Bounded context: Planning.
-- Key attributes:
-    - title
-    - reminderDate (REQ-04.005, REQ-13.006, REQ-05.003)
-    - dueDate (REQ-04.005, REQ-05.002)
-    - completionStatus (TASK-0003 assumption)
-- Key business rules:
-    - A confirmed birth can derive a weaning planned task around 3 months later (REQ-04.005).
+
 
 ### WaitingDelay
 WaitingDelay is a FutureEvent representing a delay interval that must elapse before normal operations resume.
 
 - Bounded context: Planning.
-- Key attributes:
-    - title
-    - delayElapsedAt (REQ-13.004)
-    - elapsed: Boolean (REQ-13.004)
-- Key business rules:
-    - WaitingDelay models elapsed periods such as intervention-related quarantine windows (REQ-13.004).
+
 
 ### Attachment
 Attachment represents documentary evidence linked to a record.
 
 - Bounded context: Journaling.
-- Key attributes:
-    - id
-    - attachmentType (REQ-04.006)
-    - label (optional)
-    - capturedAt (optional)
-- Key business rules:
-    - Attachment metadata is associated with records for evidence and reference, such as photos or PDFs (REQ-04.006).
