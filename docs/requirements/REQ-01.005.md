@@ -6,7 +6,7 @@ Group: REQ-01 Individual Management
 Criticality Must have
 
 ## Description
-Each individual entry includes at least:
+The following information can be handled for each individual:
 - sex
 - alive/dead status
 - dam (female parent)
@@ -17,6 +17,6 @@ complete phenotyping is separated and will be included in REQ-03
 
 
 ## Acceptance Criteria
-- An individual entry includes a sex field.
-- An individual entry includes parent references.
-- An individual entry includes an alive/dead status field.
+- The sex (male/female) of each individual can be recorded.
+- The parent of an individual can be recorded.
+- It can be recorded if an individual is dead or alive.
