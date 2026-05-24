@@ -5,7 +5,7 @@ erDiagram
     individuals {
         long id PK
         string name
-        string earTagId
+        string* officialId
         date* birthDate
         date deathDate
         Sex* sex
@@ -91,4 +91,5 @@ erDiagram
 - **Flock Membership**: Observation types `FLOCK_ENTRY` and `FLOCK_EXIT` track flock membership (REQ-01.008). Entry reasons: `BIRTH`, `PURCHASE`. Exit reasons: `SOLD`, `SLAUGHTERED`, `DECEASED`. An individual with `belongsToFlock = false` has no such Observations. The `belongsToFlock` flag distinguishes flock individuals from **Lineage individuals** (who exist only for genealogy).
 - **Content JSON**: The `content` column in `observations` and `interventions` contains a JSON string with the type discriminator and event-specific data. For `planned_tasks`, the `content` JSON includes the title and other task-specific attributes. For `predicted_events` and `waiting_delays`, the `content` JSON holds type-specific metadata.
 - **Sub-type Statuses**: Each future event sub-type has its own status type: `predicted_events` uses `PredictionStatus`, `planned_tasks` uses `TaskStatus`, `waiting_delays` uses `DelayStatus`. Acceptable values may differ by sub-type.
+- **officialId**: Stores the **Official Identifier** (regulatory BDTA/TVD/AMD number). Mandatory for registered animals, but deferred assignment allows creation without it.
 - **UTC timestamps**: All `timestamp` columns store absolute UTC timestamps as ISO-8601 strings ending with `Z` (e.g. `2024-06-01T10:00:00Z`). `LocalDate` columns (`birthDate`, `deathDate`) are calendar dates with neither time nor timezone.

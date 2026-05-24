@@ -10,4 +10,4 @@ Based on requirement REQ-01.003 — Manual identifier management, this rule allo
 
 ## Applicability
 
-Applies at individual creation time and during subsequent updates. The `earTagId` attribute (which stores the **Official Identifier**) is nullable and can be set or modified at any point in the individual's lifecycle.
+Applies at individual creation time and during subsequent updates. The `officialId` attribute is nullable and can be set or modified at any point in the individual's lifecycle.
