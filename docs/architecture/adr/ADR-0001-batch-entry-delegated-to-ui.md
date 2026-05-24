@@ -4,6 +4,18 @@
 
 Accepted
 
+## Decision
+
+Use the second option and create `long individualId` directly in the `records` table as a required foreign key to `individuals`.
+
+Batch-entry is delegated to the UI layer. When the user selects multiple individuals and submits a single observation or intervention:
+
+- The UI iterates over the selected individual IDs.
+- For each individual, it creates one `Record` (with the corresponding `individualId`) and one subtype row (`Observation` or `Intervention`).
+- The content fields (observation content, intervention content) are duplicated across the N records — this is an accepted trade-off.
+
+The result is a strictly one-to-many relationship: one individual can have many records, but each record belongs to exactly one individual.
+
 ## Context
 
 The original domain model (docs/domain-model/business-object-model.md) specifies that "a record can appear in the journal of one or more individuals so batch capture is represented without losing per-individual chronology" (line 118). This business rule supports REQ-04.002 (batch entry for observations) and REQ-13.002 (batch entry for interventions), both of which require that a single observation or intervention can be applied to multiple selected individuals in one operation.
@@ -19,18 +31,6 @@ This approach has several drawbacks:
 3. **Premature optimization** — the batch-entry requirement (REQ-04.002, REQ-13.002) can be satisfied at the UI layer without encoding the many-to-many relationship in the data model.
 
 A secon option is to use a direct foreign key in the record table and put `individualId` directly on `records`, making the relationship one-to-many (one individual owns one record). Batch-entry becomes a UI concern: the UI iterates over selected individuals and creates one record per individual. Advantages: simpler schema, fewer joins, explicit ownership semantics.
-
-## Decision
-
-Use the second option and create `long individualId` directly in the `records` table as a required foreign key to `individuals`.
-
-Batch-entry is delegated to the UI layer. When the user selects multiple individuals and submits a single observation or intervention:
-
-- The UI iterates over the selected individual IDs.
-- For each individual, it creates one `Record` (with the corresponding `individualId`) and one subtype row (`Observation` or `Intervention`).
-- The content fields (observation content, intervention content) are duplicated across the N records — this is an accepted trade-off.
-
-The result is a strictly one-to-many relationship: one individual can have many records, but each record belongs to exactly one individual.
 
 ## Consequences
 
