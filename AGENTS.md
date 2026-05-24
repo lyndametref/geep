@@ -48,5 +48,5 @@ Here is the structure:
 
 ## Backlog.md Skill
 
-Detailed backlog.md CLI usage instructions are available in the skill at `.opencode/skills/backlog-md/SKILL.md`.
+Detailed backlog.md CLI usage instructions are available in the skill at `.ai/skills/backlog-md/SKILL.md`.
 Load it with the `skill` tool when you need to perform backlog operations.
