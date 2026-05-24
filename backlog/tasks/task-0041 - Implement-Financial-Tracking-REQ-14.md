@@ -4,8 +4,10 @@ title: Implement Financial Tracking (REQ-14)
 status: To Do
 assignee: []
 created_date: '2026-05-24 05:20'
+updated_date: '2026-05-24 07:17'
 labels:
   - feature
+milestone: Iteration 2 Backend + Web + Sync
 dependencies: []
 priority: low
 ordinal: 26000
