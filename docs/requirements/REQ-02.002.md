@@ -6,12 +6,12 @@ Group: REQ-02 Genealogy and Parentage Graph
 Criticality Must have
 
 ## Description
-The genealogy view must render individuals as nodes and display, for each node, an icon and a display label. The display label should use the best available identifier in this order: name, official number, then a generated fallback label derived from the immutable internal ID.
+The genealogy view must render individuals as nodes and display, for each node, an icon and a display label. The display label should use the best available identifier in this order: name, official identifier, then a generated fallback label derived from the immutable internal ID.
 
 ## Acceptance Criteria
 - The genealogy view renders individuals as nodes.
 - Each displayed node includes an icon.
 - Each displayed node includes a display label.
 - If a name exists, the display label uses the name.
-- If no name exists and an official number exists, the display label uses the official number.
-- If neither name nor official number exists, the display label uses a generated fallback based on the immutable internal ID.
+- If no name exists and an official identifier exists, the display label uses the official identifier.
+- If neither name nor official identifier exists, the display label uses a generated fallback based on the immutable internal ID.

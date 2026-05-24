@@ -17,13 +17,13 @@ Canonical glossary for business terms used across requirements, domain model, sp
 | Attachment | Documentary evidence (photo, PDF) linked to a Record. |
 | Batch Entry | The capability to apply the same Observation or Intervention to multiple selected Individuals in one operation. |
 | BCS | Body Condition Score. |
-| BDTA/TVD | Swiss Animal identifier referenced in the individual management requirements. |
+| BDTA/TVD | Swiss Animal identifier (a form of Official Identifier) referenced in the individual management requirements. |
 | Castration | An Intervention type. Can only be performed on male lamb before their 14th day. |
 | Color Pattern | Visual coat pattern or color describing an Individual. |
 | Dam | The female parent of an Individual. |
 | Descendant | A succeeding Individual in lineage, reachable through child relationships. |
 | Dose | The quantity of drug administered to an individual. |
-| Ear Tag | An alphanumeric identifier assigned to an Individual, typically displayed on a physical ear tag, used for farm-level identification. |
+| Ear Tag | An alphanumeric identifier assigned to an Individual, typically displayed on a physical ear tag, used for farm-level quick-reference identification. Distinct from the regulatory Official Identifier. |
 | FaMaCha | Visual scoring method based on mucous membrane color. |
 | Flock | A group of sheep managed together under a single owner or manager. |
 | Flock Entry | The joining of an Individual into the Flock, with a recorded reason (birth or purchase) and date. |
@@ -48,7 +48,7 @@ Canonical glossary for business terms used across requirements, domain model, sp
 | Milk Quarantine Period | The withdrawal period after treatment during which milk from the treated animal must not be used. |
 | Pasture Movement | The transfer of a batch of Individuals to or from a Pasture. |
 | Observation | A type of Record capturing observed information about the individual. For example: weight measurements, health observations, medical analysis results, and reproduction events like mating or birth. |
-| Official Number | An externally-regulated animal identifier (e.g., AMD/TVD/BDTA in Switzerland) that can be assigned to an Individual. |
+| Official Identifier | An externally-regulated animal identifier (e.g., AMD/TVD/BDTA in Switzerland) that can be assigned to an Individual. |
 | Parentage Graph | Interactive representation of ancestor and descendant relationships. |
 | Parentage Link | An edge connecting two Individuals, representing a sire-child or dam-child relationship. |
 | Pasture | A grazing land parcel whose usage is tracked for rotation and parasite management. |

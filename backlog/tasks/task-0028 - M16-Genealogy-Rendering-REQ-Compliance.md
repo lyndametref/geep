@@ -22,7 +22,7 @@ Close REQ-02.002 and REQ-02.003 gaps by making genealogy rendering requirements 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
 - [ ] #1 REQ-02.002: Genealogy view renders each individual as a node with an icon and a display label.
-- [ ] #2 REQ-02.002: Display label fallback order is validated as name, then official number, then generated fallback from immutable internal ID.
+- [ ] #2 REQ-02.002: Display label fallback order is validated as name, then official identifier, then generated fallback from immutable internal ID.
 - [ ] #3 REQ-02.003: Genealogy view renders parentage links as edges between nodes.
 - [ ] #4 Automated/UI evidence demonstrates node icon+label and edge rendering behavior on representative data.
 <!-- AC:END -->
