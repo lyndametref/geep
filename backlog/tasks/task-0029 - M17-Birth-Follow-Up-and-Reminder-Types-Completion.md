@@ -21,9 +21,9 @@ Close REQ-04.005 and REQ-13.006 explicit coverage gaps for Iteration 1 lifecycle
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 REQ-04.005: Confirmed birth proposes creation of lamb records for the dam event context.
-- [ ] #2 REQ-04.005: Confirmed birth generates a planned weaning event around 3 months later for each created lamb.
-- [ ] #3 REQ-04.005: Birth event recording is constrained to ewe/female individuals.
+- [ ] #1 REQ-04.005: Confirmed lambing proposes creation of lamb records for the dam event context.
+- [ ] #2 REQ-04.005: Confirmed lambing generates a planned weaning event around 3 months later for each created lamb.
+- [ ] #3 REQ-04.005: Lambing event recording is constrained to ewe/female individuals.
 - [ ] #4 REQ-13.006: Reminder support explicitly includes hoof trimming and shearing reminder types.
 <!-- AC:END -->
 

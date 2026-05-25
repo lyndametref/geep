@@ -10,10 +10,10 @@ REQ-05 Calendar View
 Must have
 
 ## Description
-The calendar displays past events such as births, treatments, and weaning and care such as hoof trimming and shearing
+The calendar displays past events such as lambings, treatments, and weaning and care such as hoof trimming and shearing
 
 ## Acceptance Criteria
-- The calendar displays past birth events.
+- The calendar displays past lambing events.
 - The calendar displays past hoof trimming.
 - The calendar displays past shearing.
 - The calendar displays past weaning events.

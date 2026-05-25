@@ -24,8 +24,8 @@ Implement deterministic lifecycle reminder derivation rules.
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 Mating creates birth reminder at +140 days.
-- [ ] #2 Birth creates weaning reminder at +90 days.
+- [ ] #1 Mating creates lambing reminder at +140 days.
+- [ ] #2 Lambing creates weaning reminder at +90 days.
 - [ ] #3 Treatment creates quarantine end reminder.
 - [ ] #4 Rule execution is idempotent and avoids duplicate reminders.
 <!-- AC:END -->

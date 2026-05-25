@@ -38,7 +38,7 @@ Canonical glossary for business terms used across requirements, domain model, sp
 | Individual | A sheep managed or referenced in the system. |
 | Intervention | A type of Record capturing performed actions, care, and treatment information (e.g., shearing, hoof trimming, treatment administration). |
 | Journal | A chronological record of Observations and Interventions associated with one or more Individuals. |
-| Lambing | The process of giving birth in a ewe. |
+| Lambing | The act of a ewe giving birth to a lamb. Synonym of birth in the context of ewes. Related terms: birth, ewe, lamb. |
 | Lineage Individual | An Individual that exists in the system for genealogy purposes but was never part of the current flock manager's active flock. |
 | Meat Quarantine Period | The withdrawal period after treatment during which meat from the treated animal must not be used. |
 | Medical Analysis Result | A health analysis result (e.g., lab test) stored as an Observation in an Individual's journal. |
@@ -47,7 +47,7 @@ Canonical glossary for business terms used across requirements, domain model, sp
 | Medication Stock | Tracked inventory of drugs. |
 | Milk Quarantine Period | The withdrawal period after treatment during which milk from the treated animal must not be used. |
 | Pasture Movement | The transfer of a batch of Individuals to or from a Pasture. |
-| Observation | A type of Record capturing observed information about the individual. For example: weight measurements, health observations, medical analysis results, and reproduction events like mating or birth. |
+| Observation | A type of Record capturing observed information about the individual. For example: weight measurements, health observations, medical analysis results, and reproduction events like mating or lambing. |
 | Official Identifier | An externally-regulated animal identifier (e.g., AMD/TVD/BDTA in Switzerland) that can be assigned to an Individual. |
 | Parentage Graph | Interactive representation of ancestor and descendant relationships. |
 | Parentage Link | An edge connecting two Individuals, representing a sire-child or dam-child relationship. |
@@ -55,8 +55,8 @@ Canonical glossary for business terms used across requirements, domain model, sp
 | Pasture Rotation | The practice of moving Individuals between Pastures to control parasite exposure. |
 | Phenotype | Observable physical characteristics of an Individual (e.g., coat color, pattern). |
 | Planned Task | A task to be performed in the future at a due date (e.g., weaning). |
-| Predicted Birth Date | The predicted date of lambing. |
-| Predicted Event | A Future Event representing a probabilistic outcome derived from prior records (e.g., a predicted birth window). A specific case is a Predicted Birth Date. |
+| Predicted Lambing Date | The predicted date of lambing. |
+| Predicted Event | A Future Event representing a probabilistic outcome derived from prior records (e.g., a predicted lambing window). A specific case is a Predicted Lambing Date. |
 | Quarantine Period | Withdrawal period after treatment for meat or milk usage. |
 | Recovery Quarantine | A rest period after a Pasture becomes vacant before it can be used again. |
 | Record | The journal entry. |

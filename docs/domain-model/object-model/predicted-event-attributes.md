@@ -17,6 +17,6 @@
 | Attribute | Type | Required | Constraints / Format | Requirement |
 |-----------|------|----------|----------------------|-------------|
 | `status` | Enum (PredictionStatus) | Yes | Lifecycle status. Values: `PENDING` (awaiting realization), `REALIZED` (occurred, recorded via Observation), `ABORTED` (will not occur). | REQ-04, REQ-05, BR-015 |
-| `earliestDate` | Timestamp (UTC) | Yes | Earliest expected date for the probabilistic outcome (e.g., earliest birth date = mating date + 140 days). | REQ-04.004, BR-012 |
+| `earliestDate` | Timestamp (UTC) | Yes | Earliest expected date for the probabilistic outcome (e.g., earliest lambing date = mating date + 140 days). | REQ-04.004, BR-012 |
 | `latestDate` | Timestamp (UTC) | Yes | Latest expected date for the probabilistic outcome. Must be >= `earliestDate`. | REQ-04.004, BR-012 |
 | `content` | JSON (Structured Data) | No | Type-specific prediction payload. Contains an `predictionType` field (discriminator for the kind of prediction, e.g. `BIRTH`, `HEAT`) along with type-specific derived data. | REQ-04, REQ-04.004 |

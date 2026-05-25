@@ -22,7 +22,7 @@ Close REQ-05.002 and REQ-05.003 explicit calendar coverage gaps for Iteration 1.
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
 - [ ] #1 REQ-05.002: Calendar displays predicted future events.
-- [ ] #2 REQ-05.002: Calendar explicitly displays predicted birth events and predicted heat-season events.
+- [ ] #2 REQ-05.002: Calendar explicitly displays predicted lambing events and predicted heat-season events.
 - [ ] #3 REQ-05.003: Calendar displays reminders, including weaning reminders.
 - [ ] #4 Calendar evidence demonstrates predicted events and reminders concurrently in timeline/calendar surfaces.
 <!-- AC:END -->

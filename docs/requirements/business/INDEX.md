@@ -28,13 +28,13 @@ An overview of all business requirements for the Geep ecosystem.
 | REQ-04.001 | Observation types include weight evolution, health observations, and reproduction events. | REQ-04 Observations and Reproductive Planning | Must have |
 | REQ-04.002 | Batch entry allows applying the same entry to multiple selected individuals. | REQ-04 Observations and Automated Events | Must have |
 | REQ-04.003 | Individuals can be selected for batch processes through filters or manual selection. | REQ-04 Observations and Automated Events | Must have |
-| REQ-04.004 | A mating observation produces a birth planned event at a range of 140 to 150 days after observation. | REQ-04 Observations and Reproductive Planning | Should have |
-| REQ-04.005 | A confirmed birth proposes creation of lamb records as well as a weaning event after a configurable interval. | REQ-04 Observations and Reproductive Planning | Must have |
+| REQ-04.004 | A mating observation produces a lambing planned event at a range of 140 to 150 days after observation. | REQ-04 Observations and Reproductive Planning | Should have |
+| REQ-04.005 | A confirmed lambing proposes creation of lamb records as well as a weaning event after a configurable interval. | REQ-04 Observations and Reproductive Planning | Must have |
 | REQ-04.006 | Each individual has a chronological journal. | REQ-04 Observations and Reproductive Planning | Must have |
 | REQ-04.007 | The journal stores medical analysis results. | REQ-04 Observations and Reproductive Planning | Should have |
 | REQ-05 | Calendar View | — | — |
 | REQ-05.001 | The calendar displays past events and care. | REQ-05 Calendar View | Must have |
-| REQ-05.002 | The calendar integrates predicted future events such as birth. | REQ-05 Calendar View | Must have |
+| REQ-05.002 | The calendar integrates predicted future events such as lambing. | REQ-05 Calendar View | Must have |
 | REQ-05.003 | The calendar integrates reminders | REQ-05 Calendar View | Must have |
 | REQ-06 | Medication Management | — | — |
 | REQ-06.001 | Medication master data includes information about drugs. | REQ-06 Medication Management | Could have |
