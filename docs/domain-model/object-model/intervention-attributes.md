@@ -17,5 +17,68 @@
 | Attribute | Type | Required | Constraints / Format | Requirement |
 |-----------|------|----------|----------------------|-------------|
 | `performedAt` | Timestamp (UTC) | Yes | ISO-8601 UTC timestamp (e.g. `2024-06-01T10:00:00Z`). Represents when the intervention was actually performed, which may differ from `recordedAt` (the log time). | REQ-13.005 |
-| `content` | JSON (Structured Data) | Yes | Type-specific intervention payload. Contains an `interventionType` field (discriminator for the kind of intervention, e.g. `TREATMENT`, `SHEARING`, `HOOF_TRIMMING`, `CASTRATION`, `WEANING`) along with type-specific data. For `TREATMENT` type, typical fields include `medication`, `dose`, `meatWithdrawalDays`, `milkWithdrawalDays`. The type list is extensible per product evolution (REQ-13.001). | REQ-13.001, REQ-13.005 |
+| `content` | JSON (Structured Data) | Yes | Type-specific intervention payload. Contains an `interventionType` field (discriminator for the kind of intervention, see below) along with type-specific data. The type list is extensible per product evolution (REQ-13.001). | REQ-13.001, REQ-13.005 |
+
+## Intervention types
+
+The `interventionType` field in `content` discriminates the kind of intervention. Below are the built-in types with their required content fields.
+
+### MEDICATION
+
+A medication-based intervention with dose and optional withdrawal periods.
+
+| Attribute | Type | Required | Constraints / Format | Requirement |
+|-----------|------|----------|----------------------|-------------|
+| `interventionType` | String | Yes | Fixed to `"MEDICATION"`. | REQ-13.001, REQ-13.005 |
+| `medication` | String | Yes | Free-text medication name or identifier. | REQ-13.005 |
+| `dose` | String | Yes | Dose description (e.g. quantity, concentration, administration route). | REQ-13.005 |
+| `meatWithdrawalDays` | Integer | No | Number of days before meat from the animal is safe for consumption. Must be non-negative if provided. | REQ-13.005 |
+| `milkWithdrawalDays` | Integer | No | Number of days before milk from the animal is safe for consumption. Must be non-negative if provided. | REQ-13.005 |
+| `notes` | String | No | Optional notes. | |
+
+### SHEARING
+
+Records a shearing event.
+
+| Attribute | Type | Required | Constraints / Format | Requirement |
+|-----------|------|----------|----------------------|-------------|
+| `interventionType` | String | Yes | Fixed to `"SHEARING"`. | REQ-13.001 |
+| `notes` | String | No | Optional notes. | |
+
+### HOOF_TRIMMING
+
+Records a hoof trimming intervention.
+
+| Attribute | Type | Required | Constraints / Format | Requirement |
+|-----------|------|----------|----------------------|-------------|
+| `interventionType` | String | Yes | Fixed to `"HOOF_TRIMMING"`. | REQ-13.001 |
+| `notes` | String | No | Optional notes. | |
+
+### CASTRATION
+
+Records a castration intervention.
+
+| Attribute | Type | Required | Constraints / Format | Requirement |
+|-----------|------|----------|----------------------|-------------|
+| `interventionType` | String | Yes | Fixed to `"CASTRATION"`. | REQ-13.001 |
+| `method` | String | No | Method used. Values: `"BURRDOZZO"`, `"SURGICAL"`, `"ELASTIC_RING"`. | REQ-13.001 |
+| `notes` | String | No | Optional notes. | |
+
+### WEANING
+
+Records a weaning intervention for the lamb — separation from maternal milk.
+
+| Attribute | Type | Required | Constraints / Format | Requirement |
+|-----------|------|----------|----------------------|-------------|
+| `interventionType` | String | Yes | Fixed to `"WEANING"`. | REQ-13.001 |
+| `notes` | String | No | Optional notes. | |
+
+### DRY_OFF
+
+Records a dry-off intervention for the ewe — ending the lactation period.
+
+| Attribute | Type | Required | Constraints / Format | Requirement |
+|-----------|------|----------|----------------------|-------------|
+| `interventionType` | String | Yes | Fixed to `"DRY_OFF"`. | REQ-13.001 |
+| `notes` | String | No | Optional notes. | |
 
