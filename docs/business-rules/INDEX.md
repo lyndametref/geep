@@ -2,6 +2,8 @@
 
 Each business rule is a self-contained, uniquely identified document describing a single domain rule, its rationale grounded in requirements, and its applicability.
 
+> **Note**: BR IDs are never reused. Gaps in numbering correspond to rules that were deleted or removed and are intentionally left vacant.
+
 ## Index
 
 | BR ID | Title | Source Requirement(s) |
@@ -12,6 +14,8 @@ Each business rule is a self-contained, uniquely identified document describing 
 | BR-004 | Stillborn Lifecycle Progression | REQ-01.004 |
 | BR-005 | Parentage Role Semantics | REQ-01.005, REQ-02 |
 | BR-007 | Quarantine Period Representation | REQ-13.004 |
+| BR-009 | Record Unique Identifier | REQ-04, REQ-13 |
+| BR-010 | Future Event Unique Identifier | REQ-04, REQ-13 |
 | BR-012 | Lambing prediction based on mating observation | REQ-04.004 |
 | BR-013 | Lamb Individual Creation from Confirmed Birth | REQ-04.005 |
 | BR-014 | Treatment Quarantine Delay | REQ-13.004 |

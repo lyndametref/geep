@@ -16,7 +16,7 @@ Predicted Event is a specialization of Future Event representing a probabilistic
 |------|----|---------|------------|
 | `[*]` | `Pending` | PredictedEvent is derived | A mating observation (or other qualifying record) is recorded. BR-012 calculates `earliestDate` and `latestDate` based on the observation timestamp. |
 | `Pending` | `Realized` | Observation recorded with `sourceFutureEventId` | A new Observation is created that references this PredictedEvent as its source. The Observation captures the actual event (e.g., a birth record). [BR-015] |
-| `Pending` | `Aborted` | User or system aborts the prediction | The predicted event is confirmed as not occurring (e.g., the birth window has passed without a corresponding Observation, or the user explicitly cancels the prediction). [BR-010] |
+| `Pending` | `Aborted` | User or system aborts the prediction | The predicted event is confirmed as not occurring (e.g., the birth window has passed without a corresponding Observation, or the user explicitly cancels the prediction). [REQ-04, REQ-05] |
 
 ## Diagram
 
@@ -24,7 +24,7 @@ Predicted Event is a specialization of Future Event representing a probabilistic
 stateDiagram-v2
     [*] --> Pending : derived / observation recorded (BR-012)
     Pending --> Realized : realized / Observation linked via sourceFutureEventId (BR-015)
-    Pending --> Aborted : aborted / event will not occur (BR-010)
+    Pending --> Aborted : aborted / event will not occur (REQ-04, REQ-05)
     Realized --> [*]
     Aborted --> [*]
 ```

@@ -8,7 +8,7 @@
 |-----------|------|----------|----------------------|-------------|
 | `id` | Long | Yes | System-generated, immutable. | BR-009 |
 | `recordType` | Enum | Yes | Fixed to `INTERVENTION` for Intervention instances. Discriminator for the journal entry subtype. | REQ-13, BR-009 |
-| `recordedAt` | Timestamp (UTC) | Yes | ISO-8601 UTC timestamp ending with `Z` (e.g. `2024-06-01T10:00:00Z`). Represents when the record was logged in the system. Used for chronological journal ordering. | REQ-13, BR-016 |
+| `recordedAt` | Timestamp (UTC) | Yes | ISO-8601 UTC timestamp ending with `Z` (e.g. `2024-06-01T10:00:00Z`). Represents when the record was logged in the system. Used for chronological journal ordering. | REQ-13, REQ-04.006 |
 | `individualId` | Long | Yes | Logical FK to Individual. Mandatory and immutable once set (BR-018). A record belongs to exactly one individual. | REQ-13, BR-018, ADR-0001 |
 | `sourceFutureEventId` | Long | No | Logical FK to the FutureEvent that this Record realizes. Populated when a record is created as the realization of a planned or predicted event (BR-015). | BR-015 |
 

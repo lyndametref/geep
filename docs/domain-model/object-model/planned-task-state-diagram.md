@@ -16,7 +16,7 @@ PlannedTask is a specialization of FutureEvent representing a concrete upcoming 
 |------|----|---------|------------|
 | `[*]` | `Pending` | PlannedTask is derived | A qualifying record (e.g., a confirmed birth observation) triggers derivation, or the user manually creates a task. BR-013 calculates `dueDate` (e.g., birth date + 3 months for weaning). |
 | `Pending` | `Done` | User marks task as done | An Observation is created referencing this PlannedTask as its source via `sourceFutureEventId`, recording the actual completion. [BR-015] |
-| `Pending` | `Cancelled` | User cancels the task | The user explicitly dismisses or cancels the task (e.g., it is no longer relevant). [BR-010] |
+| `Pending` | `Cancelled` | User cancels the task | The user explicitly dismisses or cancels the task (e.g., it is no longer relevant). [REQ-04, REQ-13] |
 | `Done` | `[*]` | — | Terminal state — no further transitions. |
 | `Cancelled` | `[*]` | — | Terminal state — no further transitions. |
 
@@ -26,7 +26,7 @@ PlannedTask is a specialization of FutureEvent representing a concrete upcoming 
 stateDiagram-v2
     [*] --> Pending : derived / observation or manual creation (BR-013)
     Pending --> Done : completed / Observation linked via sourceFutureEventId (BR-015)
-    Pending --> Cancelled : cancelled / user dismisses the task (BR-010)
+    Pending --> Cancelled : cancelled / user dismisses the task (REQ-04, REQ-13)
     Done --> [*]
     Cancelled --> [*]
 ```
