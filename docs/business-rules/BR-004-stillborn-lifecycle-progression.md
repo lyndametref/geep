@@ -2,12 +2,12 @@
 
 ## Description
 
-Stillborn individuals support identity and lineage capture but do not progress through the post-birth observation lifecycle.
+Stillborn individuals have identical birthDate and deathDate (both set to the same value), support identity and lineage capture but cannot be associated any Record or Future Events.
 
 ## Rationale
 
-Based on requirement REQ-01.004 — Lifecycle dates (birth and death tracking), this rule distinguishes stillborns from live individuals. Stillborns are recorded for genealogical completeness (parentage, lineage) and inventory accuracy, but do not generate weight observations, health checks, interventions, or any other post-birth journal entries. Their living status is permanently set to deceased.
+Based on requirement REQ-01.004 — Lifecycle dates (birth and death tracking), this rule distinguishes stillborns from live individuals. For stillborns, birthDate and deathDate are set to the same value to reflect that the individual was born dead while maintaining data consistency. Stillborns are recorded for genealogical completeness (parentage, lineage) and inventory accuracy, but cannot be assigned any other records or future events. 
 
 ## Applicability
 
-Applies at individual creation when stillborn flag is set. Once marked stillborn, the individual is excluded from all flock management workflows (observations, interventions, batch operations, dashboards) but remains visible in genealogy views.
+Applies from individual creation when the individual is maked as stillborn. Once marked stillborn, the individual is excluded from all flock management workflows (observations, interventions, batch operations, dashboards) but remains visible in genealogy views.

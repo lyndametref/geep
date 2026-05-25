@@ -9,14 +9,13 @@ Criticality Must have
 The following information can be handled for each individual:
 - sex
 - alive/dead status
-- dam (female parent)
 and if available:
+- dam (female parent)
 - sire (male parent)
 
 complete phenotyping is separated and will be included in REQ-03
 
-
 ## Acceptance Criteria
 - The sex (male/female) of each individual can be recorded.
-- The parent of an individual can be recorded.
-- It can be recorded if an individual is dead or alive.
+- The parents of an individual can be recorded.
+- It can be deducted if an individual is dead or alive.
