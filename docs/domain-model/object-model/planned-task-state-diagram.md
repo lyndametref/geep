@@ -24,8 +24,8 @@ PlannedTask is a specialization of FutureEvent representing a concrete upcoming 
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Pending : derived / observation or manual creation (BR-013)
-    Pending --> Done : completed / Observation linked via sourceFutureEventId (BR-015)
+    [*] --> Pending : derived / observation, intervention or manual creation (BR-013)
+    Pending --> Done : completed / Intervention linked via sourceFutureEventId (BR-015)
     Pending --> Cancelled : cancelled / user dismisses the task (REQ-04, REQ-13)
     Done --> [*]
     Cancelled --> [*]

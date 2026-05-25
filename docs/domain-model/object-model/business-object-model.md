@@ -37,9 +37,9 @@ graph LR
         PlannedTask -.-> FutureEvent
         WaitingDelay -.-> FutureEvent
 
-        Observation -->|may produce| FutureEvent
-        Intervention -->|may produce| FutureEvent
-        FutureEvent -->|if realized creates| Record
+        Record -->|may produce| FutureEvent
+        PredictedEvent -->|if realized creates| Observation        
+        PlannedTask -->|if realized creates| Intervention
 ```
 
 ### Legend

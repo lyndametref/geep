@@ -72,3 +72,9 @@ An overview of all business requirements for the Geep ecosystem.
 | REQ-14.001 | The system includes expenditure tracking by category | REQ-14 Financial Tracking | Could have |
 | REQ-14.002 | The system includes income tracking by source | REQ-14 Financial Tracking | Could have |
 | REQ-14.003 | The system generates profit/loss reports | REQ-14 Financial Tracking | Could have |
+| REQ-15 | User-Defined Event and Task Types | — | — |
+| REQ-15.001 | Custom observation type creation | REQ-15 User-Defined Event and Task Types | Should have |
+| REQ-15.002 | Custom intervention type creation | REQ-15 User-Defined Event and Task Types | Should have |
+| REQ-15.003 | Custom planned task type creation | REQ-15 User-Defined Event and Task Types | Should have |
+| REQ-15.004 | Custom predicted event type creation | REQ-15 User-Defined Event and Task Types | Could have |
+| REQ-15.005 | Custom waiting delay type creation | REQ-15 User-Defined Event and Task Types | Should have |
