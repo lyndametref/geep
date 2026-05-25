@@ -56,7 +56,7 @@ Canonical glossary for business terms used across requirements, domain model, sp
 | Phenotype | Observable physical characteristics of an Individual (e.g., coat color, pattern). |
 | Planned Task | A task to be performed in the future at a due date (e.g., weaning). |
 | Predicted Birth Date | The predicted date of lambing. |
-| PredictedEvent | A FutureEvent representing a probabilistic outcome derived from prior records (e.g., a predicted birth window). |
+| Predicted Event | A Future Event representing a probabilistic outcome derived from prior records (e.g., a predicted birth window). A specific case is a Predicted Birth Date. |
 | Quarantine Period | Withdrawal period after treatment for meat or milk usage. |
 | Recovery Quarantine | A rest period after a Pasture becomes vacant before it can be used again. |
 | Record | The journal entry. |

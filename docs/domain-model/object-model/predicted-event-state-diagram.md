@@ -1,6 +1,6 @@
-# PredictedEvent — State Diagram
+# Predicted Event — State Diagram
 
-PredictedEvent is a specialization of FutureEvent representing a probabilistic outcome with an expected date range (e.g., a predicted birth window from a mating observation). It uses the `PredictionStatus` enum with three lifecycle states.
+Predicted Event is a specialization of Future Event representing a probabilistic outcome with an expected date range (e.g., a predicted birth window from a mating observation). It uses the `PredictionStatus` enum with three lifecycle states.
 
 ## States
 
