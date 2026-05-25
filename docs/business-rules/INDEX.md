@@ -18,7 +18,7 @@ Each business rule is a self-contained, uniquely identified document describing 
 | BR-010 | Future Event Unique Identifier | REQ-04, REQ-13 |
 | BR-012 | Lambing prediction based on mating observation | REQ-04.004 |
 | BR-013 | Lamb Individual Creation from Confirmed Lambing | REQ-04.005 |
-| BR-014 | Treatment Quarantine Delay | REQ-13.004 |
+| BR-014 | Medication Quarantine Delay | REQ-13.004 |
 | BR-015 | Future Event Realization | REQ-04 |
 | BR-018 | Record Ownership | REQ-04, REQ-13 |
 | BR-019 | Flock Membership Tracking | REQ-01.008 |

@@ -17,5 +17,5 @@
 | Attribute | Type | Required | Constraints / Format | Requirement |
 |-----------|------|----------|----------------------|-------------|
 | `status` | Enum (DelayStatus) | Yes | Lifecycle status. Values: `WAITING` (delay period in progress), `ELAPSED` (period over), `ABORTED` (delay cancelled). | REQ-13.004, BR-015 |
-| `delayElapsedAt` | Timestamp (UTC) | Yes | Date when the delay period ends. For example, calculated from treatment date + product-specific withdrawal duration. | REQ-13.004, BR-014 |
-| `content` | JSON (Structured Data) | No | Type-specific metadata about the waiting period for example references to the associated treatment product, medication details, and withdrawal period specifications. | BR-007, BR-014 |
+| `delayElapsedAt` | Timestamp (UTC) | Yes | Date when the delay period ends. For example, calculated from medication date + product-specific withdrawal duration. | REQ-13.004, BR-014 |
+| `content` | JSON (Structured Data) | No | Type-specific metadata about the waiting period for example references to the associated medication product, its details, and withdrawal period specifications. | BR-007, BR-014 |
