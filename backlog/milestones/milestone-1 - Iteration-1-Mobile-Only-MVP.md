@@ -1,66 +1,80 @@
 ---
 id: MILESTONE-1
-title: Iteration 1 Mobile-Only MVP
+title: Iteration 1 - Mobile-Only MVP
 status: Active
-description: Deliver an offline-first Android app for Iteration-1 REQ subset (REQ-01, REQ-02.001..REQ-02.003, REQ-04.001..REQ-04.003, REQ-04.005, REQ-04.006, REQ-13.006, REQ-05.002..REQ-05.003, REQ-11.001) with no backend or web runtime dependency.
-created_date: '2026-05-08 14:34'
+description: Deliver an offline-first Android app covering REQ-01, REQ-02.001-02.003, REQ-04.001-04.003, REQ-04.005, REQ-04.006, REQ-13.006, REQ-05.002-05.003, REQ-11.001 with no backend or web runtime dependency.
+created_date: '2026-05-26'
 target_date: null
 ---
 
 ## Overview
 
-Deliver a fully offline mobile MVP with no backend or web runtime dependency.
+Deliver a fully offline mobile MVP with no backend or web runtime dependency. The app is a single-user, offline-first Android application using Room for local storage, Android Keystore for encryption, and Jetpack libraries for UI.
 
 ## Goals
 
-- Single-user flock workflows are fully offline.
+- Single-user flock workflows (individuals, observations, journal) are fully offline.
 - Genealogy works with local graph traversal and visualization.
 - Observation-derived lifecycle reminders are automatic and reliable.
-- Encrypted export/import backup works end to end.
+- Confirmed births trigger lamb-record creation and weaning scheduling.
+- Encrypted backup/export works end-to-end.
+- Zero UX friction security — Keystore-backed encryption with no manual security steps.
 
 ## Scope
 
 ### Included
-- REQ-01 Individual Management
-- REQ-02.001..REQ-02.003 Genealogy and Parentage Graph
-- REQ-04.001..REQ-04.003 Observations and Batch Entry
+- REQ-01 Individual Management (01.001–01.008)
+- REQ-02.001–02.003 Genealogy and Parentage Graph
+- REQ-04.001–04.003 Observations and Batch Entry
 - REQ-04.005 Confirmed Birth Follow-Up
 - REQ-04.006 Chronological Journal and Attachments
 - REQ-13.006 Key Care and Reproduction Reminders
-- REQ-05.002..REQ-05.003 Calendar Predicted Events and Reminders
+- REQ-05.002–05.003 Calendar Predicted Events and Reminders
 - REQ-11.001 Mobile Create/Update Workflows
 
+### Non-Functional Requirements (implicitly applicable)
+- NFR-03.001 Long-Term Data Traceability
+- NFR-03.002 Workflow Independence
+- NFR-04.001 Zero UX Friction Security
+- NFR-04.003 Data Encryption (local)
+- NFR-05.002 Database Consistency
+
 ### Excluded
-- Any requirements outside the included REQ subset
+- REQ-03 Phenotype/Genotype
+- REQ-06 Medication Management
+- REQ-07 Calculators
+- REQ-08 Cheat Sheets
+- REQ-09 (all)
+- REQ-10 Pasture Management
+- REQ-12 Multi-user Data Sharing
+- REQ-14 Financial Tracking
+- REQ-15 Custom Types
+- Backend and web runtime (Iteration 2)
 - Multi-user data sharing
-- Backend and web runtime dependencies
 
 ## Success Criteria
 
 - [ ] All Milestone 1 tasks completed and accepted
-- [ ] End-to-end offline workflow passes
-- [ ] Included REQ subset acceptance signed off against TASK-0027 mapping
-- [ ] Performance targets met for 1,000+ individuals
+- [ ] End-to-end offline workflow passes (create individual → observe → journal → genealogy → calendar)
+- [ ] Included REQ subset acceptance signed off
+- [ ] All 17 tasks (GEEP-0001 through GEEP-0017) are in "Done" status
 
 ## Tasks
 
-- TASK-0002 - M1 Android Workspace Bootstrap
-- TASK-0003 - M2 Domain Model Contract
-- TASK-0004 - M3 Room Schema and Migration Strategy
-- TASK-0005 - M4 Local Security Baseline
-- TASK-0006 - M5 Repository Layer
-- TASK-0007 - M6 Lifecycle Rules Engine
-- TASK-0008 - M7 Genealogy Traversal Service
-- TASK-0009 - M8 Individuals Feature UI
-- TASK-0010 - M9 Observations and Batch UI
-- TASK-0011 - M10 Genealogy UI
-- TASK-0012 - M11 Calendar and Journal UI
-- TASK-0013 - M12 Local Attachment Handling
-- TASK-0014 - M13 Encrypted Backup Export and Import
-- TASK-0015 - M14 Test Harness and Quality Gates
-- TASK-0016 - M15 MVP Acceptance Audit
-- TASK-0028 - M16-Genealogy-Rendering-REQ-Compliance
-- TASK-0029 - M17-Birth-Follow-Up-and-Reminder-Types-Completion
-- TASK-0030 - M18-Journal-Listing-and-Attachment-Criteria-Completion
-- TASK-0031 - M19-Calendar-Predicted-Events-and-Reminders-Completion
-- TASK-0032 - M20-Mobile-Field-Create-Update-Completion
+- GEEP-0001 - M1 Android Workspace Bootstrap
+- GEEP-0002 - M1 Mobile App Module Architecture
+- GEEP-0003 - M1 Core Model Implementation
+- GEEP-0004 - M1 Database Schema Design & Room Setup
+- GEEP-0005 - M1 Repository Layer
+- GEEP-0006 - M1 Business Rules Engine
+- GEEP-0007 - M1 Genealogy Traversal Service
+- GEEP-0008 - M1 Local Security Baseline
+- GEEP-0009 - M1 Individuals Feature UI
+- GEEP-0010 - M1 Observations & Batch Entry UI
+- GEEP-0011 - M1 Calendar View & Reminders UI
+- GEEP-0012 - M1 Genealogy View UI
+- GEEP-0013 - M1 Journal & Attachments UI
+- GEEP-0014 - M1 Confirmed Birth Follow-Up
+- GEEP-0015 - M1 Encrypted Backup Export/Import
+- GEEP-0016 - M1 Test Harness & Quality Gates
+- GEEP-0017 - M1 MVP Acceptance Audit
