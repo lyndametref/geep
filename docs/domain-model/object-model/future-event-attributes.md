@@ -13,6 +13,6 @@ Base entity attributes common to all FutureEvent subtypes.
 |-----------|------|----------|----------------------|-------------|
 | `id` | Long | Yes | System-generated, immutable. | REQ-04, BR-010 |
 | `individualId` | Long | Yes | Logical FK to Individual. The individual this future event relates to. | REQ-04, BR-018 |
-| `sourceRecordId` | Long | No | Logical FK to the Record (Observation or Intervention) that derived this FutureEvent. | BR-012, BR-013, BR-014 |
+| `sourceRecordId` | Long | No | Logical FK to the Record (Observation or Intervention) that derived this FutureEvent. | BR-012, BR-022, BR-014 |
 | `createdAt` | Timestamp (UTC) | Yes | ISO-8601 UTC timestamp ending with `Z`. When the FutureEvent was derived. | REQ-04, REQ-05.002 |
 | `futureEventType` | Enum | Yes | Discriminator for the FutureEvent subtype. Values: `PREDICTED_EVENT`, `PLANNED_TASK`, `WAITING_DELAY`. | REQ-04, REQ-13 |

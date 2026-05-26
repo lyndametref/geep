@@ -16,10 +16,5 @@ Each individual entry must provide a chronological journal that supports attachm
 - Journal items are displayed in chronological order.
 - Journal items support photo attachments.
 - Journal items support PDF attachments.
-- Journal items can be listed for a single individual 
-- Journal items can be listed for multiple individuals selected by:
-    - ancestry
-    - date of birth
-    - sex 
-- Selection criteria can be added with the product evolution
+- Journal items can be listed for a single individual
 

@@ -10,7 +10,6 @@ erDiagram
         date deathDate
         Sex* sex
         string colorPattern
-        boolean* living
         boolean* stillborn
         boolean* belongsToFlock
         long sireId

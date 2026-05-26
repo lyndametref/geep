@@ -16,7 +16,7 @@ An overview of all business requirements for the Geep ecosystem.
 | REQ-01.007 | Each individual entry can include a basic color pattern | REQ-01 Individual Management | Should have |
 | REQ-01.008 | Individual flock membership | REQ-01 Individual Management | Must have |
 | REQ-02 | Genealogy and Parentage Graph | — | — |
-| REQ-02.001 | Genealogy data is stored in a graph structure. | REQ-02 Genealogy and Parentage Graph | Must have |
+| REQ-02.001 | The genealogy view displays individuals as nodes of a graph | REQ-02 Genealogy and Parentage Graph | Must have |
 | REQ-02.002 | The genealogy view displays individuals as nodes with an icon and a display label. | REQ-02 Genealogy and Parentage Graph | Must have |
 | REQ-02.003 | The genealogy view displays parentage links as edges. | REQ-02 Genealogy and Parentage Graph | Must have |
 | REQ-02.004 | The genealogy view supports filtering by ancestry and life/death status. | REQ-02 Genealogy and Parentage Graph | Should have |

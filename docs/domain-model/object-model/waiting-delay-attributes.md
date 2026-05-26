@@ -8,7 +8,7 @@
 |-----------|------|----------|----------------------|-------------|
 | `id` | Long | Yes | System-generated, immutable. | REQ-04, BR-010 |
 | `individualId` | Long | Yes | Logical FK to Individual. | REQ-04, BR-018 |
-| `sourceRecordId` | Long | No | Logical FK to the Record that derived this WaitingDelay. In this case the source record Id is mandatory. | BR-012, BR-013, BR-014 |
+| `sourceRecordId` | Long | No | Logical FK to the Record that derived this WaitingDelay. In this case the source record Id is mandatory. | BR-012, BR-022, BR-014 |
 | `createdAt` | Timestamp (UTC) | Yes | ISO-8601 UTC timestamp ending. When the WaitingDelay was derived or created. | REQ-04, REQ-05.002 |
 | `futureEventType` | Enum | Yes | Fixed to `WAITING_DELAY` for WaitingDelay instances. | REQ-13.004 |
 

@@ -8,7 +8,7 @@
 |-----------|------|----------|----------------------|-------------|
 | `id` | Long | Yes | System-generated, immutable. | REQ-04, BR-010 |
 | `individualId` | Long | Yes | Logical FK to Individual. | REQ-04, BR-018 |
-| `sourceRecordId` | Long | No | Logical FK to the Record that derived this PredictedEvent. | BR-012, BR-013, BR-014 |
+| `sourceRecordId` | Long | No | Logical FK to the Record that derived this PredictedEvent. | BR-012, BR-022, BR-014 |
 | `createdAt` | Timestamp (UTC) | Yes | ISO-8601 UTC timestamp. When the PredictedEvent was derived or manually created. | REQ-04, REQ-05.002 |
 | `futureEventType` | Enum | Yes | Fixed to `PREDICTED_EVENT` for PredictedEvent instances. | REQ-04 |
 

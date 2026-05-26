@@ -6,7 +6,7 @@ PlannedTask is a specialization of FutureEvent representing a concrete upcoming 
 
 | State | Description |
 |-------|-------------|
-| `Pending` | Awaiting completion — the task is scheduled. Initial state upon derivation (e.g., from a confirmed lambing via BR-013, or manual creation). |
+| `Pending` | Awaiting completion — the task is scheduled. Initial state upon derivation (e.g., from a confirmed lambing via BR-022, or manual creation). |
 | `Done` | The task was completed. Realization is captured by creating a new Observation referencing this PlannedTask via `sourceFutureEventId`. Terminal state. |
 | `Cancelled` | The task is no longer required (e.g., the animal was sold, the context changed). Terminal state. |
 
@@ -14,7 +14,7 @@ PlannedTask is a specialization of FutureEvent representing a concrete upcoming 
 
 | From | To | Trigger | Conditions |
 |------|----|---------|------------|
-| `[*]` | `Pending` | PlannedTask is derived | A qualifying record (e.g., a confirmed lambing observation) triggers derivation, or the user manually creates a task. BR-013 calculates `dueDate` (e.g., birth date + 3 months for weaning). |
+| `[*]` | `Pending` | PlannedTask is derived | A qualifying record (e.g., a confirmed lambing observation) triggers derivation, or the user manually creates a task. BR-022 calculates `dueDate` (e.g., birth date + 3 months for weaning). |
 | `Pending` | `Done` | User marks task as done | An Observation is created referencing this PlannedTask as its source via `sourceFutureEventId`, recording the actual completion. [BR-015] |
 | `Pending` | `Cancelled` | User cancels the task | The user explicitly dismisses or cancels the task (e.g., it is no longer relevant). [REQ-04, REQ-13] |
 | `Done` | `[*]` | — | Terminal state — no further transitions. |
@@ -24,7 +24,7 @@ PlannedTask is a specialization of FutureEvent representing a concrete upcoming 
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Pending : derived / observation, intervention or manual creation (BR-013)
+    [*] --> Pending : derived / observation, intervention or manual creation (BR-022)
     Pending --> Done : completed / Intervention linked via sourceFutureEventId (BR-015)
     Pending --> Cancelled : cancelled / user dismisses the task (REQ-04, REQ-13)
     Done --> [*]
