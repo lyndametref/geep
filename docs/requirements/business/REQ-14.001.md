@@ -4,7 +4,7 @@
 As a shepherd, I want to record expenses by category so that I can understand where my money is going.
 
 ## Group
-REQ-14 Financial Tracking
+[REQ-14 Financial Tracking](REQ-14.md)
 
 ## Criticality
 Could have

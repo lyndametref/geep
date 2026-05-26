@@ -4,7 +4,7 @@
 As a flock manager, I want to create custom planned task types so that I can schedule farm-specific tasks.
 
 ## Group
-REQ-15 User-Defined Event and Task Types
+[REQ-15 User-Defined Event and Task Types](REQ-15.md)
 
 ## Criticality
 Could have
@@ -14,7 +14,7 @@ The system must allow the flock manager to define custom planned task types for 
 
 ## Acceptance Criteria
 - Flock manager can define a new planned task type with a name, description, and optional recurrence rule.
-- Planned tasks of the custom type appear on the calendar view (REQ-05).
+- Planned tasks of the custom type appear on the calendar view ([REQ-05](REQ-05.md)).
 - Custom planned task types can be edited after creation.
 - Custom planned task types can be deactivated (soft-deleted) without affecting existing task records. Deactivated types cannot be selected when creating new planned tasks.
 - Custom planned task type name must be unique across all planned task types (built-in and custom, case-insensitive).

@@ -4,7 +4,7 @@
 As a shepherd, I want to record birth and, when dead, death dates for each sheep so that lifecycle information remains complete and accurate.
 
 ## Group
-REQ-01 Individual Management
+[REQ-01 Individual Management](REQ-01.md)
 
 ## Criticality
 Must have

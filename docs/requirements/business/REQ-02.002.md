@@ -4,7 +4,7 @@
 As a shepherd, I want each animal to be clearly identifiable in the genealogy view so that I can navigate lineage quickly.
 
 ## Group
-REQ-02 Genealogy and Parentage Graph
+[REQ-02 Genealogy and Parentage Graph](REQ-02.md)
 
 ## Criticality
 Must have

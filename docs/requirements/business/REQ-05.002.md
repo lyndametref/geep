@@ -4,7 +4,7 @@
 As a shepherd, I want predicted events to appear in the calendar so that I can anticipate upcoming flock operations.
 
 ## Group
-REQ-05 Calendar View
+[REQ-05 Calendar View](REQ-05.md)
 
 ## Criticality
 Must have

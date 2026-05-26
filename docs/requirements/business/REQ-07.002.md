@@ -4,7 +4,7 @@
 As a shepherd, I want a bottle-feeding quantity calculator so that milk or cream quantities are estimated consistently.
 
 ## Group
-REQ-07 Integrated Calculators
+[REQ-07 Integrated Calculators](REQ-07.md)
 
 ## Criticality
 Could have

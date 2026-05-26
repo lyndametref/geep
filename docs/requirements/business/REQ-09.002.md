@@ -4,7 +4,7 @@
 As a shepherd, I want generated icons to use a scalable vector format so that they remain clear across display sizes.
 
 ## Group
-REQ-09 Procedural Icon Generation
+[REQ-09 Procedural Icon Generation](REQ-09.md)
 
 ## Criticality
 Could have

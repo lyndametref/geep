@@ -1,3 +1,4 @@
+
 # Flock view
 
 ## Scope
@@ -8,7 +9,7 @@ The flock view lists all individuals with search and filter capabilities. It is 
 
 Scrollable list of individual cards. Each card displays:
 
-- **Display label** (resolved per `genealogy-display-label.md`)
+- **Display label** (resolved per [`genealogy-display-label.md`](../genealogy-display-label.md))
 - **Sex icon** (male/female)
 - **Birth year**
 - **Alive/dead indicator**
@@ -30,7 +31,7 @@ Multiple filters can be combined. Clearing all filters shows the full flock.
 
 ## Actions
 
-- **Tap** a card — navigate to the individual's journal (see `journal-view.md`)
+- **Tap** a card — navigate to the individual's journal (see [`journal-view.md`](journal-view.md))
 - **Long press** a card — context menu (edit individual, view genealogy, add to batch)
 - **Floating action button** — add a new individual
 - **Batch icon** in the header — enter batch selection mode
@@ -40,7 +41,7 @@ Multiple filters can be combined. Clearing all filters shows the full flock.
 - Tapping the batch icon enters selection mode
 - Checkboxes appear on individual cards
 - Bottom bar shows "Add observation" / "Add intervention" / "Add Planned Task" actions
-- After selecting type and filling form, one record is created per selected individual (see ADR-0001)
+- After selecting type and filling form, one record is created per selected individual (see [ADR-0001](../../architecture/adr/ADR-0001-batch-entry-delegated-to-ui.md))
 
 ## Individual detail
 
@@ -48,6 +49,6 @@ Tapping a card opens the individual's journal as the default view. Swipeable tab
 
 | Tab | Content |
 |-----|---------|
-| **Journal** | Journal view (see `journal-view.md`) |
-| **Info** | Individual detail (see `individual-view.md`) |
-| **Calendar** | Calendar view filtered to this individual (see `calendar-view.md`) |
+| **Journal** | Journal view (see [`journal-view.md`](journal-view.md)) |
+| **Info** | Individual detail (see [`individual-view.md`](individual-view.md)) |
+| **Calendar** | Calendar view filtered to this individual (see [`calendar-view.md`](calendar-view.md)) |

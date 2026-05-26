@@ -4,7 +4,7 @@
 As a shepherd, I want to manage pasture usage so that parasite exposure can be reduced.
 
 ## Group
-REQ-10 Pasture Management and Mapping
+[REQ-10 Pasture Management and Mapping](REQ-10.md)
 
 ## Criticality
 Should have

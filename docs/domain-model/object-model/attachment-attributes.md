@@ -4,8 +4,8 @@
 
 | Attribute | Type | Required | Constraints / Format | Requirement |
 |-----------|------|----------|----------------------|-------------|
-| `id` | Long | Yes | System-generated, immutable. | BR-009 |
-| `recordId` | Long | Yes | FK to the parent Record. Mandatory and immutable once set. | BR-009 |
-| `importedAt` | Timestamp (UTC) | No | ISO-8601 UTC timestamp of when the media was originally captured (e.g. `2024-06-01T10:00:00Z`). Nullable if capture time is unknown. | REQ-04.006 |
-| `content` | JSON (Structured Data) | Yes | Type-specific document payload. Contains information about the document and where to find it. | REQ-04.006 |
+| `id` | Long | Yes | System-generated, immutable. | [BR-009](../../business-rules/BR-009-record-unique-identifier.md) |
+| `recordId` | Long | Yes | FK to the parent Record. Mandatory and immutable once set. | [BR-009](../../business-rules/BR-009-record-unique-identifier.md) |
+| `importedAt` | Timestamp (UTC) | No | ISO-8601 UTC timestamp of when the media was originally captured (e.g. `2024-06-01T10:00:00Z`). Nullable if capture time is unknown. | [REQ-04.006](../../requirements/business/REQ-04.006.md) |
+| `content` | JSON (Structured Data) | Yes | Type-specific document payload. Contains information about the document and where to find it. | [REQ-04.006](../../requirements/business/REQ-04.006.md) |
 

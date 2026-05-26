@@ -4,7 +4,7 @@
 As a shepherd, I want confirmed lambings to generate follow-up weaning actions so that newborn and weaning planning are not missed.
 
 ## Group
-REQ-04 Observations and Reproductive Planning
+[REQ-04 Observations and Reproductive Planning](REQ-04.md)
 
 ## Criticality
 Must have

@@ -4,7 +4,7 @@
 As a shepherd, I want the system to propose possible genotypes for an individual so that I can reason about inherited traits with decision support.
 
 ## Group
-REQ-03 Phenotype and Genotype Deduction
+[REQ-03 Phenotype and Genotype Deduction](REQ-03.md)
 
 ## Criticality
 Could have

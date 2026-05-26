@@ -4,15 +4,15 @@
 As a shepherd, I want to apply the same intervention to multiple animals at once so that repetitive work is reduced.
 
 ## Group
-REQ-13 Interventions and Care Management
+[REQ-13 Interventions and Care Management](REQ-13.md)
 
 ## Criticality
 Must have
 
 ## Description
-The system must support a generic batch-entry capability so that the same intervention can be applied to multiple selected individuals in one operation. This capability mirrors the observation batch capability (REQ-04.002).
+The system must support a generic batch-entry capability so that the same intervention can be applied to multiple selected individuals in one operation. This capability mirrors the observation batch capability ([REQ-04.002](REQ-04.002.md)).
 
 ## Acceptance Criteria
 - The system supports selecting multiple individuals for a batch intervention operation.
 - The same intervention entry can be applied to all selected individuals in one operation.
-- Selected individuals can be chosen through filters or manual selection (REQ-13.003).
+- Selected individuals can be chosen through filters or manual selection ([REQ-13.003](REQ-13.003.md)).

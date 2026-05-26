@@ -4,7 +4,7 @@
 As a shepherd, I want icon generation to reflect key phenotype traits so that icons remain meaningful and distinguishable.
 
 ## Group
-REQ-09 Procedural Icon Generation
+[REQ-09 Procedural Icon Generation](REQ-09.md)
 
 ## Criticality
 Could have

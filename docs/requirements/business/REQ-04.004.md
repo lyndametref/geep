@@ -4,7 +4,7 @@
 As a shepherd, I want mating observations to automatically generate expected lambing planning events so that reproductive follow-up is timely.
 
 ## Group
-REQ-04 Observations and Reproductive Planning
+[REQ-04 Observations and Reproductive Planning](REQ-04.md)
 
 ## Criticality
 Should have

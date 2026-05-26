@@ -8,7 +8,7 @@ Zero or more sire (male parent), and zero or one dam (female parent) can be prov
 
 ## Rationale
 
-Based on requirements REQ-01.005 — Sex, color pattern, and lineage information, and REQ-02 — Genealogy and Parentage Graph, this rule defines parentage as a relationship from child to sire and dam. 
+Based on requirements [REQ-01.005](../requirements/business/REQ-01.005.md) — Sex, color pattern, and lineage information, and [REQ-02](../requirements/business/REQ-02.md) — Genealogy and Parentage Graph, this rule defines parentage as a relationship from child to sire and dam. 
 
 Sex-typed roles (sire = male, dam = female) provide clarity in genealogy views. 
 

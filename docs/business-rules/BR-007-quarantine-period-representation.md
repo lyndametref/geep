@@ -6,7 +6,7 @@ Medication quarantine is modeled as two independent optional periods: one for me
 
 ## Rationale
 
-Based on requirement REQ-13.004 — Quarantine management (meat and milk withdrawal periods after treatments), this rule reflects the regulatory reality that a single medication may impose different waiting periods before the animal's meat versus milk can be used. Modeling them as two independent WaitingDelay instances allows each to have its own elapsed date and status without conflating two distinct timelines.
+Based on requirement [REQ-13.004](../requirements/business/REQ-13.004.md) — Quarantine management (meat and milk withdrawal periods after treatments), this rule reflects the regulatory reality that a single medication may impose different waiting periods before the animal's meat versus milk can be used. Modeling them as two independent WaitingDelay instances allows each to have its own elapsed date and status without conflating two distinct timelines.
 
 ## Applicability
 

@@ -4,7 +4,7 @@
 As a shepherd, I want medical analysis results to be stored in the journal so that I can review health evidence over time.
 
 ## Group
-REQ-04 Observations and Reproductive Planning
+[REQ-04 Observations and Reproductive Planning](REQ-04.md)
 
 ## Criticality
 Should have

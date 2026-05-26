@@ -4,7 +4,7 @@
 As a shepherd, I want each drug definition to include key safety information so that treatments are managed correctly.
 
 ## Group
-REQ-06 Medication Management
+[REQ-06 Medication Management](REQ-06.md)
 
 ## Criticality
 Could have

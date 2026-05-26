@@ -4,7 +4,7 @@
 As a shepherd, I want to record different kinds of observations so that I can track the important events and conditions affecting my animals.
 
 ## Group
-REQ-04 Observations and Reproductive Planning
+[REQ-04 Observations and Reproductive Planning](REQ-04.md)
 
 ## Criticality
 Must have

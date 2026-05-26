@@ -6,7 +6,7 @@ A mating observation derives a Predicted Event with a window between 140 and 150
 
 ## Rationale
 
-Based on requirement REQ-04.004 — Reproductive planning events (predicted lambing windows derived from mating observations), this rule encodes the typical sheep gestation period. The 140-150 day range reflects the natural variability in gestation length, providing a realistic predicted lambing window rather than a single date. 
+Based on requirement [REQ-04.004](../requirements/business/REQ-04.004.md) — Reproductive planning events (predicted lambing windows derived from mating observations), this rule encodes the typical sheep gestation period. The 140-150 day range reflects the natural variability in gestation length, providing a realistic predicted lambing window rather than a single date. 
 
 ## Applicability
 

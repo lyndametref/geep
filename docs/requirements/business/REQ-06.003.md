@@ -4,7 +4,7 @@
 As a shepherd, I want stock to update automatically when treatments are recorded so that inventory stays accurate without manual recalculation.
 
 ## Group
-REQ-06 Medication Management
+[REQ-06 Medication Management](REQ-06.md)
 
 ## Criticality
 Could have

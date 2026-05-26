@@ -1,6 +1,6 @@
 # Context Map
 
-This model captures the shared business meaning of individual lifecycle, genealogy, observations, care, derived planning, and the REQ-03.001, REQ-03.002, and REQ-03.003 placeholder for Geep, without implementation or persistence details.
+This model captures the shared business meaning of individual lifecycle, genealogy, observations, care, derived planning, and the [REQ-03.001](../requirements/business/REQ-03.001.md), [REQ-03.002](../requirements/business/REQ-03.002.md), and [REQ-03.003](../requirements/business/REQ-03.003.md) placeholder for Geep, without implementation or persistence details.
 
 ```mermaid
 graph LR
@@ -14,10 +14,10 @@ graph LR
 ## Context Descriptions
 
 ### Individual Management
-Manages the lifecycle and identity of individuals, including registration, status, flock membership (derived from FLOCK_ENTRY and FLOCK_EXIT observations per BR-019), and parentage links used by downstream contexts. Individual Management provides the lineage classification that downstream contexts must respect for filtering Lineage Individuals.
+Manages the lifecycle and identity of individuals, including registration, status, flock membership (derived from FLOCK_ENTRY and FLOCK_EXIT observations per [BR-019](../business-rules/BR-019-flock-membership-tracking.md)), and parentage links used by downstream contexts. Individual Management provides the lineage classification that downstream contexts must respect for filtering Lineage Individuals.
 
 ### Genealogy Graph
-Represents lineage relationships between individuals and supports ancestry-based reasoning and navigation. Includes Lineage Individuals (those without FLOCK_ENTRY or FLOCK_EXIT observations per BR-019) in the graph.
+Represents lineage relationships between individuals and supports ancestry-based reasoning and navigation. Includes Lineage Individuals (those without FLOCK_ENTRY or FLOCK_EXIT observations per [BR-019](../business-rules/BR-019-flock-membership-tracking.md)) in the graph.
 
 ### Journaling
 Captures observations, interventions, and related evidence as chronological records associated with one or more individuals. Excludes lineage individuals from day-to-day journal operations.

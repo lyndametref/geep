@@ -13,7 +13,7 @@ Genealogy views display parent-child relationships as a directed graph where eac
 
 ## Rationale
 
-Based on requirements REQ-02.001 — The genealogy view displays individuals as nodes of a graph, and REQ-02.003 — The genealogy view displays parentage links as edges. This rule exists because the system must render parentage relationships as a navigable graph in genealogy views to make lineage understandable. BR-005 defines the role semantics of parent-child relationships (sire/dam); this rule complements it by defining how those relationships are visually represented as a directed graph.
+Based on requirements [REQ-02.001](../requirements/business/REQ-02.001.md) — The genealogy view displays individuals as nodes of a graph, and [REQ-02.003](../requirements/business/REQ-02.003.md) — The genealogy view displays parentage links as edges. This rule exists because the system must render parentage relationships as a navigable graph in genealogy views to make lineage understandable. [BR-005](BR-005-parentage-role-semantics.md) defines the role semantics of parent-child relationships (sire/dam); this rule complements it by defining how those relationships are visually represented as a directed graph.
 
 ## Applicability
 

@@ -4,7 +4,7 @@
 As a shepherd, I want visual references for Body Condition Score (BCS) evaluation so that I can assess animal condition consistently.
 
 ## Group
-REQ-08 Cheat Sheets and References
+[REQ-08 Cheat Sheets and References](REQ-08.md)
 
 ## Criticality
 Should have

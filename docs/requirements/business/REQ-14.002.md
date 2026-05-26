@@ -4,7 +4,7 @@
 As a shepherd, I want to record income by source so that I can understand my revenue streams.
 
 ## Group
-REQ-14 Financial Tracking
+[REQ-14 Financial Tracking](REQ-14.md)
 
 ## Criticality
 Could have

@@ -4,7 +4,7 @@
 As a flock manager, I want authenticated team members to access the same flock dataset so that collaboration stays aligned.
 
 ## Group
-REQ-12 Multi-User Data Sharing
+[REQ-12 Multi-User Data Sharing](REQ-12.md)
 
 ## Criticality
 Should have

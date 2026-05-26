@@ -4,7 +4,7 @@
 As a shepherd, I want to manually correct stock levels so that inventory remains accurate when adjustments are needed.
 
 ## Group
-REQ-06 Medication Management
+[REQ-06 Medication Management](REQ-06.md)
 
 ## Criticality
 Could have

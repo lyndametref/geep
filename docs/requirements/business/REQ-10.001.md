@@ -4,7 +4,7 @@
 As a shepherd, I want to track pasture usage so that I can manage parasite exposure through rotation.
 
 ## Group
-REQ-10 Pasture Management and Mapping
+[REQ-10 Pasture Management and Mapping](REQ-10.md)
 
 ## Criticality
 Should have

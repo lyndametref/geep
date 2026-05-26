@@ -4,7 +4,7 @@
 As a shepherd, I want to record different kinds of interventions so that I can track all performed actions affecting my animals.
 
 ## Group
-REQ-13 Interventions and Care Management
+[REQ-13 Interventions and Care Management](REQ-13.md)
 
 ## Criticality
 Must have

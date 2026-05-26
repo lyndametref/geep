@@ -4,7 +4,7 @@
 As a shepherd, I want to be able to provide an official identifier for my animals, either at creation or later, so that I can comply with regulations while keeping flexibility on when I make the assignment.
 
 ## Group
-REQ-01 Individual Management
+[REQ-01 Individual Management](REQ-01.md)
 
 ## Criticality
 Must have

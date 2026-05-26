@@ -9,7 +9,7 @@
 
 ## Rationale
 
-Based on requirements REQ-04.001 — Observation types include weight evolution, health observations, and reproduction events, and REQ-04.005 — A confirmed lambing proposes creation of lamb records as well as a weaning event at a configurable interval. This rule exists because lambing is a multi-step process: the observation captures the event, the shepherd is prompted to register each newborn as an Individual, and a weaning reminder is automatically scheduled. The sex constraint ensures only ewes can be lambing subjects. The weaning delay is configurable to accommodate different management practices.
+Based on requirements [REQ-04.001](../requirements/business/REQ-04.001.md) — Observation types include weight evolution, health observations, and reproduction events, and [REQ-04.005](../requirements/business/REQ-04.005.md) — A confirmed lambing proposes creation of lamb records as well as a weaning event at a configurable interval. This rule exists because lambing is a multi-step process: the observation captures the event, the shepherd is prompted to register each newborn as an Individual, and a weaning reminder is automatically scheduled. The sex constraint ensures only ewes can be lambing subjects. The weaning delay is configurable to accommodate different management practices.
 
 ## Applicability
 

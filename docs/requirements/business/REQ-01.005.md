@@ -4,7 +4,7 @@
 As a shepherd, I want to manage complete information for each sheep so that I can track identity, lifecycle, and lineage.
 
 ## Group
-REQ-01 Individual Management
+[REQ-01 Individual Management](REQ-01.md)
 
 ## Criticality
 Must have

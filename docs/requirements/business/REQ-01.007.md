@@ -4,7 +4,7 @@
 As a shepherd, I want to record the basic color pattern for each sheep so that I can easily distinguish animals visually.
 
 ## Group
-REQ-01 Individual Management
+[REQ-01 Individual Management](REQ-01.md)
 
 ## Criticality
 Should have

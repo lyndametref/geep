@@ -4,7 +4,7 @@
 As a shepherd, I want operational reminders for routine care interventions so that important actions are not missed.
 
 ## Group
-REQ-13 Interventions and Care Management
+[REQ-13 Interventions and Care Management](REQ-13.md)
 
 ## Criticality
 Must have

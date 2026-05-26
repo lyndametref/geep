@@ -4,7 +4,7 @@
 As a shepherd, I want intervention entries to include quarantine details so that I can respect meat and milk withdrawal periods.
 
 ## Group
-REQ-13 Interventions and Care Management
+[REQ-13 Interventions and Care Management](REQ-13.md)
 
 ## Criticality
 Should have

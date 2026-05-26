@@ -4,7 +4,7 @@
 As a shepherd, I want to know which individuals are currently in my flock and track when and how they entered or left so that I can manage day-to-day operations accurately and maintain a complete entry and departure history.
 
 ## Group
-REQ-01 Individual Management
+[REQ-01 Individual Management](REQ-01.md)
 
 ## Criticality
 Must have

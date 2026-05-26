@@ -4,7 +4,7 @@
 As a shepherd, I want to see key past flock events in the calendar so that I can review operational history and improve my practice.
 
 ## Group
-REQ-05 Calendar View
+[REQ-05 Calendar View](REQ-05.md)
 
 ## Criticality
 Must have

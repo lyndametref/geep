@@ -2,14 +2,14 @@
 
 ## Scope
 
-This spec covers individual selection for batch observation entry (REQ-04.003) and batch intervention entry (REQ-13.003). The selection UI is shared between both flows.
+This spec covers individual selection for batch observation entry ([REQ-04.003](../requirements/business/REQ-04.003.md)) and batch intervention entry ([REQ-13.003](../requirements/business/REQ-13.003.md)). The selection UI is shared between both flows.
 
 ## Exclusions
 
 The following individuals are excluded from batch selection results:
 
-- **Lineage individuals** — those with `belongsToFlock = false` (REQ-01.008)
-- **Stillborn individuals** — those with `stillborn = true` (BR-004)
+- **Lineage individuals** — those with `belongsToFlock = false` ([REQ-01.008](../requirements/business/REQ-01.008.md))
+- **Stillborn individuals** — those with `stillborn = true` ([BR-004](../business-rules/BR-004-stillborn-lifecycle-progression.md))
 
 ## Filters
 

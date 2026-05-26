@@ -4,7 +4,7 @@
 As a shepherd, I want to provide phenotype information for my sheep so that the system can support genotype deduction.
 
 ## Group
-REQ-03 Phenotype and Genotype Deduction
+[REQ-03 Phenotype and Genotype Deduction](REQ-03.md)
 
 ## Criticality
 Should have

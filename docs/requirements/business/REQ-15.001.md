@@ -4,13 +4,13 @@
 As a flock manager, I want to create new observation types so that I can record observations specific to my farm that are not covered by default types.
 
 ## Group
-REQ-15 User-Defined Event and Task Types
+[REQ-15 User-Defined Event and Task Types](REQ-15.md)
 
 ## Criticality
 Could have
 
 ## Description
-The system must allow the flock manager to define custom observation types beyond the default set provided by product evolution (see REQ-04.001). Custom observation types function identically to built-in types in observation entry forms and reports.
+The system must allow the flock manager to define custom observation types beyond the default set provided by product evolution (see [REQ-04.001](REQ-04.001.md)). Custom observation types function identically to built-in types in observation entry forms and reports.
 
 ## Acceptance Criteria
 - Flock manager can define a new observation type with a name and description.

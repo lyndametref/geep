@@ -4,7 +4,7 @@
 As a shepherd, I want ancestry and parentage information to be displayed as a graph so that I can understand lineage and inherited characteristics at a glance.
 
 ## Group
-REQ-02 Genealogy and Parentage Graph
+[REQ-02 Genealogy and Parentage Graph](REQ-02.md)
 
 ## Criticality
 Must have

@@ -4,7 +4,7 @@
 As a shepherd, I want a unique identifier to be created for each sheep so that I can record information about them without relying on names or manually assigning unique numbers.
 
 ## Group
-REQ-01 Individual Management
+[REQ-01 Individual Management](REQ-01.md)
 
 ## Criticality
 Must have

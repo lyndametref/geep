@@ -4,7 +4,7 @@
 As a shepherd, I want changes made in one application to be available in the others after synchronization so that all users work with consistent data.
 
 ## Group
-REQ-11 Multi-Application Workflow
+[REQ-11 Multi-Application Workflow](REQ-11.md)
 
 ## Criticality
 Should have

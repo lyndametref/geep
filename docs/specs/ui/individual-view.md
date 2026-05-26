@@ -14,13 +14,13 @@ Scrollable card-based layout with sections.
 
 | Field | Source |
 |-------|--------|
-| Display label | Computed per `genealogy-display-label.md` |
+| Display label | Computed per [`genealogy-display-label.md`](../genealogy-display-label.md) |
 | Official ID | `individual.officialId` |
 | Sex | `individual.sex` |
 | Breed | `individual.breed` |
 | Birth date | `individual.birthDate` |
 | Death date | `individual.deathDate` (if set) |
-| Flock status | Active / Exited (from BR-019) |
+| Flock status | Active / Exited (from [BR-019](../../business-rules/BR-019-flock-membership-tracking.md)) |
 
 ### Parentage
 

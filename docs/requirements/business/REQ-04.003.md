@@ -4,13 +4,13 @@
 As a shepherd, I want to select animals efficiently for batch operations so that I can apply entries to the right set of individuals.
 
 ## Group
-REQ-04 Observations and Automated Events
+[REQ-04 Observations and Automated Events](REQ-04.md)
 
 ## Criticality
 Must have
 
 ## Description
-The system must allow individuals to be selected for batch operations either through filters, such as age or sex, or through manual selection. For batch intervention selection, see REQ-13.003.
+The system must allow individuals to be selected for batch operations either through filters, such as age or sex, or through manual selection. For batch intervention selection, see [REQ-13.003](REQ-13.003.md).
 
 ## Acceptance Criteria
 - Individuals can be selected through an age filter.

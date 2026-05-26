@@ -6,7 +6,7 @@ birthDate is mandatory, deathDate is optional and captured when known.
 
 ## Rationale
 
-Based on requirement REQ-01.004 — Lifecycle dates (birth and death tracking), this rule mandates that birthDate is always recorded for every individual (mandatory field). deathDate remains optional and is captured when a death event occurs.
+Based on requirement [REQ-01.004](../requirements/business/REQ-01.004.md) — Lifecycle dates (birth and death tracking), this rule mandates that birthDate is always recorded for every individual (mandatory field). deathDate remains optional and is captured when a death event occurs.
 
 ## Applicability
 

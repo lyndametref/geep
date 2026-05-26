@@ -4,13 +4,13 @@
 As a flock manager, I want to create new intervention types so that I can record interventions specific to my farm.
 
 ## Group
-REQ-15 User-Defined Event and Task Types
+[REQ-15 User-Defined Event and Task Types](REQ-15.md)
 
 ## Criticality
 Could have
 
 ## Description
-The system must allow the flock manager to define custom intervention types beyond the default set provided by product evolution (see REQ-13.001). Custom intervention types function identically to built-in types in intervention entry forms and care management workflows.
+The system must allow the flock manager to define custom intervention types beyond the default set provided by product evolution (see [REQ-13.001](REQ-13.001.md)). Custom intervention types function identically to built-in types in intervention entry forms and care management workflows.
 
 ## Acceptance Criteria
 - Flock manager can define a new intervention type with a name and description.

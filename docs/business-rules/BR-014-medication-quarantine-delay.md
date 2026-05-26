@@ -6,7 +6,7 @@ A medication intervention can derive quarantine Waiting Delay entries that elaps
 
 ## Rationale
 
-Based on requirement REQ-13.004 — Quarantine management (meat and milk withdrawal periods after treatments), this rule connects medication recording to quarantine tracking. When a medication with known withdrawal periods is administered, the system derives Waiting Delay entries — one per withdrawal period (meat, milk, or both as per BR-007). Each delay is calculated from the medication date plus the product-specific withdrawal duration.
+Based on requirement [REQ-13.004](../requirements/business/REQ-13.004.md) — Quarantine management (meat and milk withdrawal periods after treatments), this rule connects medication recording to quarantine tracking. When a medication with known withdrawal periods is administered, the system derives Waiting Delay entries — one per withdrawal period (meat, milk, or both as per [BR-007](BR-007-quarantine-period-representation.md)). Each delay is calculated from the medication date plus the product-specific withdrawal duration.
 
 ## Applicability
 

@@ -4,7 +4,7 @@
 As a shepherd, I want reminders to appear in the calendar so that I can plan upcoming care actions.
 
 ## Group
-REQ-05 Calendar View
+[REQ-05 Calendar View](REQ-05.md)
 
 ## Criticality
 Must have

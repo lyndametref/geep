@@ -4,7 +4,7 @@
 As a shepherd, I want to filter the genealogy view by relationship and status so that I can focus on relevant animals.
 
 ## Group
-REQ-02 Genealogy and Parentage Graph
+[REQ-02 Genealogy and Parentage Graph](REQ-02.md)
 
 ## Criticality
 Should have

@@ -4,7 +4,7 @@
 As a shepherd, I want a lidocaine dosage calculator for castration so that dosage decisions are consistent and safer.
 
 ## Group
-REQ-07 Integrated Calculators
+[REQ-07 Integrated Calculators](REQ-07.md)
 
 ## Criticality
 Could have

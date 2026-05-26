@@ -4,7 +4,7 @@
 As a shepherd, I want each individual to have a chronological journal with possibility to add attachments to entries so that I can review history with supporting evidence.
 
 ## Group
-REQ-04 Observations and Reproductive Planning
+[REQ-04 Observations and Reproductive Planning](REQ-04.md)
 
 ## Criticality
 Must have

@@ -4,7 +4,7 @@
 As a shepherd, I want to create individual entries even when the BDTA number is not yet available so that I can capture important information immediately and complete identification later.
 
 ## Group
-REQ-01 Individual Management
+[REQ-01 Individual Management](REQ-01.md)
 
 ## Criticality
 Must have

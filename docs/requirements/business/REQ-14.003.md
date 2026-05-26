@@ -4,7 +4,7 @@
 As a shepherd, I want to generate profit/loss reports so that I can assess the financial health of my exploitation over a given period.
 
 ## Group
-REQ-14 Financial Tracking
+[REQ-14 Financial Tracking](REQ-14.md)
 
 ## Criticality
 Could have

@@ -4,7 +4,7 @@
 As a flock manager, I want updates made by one user to become visible to other authorized users so that shared data remains consistent.
 
 ## Group
-REQ-12 Multi-User Data Sharing
+[REQ-12 Multi-User Data Sharing](REQ-12.md)
 
 ## Criticality
 Should have

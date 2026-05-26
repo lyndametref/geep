@@ -14,17 +14,17 @@ Predicted Event is a specialization of Future Event representing a probabilistic
 
 | From | To | Trigger | Conditions |
 |------|----|---------|------------|
-| `[*]` | `Pending` | PredictedEvent is derived | A mating observation (or other qualifying record) is recorded. BR-012 calculates `earliestDate` and `latestDate` based on the observation timestamp. |
-| `Pending` | `Realized` | Observation recorded with `sourceFutureEventId` | A new Observation is created that references this PredictedEvent as its source. The Observation captures the actual event (e.g., a lambing record). [BR-015] |
-| `Pending` | `Aborted` | User or system aborts the prediction | The predicted event is confirmed as not occurring (e.g., the lambing window has passed without a corresponding Observation, or the user explicitly cancels the prediction). [REQ-04, REQ-05] |
+| `[*]` | `Pending` | PredictedEvent is derived | A mating observation (or other qualifying record) is recorded. [BR-012](../../business-rules/BR-012-lambing-prediction-based-on-mating-observation.md) calculates `earliestDate` and `latestDate` based on the observation timestamp. |
+| `Pending` | `Realized` | Observation recorded with `sourceFutureEventId` | A new Observation is created that references this PredictedEvent as its source. The Observation captures the actual event (e.g., a lambing record). [[BR-015](../../business-rules/BR-015-future-event-realization.md)] |
+| `Pending` | `Aborted` | User or system aborts the prediction | The predicted event is confirmed as not occurring (e.g., the lambing window has passed without a corresponding Observation, or the user explicitly cancels the prediction). [[REQ-04](../../requirements/business/REQ-04.md), [REQ-05](../../requirements/business/REQ-05.md)] |
 
 ## Diagram
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Pending : derived / observation recorded (BR-012)
-    Pending --> Realized : realized / Observation linked via sourceFutureEventId (BR-015)
-    Pending --> Aborted : aborted / event will not occur (REQ-04, REQ-05)
+    [*] --> Pending : derived / observation recorded ([BR-012](../../business-rules/BR-012-lambing-prediction-based-on-mating-observation.md))
+    Pending --> Realized : realized / Observation linked via sourceFutureEventId ([BR-015](../../business-rules/BR-015-future-event-realization.md))
+    Pending --> Aborted : aborted / event will not occur ([REQ-04](../../requirements/business/REQ-04.md), [REQ-05](../../requirements/business/REQ-05.md))
     Realized --> [*]
     Aborted --> [*]
 ```

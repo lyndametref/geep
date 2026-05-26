@@ -4,7 +4,7 @@
 As a shepherd, I want visual references for FaMaCha methode so that I can assess animals health more consistently.
 
 ## Group
-REQ-08 Cheat Sheets and References
+[REQ-08 Cheat Sheets and References](REQ-08.md)
 
 ## Criticality
 Could have

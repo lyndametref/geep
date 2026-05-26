@@ -9,7 +9,7 @@ When a Future Event materializes, a new Record is created linked to the source F
 
 ## Rationale
 
-Based on requirement REQ-04 — Observations and Reproductive Planning, this rule closes the loop between planning and recording. Rather than mutating the Future Event's state in isolation, realization is recorded as the appropriate Record type that references the original Future Event as its source. This preserves an auditable trail: the prediction, its realization, and any follow-up actions remain linked in the individual's journal. Waiting Delays represent elapsed time periods rather than events, so no record is needed.
+Based on requirement [REQ-04](../requirements/business/REQ-04.md) — Observations and Reproductive Planning, this rule closes the loop between planning and recording. Rather than mutating the Future Event's state in isolation, realization is recorded as the appropriate Record type that references the original Future Event as its source. This preserves an auditable trail: the prediction, its realization, and any follow-up actions remain linked in the individual's journal. Waiting Delays represent elapsed time periods rather than events, so no record is needed.
 
 ## Applicability
 

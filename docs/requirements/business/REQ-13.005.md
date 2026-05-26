@@ -4,7 +4,7 @@
 As a shepherd, I want intervention details and quarantine periods to be visible in the journal so that I can follow care and treatment protocols safely.
 
 ## Group
-REQ-13 Interventions and Care Management
+[REQ-13 Interventions and Care Management](REQ-13.md)
 
 ## Criticality
 Should have

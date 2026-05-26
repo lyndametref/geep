@@ -4,7 +4,7 @@
 As a shepherd, I want to enter genotype information even when I am not fully certain so that I can keep partial knowledge and refine it later.
 
 ## Group
-REQ-03 Phenotype and Genotype Deduction
+[REQ-03 Phenotype and Genotype Deduction](REQ-03.md)
 
 ## Criticality
 Should have

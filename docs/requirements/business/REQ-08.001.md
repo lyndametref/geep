@@ -4,7 +4,7 @@
 As a shepherd, I want quick-access to castration procedures so that I can apply them consistently.
 
 ## Group
-REQ-08 Cheat Sheets and References
+[REQ-08 Cheat Sheets and References](REQ-08.md)
 
 ## Criticality
 Should have

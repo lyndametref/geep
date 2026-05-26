@@ -4,7 +4,7 @@
 As a shepherd, I want each individual entry to have a visual representation so that I can identify animals quickly.
 
 ## Group
-REQ-01 Individual Management
+[REQ-01 Individual Management](REQ-01.md)
 
 ## Criticality
 Should have

@@ -4,20 +4,20 @@
 
 | Attribute | Type | Required | Constraints / Format | Requirement |
 |-----------|------|----------|----------------------|-------------|
-| `id` | Long | Yes | System-generated, immutable | REQ-01.001, BR-001 |
-| `officialId` | String | No | Unique; Official Identifier (AMD/TVD/BDTA). Can be deferred. | REQ-01.002, REQ-01.003, BR-002 |
-| `name` | String | No | Display label: name > officialId > generated fallback. | REQ-02.002 |
-| `birthDate` | LocalDate | Yes | Calendar date, no time or timezone. | REQ-01.004, BR-003 |
-| `deathDate` | LocalDate | No | If stillborn, must equal `birthDate`. | REQ-01.004, BR-003 |
-| `stillborn` | Boolean | Yes | If `true`, `deathDate` equals `birthDate`. | REQ-01.004, BR-004 |
-| `living` | Boolean | No | Derived from `deathDate`: `null` → alive, present → deceased. | REQ-01.005, BR-004, ADR-0002 |
-| `sex` | Enum | Yes | Values: `Male`, `Female`. | REQ-01.005 |
-| `colorPattern` | String | No | From configurable list of options. | REQ-01.007 |
-| `baseColor` | String | No | From configurable list. Used for icon generation. | REQ-09.001 |
-| `agoutiPattern` | String | No | From configurable list. Used for icon generation. | REQ-09.001 |
-| `spotting` | String | No | From configurable list. Used for icon generation. | REQ-09.001 |
-| `dilution` | String | No | From configurable list. Used for icon generation. | REQ-09.001 |
-| `belongsToFlock` | Boolean | No | Derived from FLOCK_ENTRY / FLOCK_EXIT observations. `false` for Lineage individuals. | REQ-01.008, BR-019 |
-| `sireId` | Long | No | Logical FK to Individual with sex=Male. | REQ-01.005, REQ-02.001, BR-005 |
-| `damId` | Long | No | Logical FK to Individual with sex=Female. | REQ-01.005, REQ-02.001, BR-005 |
+| `id` | Long | Yes | System-generated, immutable | [REQ-01.001](../../requirements/business/REQ-01.001.md), [BR-001](../../business-rules/BR-001-unique-internal-identifier.md) |
+| `officialId` | String | No | Unique; Official Identifier (AMD/TVD/BDTA). Can be deferred. | [REQ-01.002](../../requirements/business/REQ-01.002.md), [REQ-01.003](../../requirements/business/REQ-01.003.md), [BR-002](../../business-rules/BR-002-deferred-official-identifier-assignment.md) |
+| `name` | String | No | Display label: name > officialId > generated fallback. | [REQ-02.002](../../requirements/business/REQ-02.002.md) |
+| `birthDate` | LocalDate | Yes | Calendar date, no time or timezone. | [REQ-01.004](../../requirements/business/REQ-01.004.md), [BR-003](../../business-rules/BR-003-lifecycle-date-constraints.md) |
+| `deathDate` | LocalDate | No | If stillborn, must equal `birthDate`. | [REQ-01.004](../../requirements/business/REQ-01.004.md), [BR-003](../../business-rules/BR-003-lifecycle-date-constraints.md) |
+| `stillborn` | Boolean | Yes | If `true`, `deathDate` equals `birthDate`. | [REQ-01.004](../../requirements/business/REQ-01.004.md), [BR-004](../../business-rules/BR-004-stillborn-lifecycle-progression.md) |
+| `living` | Boolean | No | Derived from `deathDate`: `null` → alive, present → deceased. | [REQ-01.005](../../requirements/business/REQ-01.005.md), [BR-004](../../business-rules/BR-004-stillborn-lifecycle-progression.md), [ADR-0002](../../architecture/adr/ADR-0002-living-state-derived-from-death-date.md) |
+| `sex` | Enum | Yes | Values: `Male`, `Female`. | [REQ-01.005](../../requirements/business/REQ-01.005.md) |
+| `colorPattern` | String | No | From configurable list of options. | [REQ-01.007](../../requirements/business/REQ-01.007.md) |
+| `baseColor` | String | No | From configurable list. Used for icon generation. | [REQ-09.001](../../requirements/business/REQ-09.001.md) |
+| `agoutiPattern` | String | No | From configurable list. Used for icon generation. | [REQ-09.001](../../requirements/business/REQ-09.001.md) |
+| `spotting` | String | No | From configurable list. Used for icon generation. | [REQ-09.001](../../requirements/business/REQ-09.001.md) |
+| `dilution` | String | No | From configurable list. Used for icon generation. | [REQ-09.001](../../requirements/business/REQ-09.001.md) |
+| `belongsToFlock` | Boolean | No | Derived from FLOCK_ENTRY / FLOCK_EXIT observations. `false` for Lineage individuals. | [REQ-01.008](../../requirements/business/REQ-01.008.md), [BR-019](../../business-rules/BR-019-flock-membership-tracking.md) |
+| `sireId` | Long | No | Logical FK to Individual with sex=Male. | [REQ-01.005](../../requirements/business/REQ-01.005.md), [REQ-02.001](../../requirements/business/REQ-02.001.md), [BR-005](../../business-rules/BR-005-parentage-role-semantics.md) |
+| `damId` | Long | No | Logical FK to Individual with sex=Female. | [REQ-01.005](../../requirements/business/REQ-01.005.md), [REQ-02.001](../../requirements/business/REQ-02.001.md), [BR-005](../../business-rules/BR-005-parentage-role-semantics.md) |
 
