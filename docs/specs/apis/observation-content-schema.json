@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "observation-content-schema.json",
+  "title": "Observation Content Schema",
+  "description": "JSON payload schema for the Observation content field. Each observation has a discriminator field (observationType) that determines the required and optional fields. See docs/requirements/business/REQ-04.001.md for type definitions.",
+  "type": "object",
+  "properties": {
+    "observationType": {
+      "type": "string",
+      "description": "Discriminator field. Must match a built-in or active custom type name. Built-in types use UPPER_SNAKE_CASE."
+    }
+  },
+  "required": ["observationType"],
+  "allOf": [
+    {
+      "if": {
+        "properties": { "observationType": { "const": "WEIGHT" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "WEIGHT" },
+          "weightKg": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Body weight in kilograms."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Free-text notes."
+          }
+        },
+        "required": ["weightKg"],
+        "unevaluatedProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": { "observationType": { "const": "MATING_MARK" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "MATING_MARK" },
+          "sireIds": {
+            "type": "array",
+            "items": { "type": "integer" },
+            "description": "FK(s) to sire Individual(s). Each must be Male (BR-005). Empty when the ram is unknown, multiple when the ewe was with a group of rams."
+          }
+        },
+        "unevaluatedProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": { "observationType": { "const": "LAMBING" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "LAMBING" },
+          "numberOfLambs": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "description": "Total number of lambs born."
+          },
+          "lambs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sex": {
+                  "type": "string",
+                  "enum": ["Male", "Female"]
+                }
+              },
+              "required": ["sex"]
+            },
+            "description": "Details per lamb. Length must equal numberOfLambs if provided."
+          }
+        },
+        "required": ["numberOfLambs"],
+        "unevaluatedProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": { "observationType": { "const": "HEALTH" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "HEALTH" },
+          "condition": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Free-text description of the health condition."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Free-text notes."
+          }
+        },
+        "required": ["condition"],
+        "unevaluatedProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": { "observationType": { "const": "NOTE" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "NOTE" },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Free-form text content."
+          }
+        },
+        "required": ["text"],
+        "unevaluatedProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": { "observationType": { "const": "FECAL_EGG_COUNT" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "FECAL_EGG_COUNT" },
+          "parasite": {
+            "type": "string",
+            "enum": ["STRONGYLES", "NEMATODIRUS", "COCCIDIA", "LIVER_FLUKE"]
+          },
+          "result": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Result value or description (e.g. eggs per gram)."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Free-text notes."
+          }
+        },
+        "required": ["parasite", "result"],
+        "unevaluatedProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": { "observationType": { "const": "BODY_CONDITION_SCORE" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "BODY_CONDITION_SCORE" },
+          "score": {
+            "type": "number",
+            "enum": [1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0],
+            "description": "Body Condition Score in half-point increments."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Free-text notes."
+          }
+        },
+        "required": ["score"],
+        "unevaluatedProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": { "observationType": { "const": "FAMACHA" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "FAMACHA" },
+          "score": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "FAMACHA score: 1 (red, no anemia) to 5 (white, severe anemia)."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Free-text notes."
+          }
+        },
+        "required": ["score"],
+        "unevaluatedProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": { "observationType": { "const": "FLOCK_ENTRY" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "FLOCK_ENTRY" },
+          "reason": {
+            "type": "string",
+            "enum": ["BIRTH", "PURCHASE"]
+          },
+          "originFarmId": {
+            "type": "string",
+            "description": "Identifier of the origin farm. Relevant when reason is PURCHASE."
+          },
+          "originFarmName": {
+            "type": "string",
+            "description": "Name of the origin farm. Relevant when reason is PURCHASE."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Free-text notes."
+          }
+        },
+        "required": ["reason"],
+        "unevaluatedProperties": false
+      }
+    },
+    {
+      "if": {
+        "properties": { "observationType": { "const": "FLOCK_EXIT" } },
+        "required": ["observationType"]
+      },
+      "then": {
+        "properties": {
+          "observationType": { "const": "FLOCK_EXIT" },
+          "reason": {
+            "type": "string",
+            "enum": ["SOLD", "SLAUGHTERED", "DECEASED"]
+          },
+          "destinationFarmId": {
+            "type": "string",
+            "description": "Identifier of the destination farm. Relevant when reason is SOLD."
+          },
+          "destinationFarmName": {
+            "type": "string",
+            "description": "Name of the destination farm. Relevant when reason is SOLD."
+          },
+          "notes": {
+            "type": "string",
+            "description": "Free-text notes."
+          }
+        },
+        "required": ["reason"],
+        "unevaluatedProperties": false
+      }
+    }
+  ]
+}

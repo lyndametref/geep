@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "intervention-content-schema.json",
+  "title": "Intervention Content",
+  "description": "Schema for the content JSON payload of the Intervention business object (specialization of Record in the Journaling bounded context). The interventionType field acts as a discriminator determining which type-specific fields are valid.",
+  "type": "object",
+  "oneOf": [
+    { "$ref": "#/$defs/medication" },
+    { "$ref": "#/$defs/shearing" },
+    { "$ref": "#/$defs/hoofTrimming" },
+    { "$ref": "#/$defs/castration" },
+    { "$ref": "#/$defs/weaning" },
+    { "$ref": "#/$defs/dryOff" },
+    { "$ref": "#/$defs/custom" }
+  ],
+  "$defs": {
+    "medication": {
+      "description": "A medication-based intervention (treatment) with dose and optional withdrawal periods. When withdrawal periods are provided, the system derives Waiting Delay entries for quarantine tracking (BR-007, BR-014).",
+      "type": "object",
+      "properties": {
+        "interventionType": {
+          "const": "MEDICATION",
+          "description": "Discriminator value for medication interventions."
+        },
+        "medication": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Free-text medication name or identifier. May be superseded by a medication product reference in future versions."
+        },
+        "dose": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Dose description (e.g. quantity, concentration, administration route). Free-text for flexibility across drug forms."
+        },
+        "administrationRoute": {
+          "type": "string",
+          "description": "Route of administration. Free-text (e.g. ORAL, INJECTABLE_SUBCUTANEOUS, INTRAMUSCULAR, TOPICAL)."
+        },
+        "meatWithdrawalDays": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of days before meat from the animal is safe for consumption. When set, triggers creation of a Waiting Delay for meat quarantine (BR-007, BR-014)."
+        },
+        "milkWithdrawalDays": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of days before milk from the animal is safe for consumption. When set, triggers creation of a Waiting Delay for milk quarantine (BR-007, BR-014)."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the intervention."
+        }
+      },
+      "required": ["interventionType", "medication", "dose"],
+      "additionalProperties": false
+    },
+    "shearing": {
+      "description": "Records a shearing event — wool removal from a sheep.",
+      "type": "object",
+      "properties": {
+        "interventionType": {
+          "const": "SHEARING",
+          "description": "Discriminator value for shearing interventions."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the intervention."
+        }
+      },
+      "required": ["interventionType"],
+      "additionalProperties": false
+    },
+    "hoofTrimming": {
+      "description": "Records a hoof trimming intervention.",
+      "type": "object",
+      "properties": {
+        "interventionType": {
+          "const": "HOOF_TRIMMING",
+          "description": "Discriminator value for hoof trimming interventions."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the intervention."
+        }
+      },
+      "required": ["interventionType"],
+      "additionalProperties": false
+    },
+    "castration": {
+      "description": "Records a castration intervention performed on a male lamb. Business rule: Castration can only be performed on male lamb before their 14th day (see business glossary).",
+      "type": "object",
+      "properties": {
+        "interventionType": {
+          "const": "CASTRATION",
+          "description": "Discriminator value for castration interventions."
+        },
+        "method": {
+          "type": "string",
+          "enum": ["BURRDOZZO", "SURGICAL", "ELASTIC_RING"],
+          "description": "Method used for the castration."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the intervention."
+        }
+      },
+      "required": ["interventionType"],
+      "additionalProperties": false
+    },
+    "weaning": {
+      "description": "Records a weaning intervention for the lamb — separation from maternal milk, transition to solid food.",
+      "type": "object",
+      "properties": {
+        "interventionType": {
+          "const": "WEANING",
+          "description": "Discriminator value for weaning interventions."
+        },
+        "weightKg": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Lamb weight at weaning in kilograms."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the intervention."
+        }
+      },
+      "required": ["interventionType"],
+      "additionalProperties": false
+    },
+    "dryOff": {
+      "description": "Records a dry-off intervention for the ewe — ending the lactation period.",
+      "type": "object",
+      "properties": {
+        "interventionType": {
+          "const": "DRY_OFF",
+          "description": "Discriminator value for dry-off interventions."
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for dry-off. Free-text (e.g. PREGNANCY, END_OF_LACTATION, HEALTH)."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the intervention."
+        }
+      },
+      "required": ["interventionType"],
+      "additionalProperties": false
+    },
+    "custom": {
+      "description": "A flock-manager-defined custom intervention type (REQ-15.002). No structured type-specific fields are enforced beyond the envelope — custom types use a generic customData bag.",
+      "type": "object",
+      "properties": {
+        "interventionType": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Must match an active custom type name defined by the flock manager. Unique across all built-in and custom types (case-insensitive). Uses UPPER_SNAKE_CASE convention."
+        },
+        "customData": {
+          "type": "object",
+          "description": "Arbitrary JSON object for type-specific data. No schema enforcement."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional notes about the intervention."
+        }
+      },
+      "required": ["interventionType"],
+      "additionalProperties": false
+    }
+  }
+}
