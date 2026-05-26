@@ -1,7 +1,7 @@
-# REQ-02.001 Genealogy data is stored in a graph structure.
+# REQ-02.001 The genealogy view displays individuals as nodes of a graph
 
 ## User Story
-As a shepherd, I want ancestry and parentage information to be modeled consistently so that genealogy views and lineage analysis remain reliable.
+As a shepherd, I want ancestry and parentage information to be displayed as a graph so that I can understand lineage and inherited characteristics at a glance.
 
 ## Group
 REQ-02 Genealogy and Parentage Graph
@@ -10,8 +10,8 @@ REQ-02 Genealogy and Parentage Graph
 Must have
 
 ## Description
-The system must represent genealogy data as a graph where individuals are nodes and parentage relationships are edges.
+The genealogy view must display genealogy data as a graph where individuals are nodes and parentage relationships are edges. This graph representation is a presentation concern — the underlying data may be stored in any suitable structure (relational tables, document store, etc.).
 
 ## Acceptance Criteria
-- The genealogy model represents individuals as nodes.
-- The genealogy model represents parentage links as edges between individuals.
+- The genealogy view renders individuals as nodes.
+- The genealogy view renders parentage links as edges between individuals.
