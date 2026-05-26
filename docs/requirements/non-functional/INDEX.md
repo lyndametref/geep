@@ -32,3 +32,5 @@ An overview of all non-functional requirements for the Geep ecosystem.
 | [NFR-06](NFR-06.md) | Maintainability & Operations | — |
 | [NFR-06.001](NFR-06.001.md) | Automated Deployment | [NFR-06 Maintainability & Operations](NFR-06.md) |
 | [NFR-06.002](NFR-06.002.md) | Operational Monitoring | [NFR-06 Maintainability & Operations](NFR-06.md) |
+| [NFR-07](NFR-07.md) | Platform Compatibility | — |
+| [NFR-07.001](NFR-07.001.md) | Android Version Support | [NFR-07 Platform Compatibility](NFR-07.md) |
