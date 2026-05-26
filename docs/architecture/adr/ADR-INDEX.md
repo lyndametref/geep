@@ -6,3 +6,4 @@ The Architecture Decision Record contains all architecture and design decisions 
 |-----|-------|--------|------|
 | ADR-0001 | Delegate Batch-Entry to UI Layer — Replace Many-to-Many Join Table with Direct Individual Reference on Records | Accepted | 2026-05-19 |
 | ADR-0002 | Derive Living State from Death Date | Accepted | 2026-05-24 |
+| ADR-0003 | Reminders for Routine Care Based on PlannedTask | Accepted | 2026-05-26 |
