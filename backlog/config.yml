@@ -1,6 +1,6 @@
 project_name: "Geep"
 default_status: "To Do"
-statuses: ["To Do", "In Progress", "Done", "Wont Do"]
+statuses: ["To Do", "Refined", "In Progress", "Done", "Wont Do"]
 labels: []
 definition_of_done: ["Tests pass", "Documentation updated", "No regressions introduced"]
 date_format: yyyy-mm-dd
